@@ -30,15 +30,11 @@ const Home = () => {
         <h1>Mis Proyectos</h1>
          <section className="Home__projects">
           <ScrollableContainer>
-            <ImgContainer source="/pictures/Aqua.png" alt="Aqua" title="Aqua" href="https://example.com"/>
-            <ImgContainer source="/pictures/goatatwork.webp" alt="Goat" title="Goat" />
-            <ImgContainer source="/pictures/Revy.png" alt="Revy" title="Revy" />
-            <ImgContainer source="/pictures/minecraft.webp" alt="Minecraft" title="Steve" />
-            <ImgContainer source="/pictures/Aqua.png" alt="Aqua" title="Aqua" />
-            <ImgContainer source="/pictures/goatatwork.webp" alt="Goat" title="Goat" />
-            <ImgContainer source="/pictures/Revy.png" alt="Revy" title="Revy" />
-            <ImgContainer source="/pictures/minecraft.webp" alt="Minecraft" title="Steve" />
-            {/* Agrega más ImgContainers */}
+            <ImgContainer source="/pictures/Aqua.png" alt="Aqua" title="RedirectLink" href="https://redirect-link-flame.vercel.app/"/>
+            <ImgContainer source="/pictures/goatatwork.webp" alt="Goat" title="computer-selector-helper" href="https://computer-selector-helper.vercel.app/" />
+            <ImgContainer source="/pictures/Revy.png" alt="Revy" title="Chat / Calendar" href="https://memories-app-red.vercel.app/"/>
+            <ImgContainer source="/pictures/minecraft.webp" alt="Minecraft" title="Steve"/>
+            {/* más ImgContainers */}
           </ScrollableContainer>
         </section>
       </div>
