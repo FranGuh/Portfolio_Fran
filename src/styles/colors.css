@@ -1,0 +1,21 @@
+:root {
+  /* --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-primary: #F5F5F7;
+  --color-secondary: #9FA2B4;
+  --color-accent: #D4AF37; */
+   --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-primary: #F5F5F7;
+  --color-secondary: #9FA2B4;
+  --color-accent: #ff9900;
+
+}
+
+[data-theme="dark"] {
+  --color-bg: #1c1c1c;
+  --color-text: #f5f5f5;
+  --color-primary: #2F323F;
+  --color-secondary: #64647C;
+  --color-accent: #C49F3B;
+}

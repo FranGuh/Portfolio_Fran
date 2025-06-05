@@ -1,0 +1,3 @@
+# Esto contendra todo lo relacionado con:
+
+    Inicializar tipos de las variables...

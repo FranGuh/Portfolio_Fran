@@ -1,0 +1,49 @@
+.scrollable-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.scrollable-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding: 10px;
+  scrollbar-width: none; 
+}
+.scrollable-container::-webkit-scrollbar {
+  display: none; 
+}
+
+.scroll-btn {
+  position: absolute;
+  z-index: 2;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 150px;
+  width: 40px;
+  border-radius: 5px;
+  z-index: 5;
+}
+.scroll-btn.left {
+  left: 0;
+}
+.scroll-btn.right {
+  right: 0;
+}
+
+
+.scroll-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  display: none;
+}

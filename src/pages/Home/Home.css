@@ -1,0 +1,9 @@
+.Home__proyects{
+    display: flex;
+    gap: 20px;
+    text-align: center;
+}
+
+.Home__title{
+    text-align: center;
+}
