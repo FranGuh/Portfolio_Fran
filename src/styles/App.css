@@ -18,6 +18,23 @@
   color: white;
 }
 
+::selection {
+  background-color: #ff9900;
+  color: white;
+}
+
+body::selection,
+p::selection,
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+span::selection,
+.text::selection {
+  background-color: #ff9900;
+  color: white;
+}
+
 h1, h2, h3, h4 .title {
   font-family: 'Anton', sans-serif;
   font-weight: 400;

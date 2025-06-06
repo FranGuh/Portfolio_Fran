@@ -14,12 +14,13 @@
 
 .ImgContainer:hover{
     transform: scale(1.1);
+    overflow: hidden;
     z-index: 3; 
 }
 
 .ImgContainer__img{
     overflow: hidden;
-    object-fit: none;
+    object-fit: cover;
 }
 
 

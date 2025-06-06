@@ -5,6 +5,12 @@ export interface NavigationItem {
 }
 
 export const NAV_ITEMS: NavigationItem[] = [
+  { label: "INICIO", link: "/",
+    children: [
+      { label: "inicio", link: "/" },
+      // ...
+    ],
+  },
   { label: "SOBRE MÍ", link: "/about",
     children: [
       { label: "Sobre mí", link: "/about" },

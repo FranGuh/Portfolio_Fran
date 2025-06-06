@@ -12,48 +12,35 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  animation: fadeIn 0.3s ease-in-out;
+  animation: designerAppear 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
   box-sizing: border-box;
   overflow: hidden;
+  transform-origin: top center;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to   { opacity: 1; transform: translateY(0); }
+
+@keyframes designerAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(-80px) scale(0.96) rotateX(180deg);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: translateY(-5px) scale(1.05) rotateX(90deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
 }
+
 
 .mega-menu-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.mega-menu-logo {
-  display: flex;
-  align-items: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  color: #111;
-  transition: color 0.3s ease;
-  line-height: 1;
-}
-
-.mega-menu-logo:hover {
-  color: #13da2e;
-}
-
-.mega-menu-logo:hover .mega-logo-arrow {
-  transform: rotate(180deg);
-  color: #13da2e;
-}
-
-.mega-logo-arrow {
-  margin-left: 0.5rem;
-  font-size: 1rem;
-  transition: transform 0.3s ease, color 0.3s ease;
-  display: inline-block;
-  color: inherit;
 }
 
 .close-btn {

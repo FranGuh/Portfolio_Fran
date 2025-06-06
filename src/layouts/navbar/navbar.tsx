@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { NAV_ITEMS } from "./navbar.config";
 import { MegaMenu } from "./MegaMenu";
 import "./navbar.css";
+import { NavbarLogo } from "../../components/UI/Navbar/NavbarLogo";
 
 export function Navbar() {
   const [isMegaOpen, setMegaOpen] = useState(false);
@@ -22,17 +23,13 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleMega = () => setMegaOpen(prev => !prev);
+
   return (
     <>
       <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
         <div className="navbar-left">
-          <div className="navbar-logo" onClick={() => setMegaOpen(!isMegaOpen)}>
-            Franguh
-            <span className={`logo-arrow ${isMegaOpen ? "up" : "down"}`}>
-              {isMegaOpen ? "▴" : "▾"}
-            </span>
-          </div>
-
+          <NavbarLogo isOpen={isMegaOpen} toggleMenu={toggleMega} />
         </div>
 
         <ul className="navbar-menu">
@@ -42,14 +39,9 @@ export function Navbar() {
             </li>
           ))}
         </ul>
-
-        {/* <div className="navbar-right">
-          <input className="search" placeholder="Search" />
-          <button className="sign-in">SIGN IN</button>
-        </div> */}
       </nav>
 
-      {isMegaOpen && <MegaMenu onClose={() => setMegaOpen(false)} />}
+      {isMegaOpen && <MegaMenu onClose={toggleMega} isOpen={isMegaOpen} />}
     </>
   );
 }
