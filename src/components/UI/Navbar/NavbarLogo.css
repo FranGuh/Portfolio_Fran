@@ -1,0 +1,47 @@
+/* Base logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+/* Light / Dark mode colors */
+.navbar-logo.light {
+  color: white;
+}
+
+.navbar-logo.dark {
+  color: #111;
+}
+
+/* Hover */
+.navbar-logo:hover {
+  color: #13da2e;
+}
+
+.navbar-logo:hover .logo-arrow {
+  color: #13da2e;
+}
+
+/* Arrow default */
+.logo-arrow {
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: inline-block;
+  transform: rotate(0deg);
+}
+
+/* Rotate only when isOpen AND in MegaMenu (dark context) */
+.navbar-logo.dark.open .logo-arrow {
+  transform: rotate(180deg);
+}
+
+/* Prevent arrow rotation in navbar (light) */
+.navbar-logo.light.open .logo-arrow {
+  transform: rotate(0deg);
+}

@@ -18,39 +18,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-.navbar-logo {
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #fff;
-  transition: color 0.3s ease;
-}
 
-.navbar-logo:hover {
-  color: #13da2e;
-}
-
-.navbar-logo:hover .logo-arrow {
-  color: #13da2e;
-}
-
-.logo-arrow {
-  margin-left: 0.5rem;
-  font-size: 1rem;
-  transition: transform 0.3s ease, color 0.3s ease;
-  display: inline-block;
-  color: inherit;
-}
-
-.logo-arrow.up {
-  transform: rotate(180deg);
-}
-
-.logo-arrow.down {
-  transform: rotate(0deg);
-}
 
 .navbar-menu {
   display: flex;

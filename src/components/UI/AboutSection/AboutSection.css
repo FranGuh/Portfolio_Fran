@@ -10,6 +10,8 @@
 }
 
 .AboutSection-header {
+    display: flex;
+    flex-direction: column;
     flex: 1;
     z-index: 2;
     padding-right: 2rem;
@@ -40,10 +42,7 @@
     background-color: #000;
     width: 100%;
     min-width: 200px;
-    max-width: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    max-width: 350px;
 }
 
 .AboutSection__description {
@@ -64,6 +63,8 @@
     user-select: none;
     mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+    transform: translateY(0px);
+    transition: transform 0.1s linear;
 }
 
 @media (max-width: 920px) {
@@ -74,6 +75,8 @@
 
     .AboutSection-header {
         padding: 0;
+        align-content: center;
+        justify-content: center;
     }
 
     .AboutSection__img {

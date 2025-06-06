@@ -1,14 +1,18 @@
 import { NAV_ITEMS } from "./navbar.config";
 import "./MegaMenu.css";
+import { NavbarLogo } from "../../components/UI/Navbar/NavbarLogo";
 
-export const MegaMenu = ({ onClose }: { onClose: () => void }) => {
+export const MegaMenu = ({
+  onClose,
+  isOpen,
+}: {
+  onClose: () => void;
+  isOpen: boolean;
+}) => {
   return (
     <div className="mega-menu-overlay">
       <div className="mega-menu-header">
-        <div className="mega-menu-logo" onClick={onClose}>
-          Franguh
-          <span className="mega-logo-arrow">▴</span>
-        </div>
+        <NavbarLogo isOpen={isOpen} toggleMenu={onClose} dark={true} />
         <button className="close-btn" onClick={onClose}>✕</button>
       </div>
 
