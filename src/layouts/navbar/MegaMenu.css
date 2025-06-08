@@ -49,11 +49,12 @@
   font-size: 2rem;
   cursor: pointer;
   color: #333;
-  transition: transform 0.2s ease;
+  transition: transform 0.6s ease;
 }
 
 .close-btn:hover {
   transform: scale(1.1);
+  color: #13da2e;
 }
 
 .mega-menu-content {
@@ -110,4 +111,10 @@
   border-radius: 8px;
   object-fit: cover;
   height: 50%;
+  filter: grayscale();
+  transition: 2s ease;
+}
+
+.menu-image img:hover {
+  filter: none;
 }

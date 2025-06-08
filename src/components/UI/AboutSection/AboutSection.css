@@ -43,6 +43,8 @@
     width: 100%;
     min-width: 200px;
     max-width: 350px;
+    box-sizing: content-box;
+    padding-left: 3px;
 }
 
 .AboutSection__description {

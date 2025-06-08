@@ -7,7 +7,7 @@ export interface NavigationItem {
 export const NAV_ITEMS: NavigationItem[] = [
   { label: "INICIO", link: "/",
     children: [
-      { label: "inicio", link: "/" },
+      { label: "Inicio", link: "/" },
       // ...
     ],
   },

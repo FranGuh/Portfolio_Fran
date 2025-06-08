@@ -21,6 +21,12 @@
 .ImgContainer__img{
     overflow: hidden;
     object-fit: cover;
+    transition: 0.5s ease-in;
+    filter: saturate(0.3);
+}
+
+.ImgContainer__img:hover{
+    filter: none;
 }
 
 
