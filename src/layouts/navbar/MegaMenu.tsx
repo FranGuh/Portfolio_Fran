@@ -30,7 +30,7 @@ export const MegaMenu = ({
           ))}
         </div>
         <div className="menu-image">
-          <img src="/pictures/Aqua.png" alt="Featured" />
+          <img src="/pictures/Aqua.webp" alt="Featured" loading="lazy" />
         </div>
       </div>
     </div>

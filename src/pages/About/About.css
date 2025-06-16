@@ -1,3 +1,10 @@
 .About{
     display: flex;
+    justify-content: center;
+}
+
+.About__floating{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
 }

@@ -23,6 +23,7 @@
     object-fit: cover;
     transition: 0.5s ease-in;
     filter: saturate(0.3);
+    aspect-ratio: 1/1;
 }
 
 .ImgContainer__img:hover{

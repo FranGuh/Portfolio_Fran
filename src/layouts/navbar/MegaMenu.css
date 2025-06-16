@@ -118,3 +118,11 @@
 .menu-image img:hover {
   filter: none;
 }
+
+@media (max-width: 1220px) {
+  .menu-columns{
+    max-height: 20%;
+  }
+
+ 
+}

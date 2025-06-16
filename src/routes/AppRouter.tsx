@@ -3,12 +3,14 @@ import Home from "../pages/Home/Home";
 import Page404 from "../pages/Page404/Page404";
 import { MainLayout } from "../layouts/MainLayout";
 import About from "../pages/About/About";
+import Details from "../pages/Details/Details";
 
 const AppRouter = () => (
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<MainLayout><Home /></MainLayout>} />
             <Route path="/about" element={<MainLayout><About /></MainLayout>} />
+            <Route path="/detail" element={<MainLayout><Details /></MainLayout>} />
             <Route path="*" element={<MainLayout><Page404 /></MainLayout>} />
         </Routes>
     </BrowserRouter>

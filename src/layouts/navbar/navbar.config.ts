@@ -14,6 +14,7 @@ export const NAV_ITEMS: NavigationItem[] = [
   { label: "SOBRE MÍ", link: "/about",
     children: [
       { label: "Sobre mí", link: "/about" },
+      { label: "Detalles", link: "/detail" },
       // ...
     ],
   },
