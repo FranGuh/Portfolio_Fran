@@ -1,4 +1,4 @@
-const ParticleField = ({ count = 150 }) => {
+const ParticleField = ({ count = 10 }) => {
   const particles = Array.from({ length: count }).map((_, i) => {
     const top = Math.random() * 100;
     const left = Math.random() * 100;

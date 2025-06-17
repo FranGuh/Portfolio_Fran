@@ -1,4 +1,9 @@
 @import './colors.css';
+
+html, body {
+  overscroll-behavior: none;
+}
+
 #root {
   max-width: 100dvw;
   margin: 0 auto;
@@ -10,7 +15,6 @@
   text-decoration-color: #ff5733; 
   text-decoration-thickness: 3px; 
   text-underline-offset: 4px;  */
-  
 }
 
 #root::selection{
