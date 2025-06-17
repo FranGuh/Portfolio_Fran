@@ -46,6 +46,7 @@ const DetailSection = ({
           <Icon key={index} />
         ))}
       </div>
+      
 
       <div className="DetailSection__main">
         <div className="DetailSection__content">

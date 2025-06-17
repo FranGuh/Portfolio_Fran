@@ -1,5 +1,6 @@
 import Button from '../../components/UI/Button/Button'
 import DetailSection from '../../components/UI/DetailSection/DetailSection'
+import FeatureSelector from '../../components/UI/FeatureSelector/FeatureSelector'
 import HomeSection from '../../components/UI/HomeSection/HomeSection'
 import { HtmlIcon, VercelIcon, TsIcon, ReactIcon, CssIcon } from '../../components/UI/Icons/SvgIcons'
 import './Details.css'
@@ -14,7 +15,7 @@ const Details = () => {
       <DetailSection
       backgroundImg="/pictures/ImgProyects/Zelda.webp"
       backgroundAlt="Fondo de la princesa Zelda"
-      title="Soy Gustavo Francisco –  Desarrollador Web Frontend / Backend"
+      title="Soy Gustavo Francisco"
       description="Soy desarrollador web con experiencia en HTML, CSS y JavaScript/TypeScript, especializado en el desarrollo Frontend utilizando React para crear aplicaciones web dinámicas y SPA (Single Page Applications).
 
 También he explorado otros frameworks como Svelte.
@@ -42,6 +43,8 @@ Tengo conocimientos en bases de datos en la nube como MongoDB Atlas y experienci
         },
       ]}
     />
+
+    <FeatureSelector />
 
     <DetailSection
       backgroundImg="/pictures/ImgProyects/Talk.svg"

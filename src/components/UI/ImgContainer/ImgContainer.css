@@ -24,6 +24,7 @@
     transition: 0.5s ease-in;
     filter: saturate(0.3);
     aspect-ratio: 1/1;
+    user-select: none;
 }
 
 .ImgContainer__img:hover{
