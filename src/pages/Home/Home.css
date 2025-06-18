@@ -1,9 +1,13 @@
-.Home__proyects{
+.Home__proyects {
     display: flex;
     gap: 20px;
     text-align: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    justify-content: center;
 }
 
-.Home__title{
-    text-align: center;
+.Home__title {
+    text-align: left;
+    padding: 0.8rem;
 }

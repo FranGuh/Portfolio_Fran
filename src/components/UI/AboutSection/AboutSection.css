@@ -4,9 +4,11 @@
     align-items: center;
     justify-content: space-between;
     padding: 3rem 2rem;
-    background: linear-gradient(to right, #e8f0f2, #d0dce5);
+    background: linear-gradient(to right, #e8f0f288, #d0dce562);
     overflow: hidden;
     position: relative;
+    box-sizing: border-box;
+
 }
 
 .AboutSection-header {
@@ -20,7 +22,7 @@
 .AboutSection__titleHead,
 .AboutSection__title,
 .AboutSection__subtitle {
-    font-family: 'Bebas Neue', sans-serif; 
+    font-family: 'Bebas Neue', sans-serif;
     text-transform: uppercase;
     line-height: 1.1;
     margin: 0;
@@ -55,9 +57,17 @@
     color: #444;
 }
 
+.AboutSection__contact {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 20px;
+}
+
 .AboutSection__img {
     flex: 1;
-    max-height: 80vh;
+    max-height: 80dvh;
+    min-height: 20dvh;
     object-fit: contain;
     z-index: 1;
     position: relative;
@@ -79,10 +89,16 @@
         padding: 0;
         align-content: center;
         justify-content: center;
+        align-items: center;
     }
 
     .AboutSection__img {
         margin-top: 2rem;
         max-width: 100%;
+    }
+
+    .AboutSection__contact {
+        flex-direction: column;
+        align-items: center;
     }
 }

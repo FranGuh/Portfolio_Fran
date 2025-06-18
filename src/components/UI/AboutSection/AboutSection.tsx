@@ -1,3 +1,4 @@
+import LinkButtom from '../LinkButtom/LinkButtom';
 import './AboutSection.css'
 import { useEffect, useRef } from 'react';
 
@@ -53,12 +54,23 @@ useEffect(() => {
 
   return (
     <>
-      <section className='AboutSection'>
+      <section id='SobreMi' className='AboutSection'>
         <div className='AboutSection-header'>
           <h3 className='AboutSection__titleHead'>{titleHead}</h3>
           <h1 className='AboutSection__title'>{title}</h1>
           <h2 className='AboutSection__subtitle'>{subtitle}</h2>
           <p className='AboutSection__description'>{description}</p>
+
+          <div className="AboutSection__contact">
+            <LinkButtom 
+            text='Linkedin'
+            href='linkedin.com/in/gustavo-francisco-salgado-andrade-496553337'
+            />
+            <LinkButtom 
+              text='Github'
+              href='https://github.com/FranGuh'
+            />
+          </div>
         </div>
         <img ref={imgRef} src={source} alt={alt} className='AboutSection__img' loading='lazy' />
       </section>

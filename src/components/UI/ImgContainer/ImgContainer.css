@@ -38,6 +38,10 @@
     color: var(--color-bg);
     font-size: 1.5rem;
     left: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    box-sizing: content-box;
+    backdrop-filter: blur(10px);
 }
 
 a:has(.ImgContainer) {

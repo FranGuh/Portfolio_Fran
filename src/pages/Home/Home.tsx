@@ -3,8 +3,10 @@ import Loader from "../../components/UI/Loader/Loader";
 import "../../styles/bg.css";
 import HomeSection from "../../components/UI/HomeSection/HomeSection";
 import ImgContainer from "../../components/UI/ImgContainer/ImgContainer";
-import './Home.css';
+import "./Home.css";
 import ScrollableContainer from "../../components/UI/ScrollableContainer/ScrollableContainer";
+import AboutSection from "../../components/UI/AboutSection/AboutSection";
+import FeatureSelector from "../../components/UI/FeatureSelector/FeatureSelector";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -22,27 +24,50 @@ const Home = () => {
   return (
     <>
       <HomeSection />
-      {/* <h1 className="Home__title">HOME PORTFOLIO</h1> */}
-      <div
-        className="bg-pan-right"
-        style={{ padding: "2rem" }}
-      >
-        <h1>Mis Proyectos</h1>
-         <section className="Home__projects">
+      <div className="bg-pan-right">
+        <AboutSection
+          title="Programador"
+          titleHead="Mi historia."
+          subtitle="Web"
+          description="Un día quise diseñar una web, así que me puse a investigar y, sin querer, estudié Ing. en Sistemas Computacionales.
+Al inicio no me gustaba la carrera, pero al comenzar mis prácticas, todo cambió: me encantó programar y diseñar webs. En el camino, tuve que aprender bastante HTML y CSS para personalizar mis propios diseños.
+Aprender React me motivó a conocer otras tecnologías como JSX y TSX. Luego, como no quedé satisfecho, quise saber cómo funcionaban otros frameworks de JavaScript, así que me adentré en Svelte.
+Me apasionó tanto el desarrollo web que ahora me dedico a ello. Por ahora, me he enfocado en que mis proyectos resuelvan problemáticas reales."
+          source="/pictures/drawsByMe/drawByMe.webp"
+          alt="Dibujo hecho por mí en Adobe Photoshop"
+        />
+        <h1 className="Home__title">Mis Proyectos</h1>
+        <section className="Home__projects">
           <ScrollableContainer>
-            <ImgContainer source="/pictures/Aqua.webp" alt="Aqua" title="RedirectLink" href="https://redirect-link-flame.vercel.app/"/>
-            <ImgContainer source="/pictures/goatatwork.webp" alt="Goat" title="computer-selector-helper" href="https://computer-selector-helper.vercel.app/" />
-            <ImgContainer source="/pictures/Revy.webp" alt="Revy" title="Chat / Calendar" href="https://memories-app-red.vercel.app/chat"/>
+            <ImgContainer
+              source="/pictures/ImgProyects/RedirectLink/Home.webp"
+              alt="Landing RedirectLink"
+              title="RedirectLink"
+              href="https://redirect-link-flame.vercel.app/"
+            />
+            <ImgContainer
+              source="/pictures/ImgProyects/ComputerHelper/CSH.webp"
+              alt="Landing CSH"
+              title="computer-selector-helper"
+              href="https://computer-selector-helper.vercel.app/"
+            />
+            <ImgContainer
+              source="/pictures/ImgProyects/Chat/ChatMovil.webp"
+              alt="Interfaz de Chatbot"
+              title="Chat / Calendar"
+              href="https://memories-app-red.vercel.app/chat"
+            />
             <ImgContainer
               source="/pictures/minecraft.webp"
               alt="Minecraft"
               title="Detail"
               href="/detail"
             />
-            {/* más ImgContainers */}
           </ScrollableContainer>
         </section>
       </div>
+
+      <FeatureSelector />
     </>
   );
 };
