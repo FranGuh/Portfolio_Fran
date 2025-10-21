@@ -6,7 +6,7 @@ import ParticleField from "../ParticleField/ParticleField";
 const HomeSection = ({text1="MI",text2="PORTFOLIO"}) => {
   return (
     <section className="HomeSection explosion-bg">
-      <ParticleField count={80} />
+      <ParticleField count={0} />
       <div className="HomeSection__content">
         <img src={logo} alt="Mi logo" className="HomeSection__logo" />
         <h1 className="HomeSection__title">

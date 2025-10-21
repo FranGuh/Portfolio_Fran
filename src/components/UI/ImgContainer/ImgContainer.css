@@ -7,6 +7,7 @@
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
     min-width: min(330px, 75%);
+    max-width: 400px;
     align-self: flex-end;
     z-index: 1;
     box-sizing: border-box;

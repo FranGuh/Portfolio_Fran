@@ -24,19 +24,7 @@ const Home = () => {
   return (
     <>
       <HomeSection />
-      <div className="bg-pan-right">
-        <AboutSection
-          title="Programador"
-          titleHead="Mi historia."
-          subtitle="Web"
-          description="Un día quise diseñar una web, así que me puse a investigar y, sin querer, estudié Ing. en Sistemas Computacionales.
-Al inicio no me gustaba la carrera, pero al comenzar mis prácticas, todo cambió: me encantó programar y diseñar webs. En el camino, tuve que aprender bastante HTML y CSS para personalizar mis propios diseños.
-Aprender React me motivó a conocer otras tecnologías como JSX y TSX. Luego, como no quedé satisfecho, quise saber cómo funcionaban otros frameworks de JavaScript, así que me adentré en Svelte.
-Me apasionó tanto el desarrollo web que ahora me dedico a ello. Por ahora, me he enfocado en que mis proyectos resuelvan problemáticas reales."
-          source="/pictures/drawsByMe/drawByMe.webp"
-          alt="Dibujo hecho por mí en Adobe Photoshop"
-        />
-        <h1 className="Home__title">Mis Proyectos</h1>
+      {/* <h1 className="Home__title">Mis Proyectos</h1> */}
         <section className="Home__projects">
           <ScrollableContainer>
             <ImgContainer
@@ -58,13 +46,25 @@ Me apasionó tanto el desarrollo web que ahora me dedico a ello. Por ahora, me h
               href="https://memories-app-red.vercel.app/chat"
             />
             <ImgContainer
-              source="/pictures/minecraft.webp"
+              source="/pictures/goatatwork.webp"
               alt="Minecraft"
-              title="Detail"
+              title="Residencia Profesional"
               href="/detail"
             />
           </ScrollableContainer>
         </section>
+      <div className="bg-pan-right">
+        <AboutSection
+          title="Programador"
+          titleHead="Mi historia."
+          subtitle="Web"
+          description="Un día quise diseñar una web, así que me puse a investigar y, sin querer, estudié Ing. en Sistemas Computacionales.
+Al inicio no me gustaba la carrera, pero al comenzar mis prácticas, todo cambió: me encantó programar y diseñar webs. En el camino, tuve que aprender bastante HTML y CSS para personalizar mis propios diseños.
+Aprender React me motivó a conocer otras tecnologías como JSX y TSX. Luego, como no quedé satisfecho, quise saber cómo funcionaban otros frameworks de JavaScript, así que me adentré en Svelte.
+Me apasionó tanto el desarrollo web que ahora me dedico a ello. Por ahora, me he enfocado en que mis proyectos resuelvan problemáticas reales."
+          source="/pictures/drawsByMe/drawByMe.webp"
+          alt="Dibujo hecho por mí en Adobe Photoshop"
+        />
       </div>
 
       <FeatureSelector />
