@@ -51,3 +51,10 @@ body, p, span, .text {
   padding: 0;
   box-sizing: content-box;
 }
+
+
+/* ===== Firefox ===== */
+* {
+  scrollbar-width: auto; /* auto, thin, or none */
+  scrollbar-color: #ff8903 #000000; /* thumb color, track color */
+}

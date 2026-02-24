@@ -64,7 +64,7 @@ useEffect(() => {
           <div className="AboutSection__contact">
             <LinkButtom 
             text='Linkedin'
-            href='linkedin.com/in/gustavo-francisco-salgado-andrade-496553337'
+            href='https://linkedin.com/in/gustavo-francisco-salgado-andrade-496553337'
             />
             <LinkButtom 
               text='Github'

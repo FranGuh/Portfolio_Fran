@@ -11,8 +11,8 @@
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
-  gap: 20px;
-  padding: 10px;
+  gap: 1.5rem;
+  padding: 1rem;
   scrollbar-width: none; 
 }
 .scrollable-container::-webkit-scrollbar {
@@ -32,7 +32,7 @@
   transform: translateY(-50%);
   height: 150px;
   width: 40px;
-  border-radius: 5px;
+  border-radius: 0px;
   z-index: 5;
 }
 .scroll-btn.left {

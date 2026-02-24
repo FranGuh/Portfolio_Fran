@@ -7,23 +7,28 @@ import "./Home.css";
 import ScrollableContainer from "../../components/UI/ScrollableContainer/ScrollableContainer";
 import AboutSection from "../../components/UI/AboutSection/AboutSection";
 import FeatureSelector from "../../components/UI/FeatureSelector/FeatureSelector";
+import { useImagePreloader } from "../../hooks/useImagePreloader";
+
+
+const imagesToLoad = [
+    "/pictures/ImgProyects/RedirectLink/Home.webp",
+    "/pictures/ImgProyects/ComputerHelper/CSH.webp",
+    "/pictures/ImgProyects/Chat/ChatMovil.webp",
+    "/pictures/goatatwork.webp",
+    "/pictures/drawsByMe/drawByMe.webp",
+  ];
 
 const Home = () => {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 200);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const loading = useImagePreloader(imagesToLoad, "homePortfolioCargado");
 
   if (loading) return <Loader message="Cargando portfolio..." />;
 
   return (
     <>
-      <HomeSection />
+      <HomeSection 
+        text1="Ingeniero"
+        text2="Full Stack"
+      />
       {/* <h1 className="Home__title">Mis Proyectos</h1> */}
         <section className="Home__projects">
           <ScrollableContainer>
@@ -57,7 +62,7 @@ const Home = () => {
         <AboutSection
           title="Programador"
           titleHead="Mi historia."
-          subtitle="Web"
+          subtitle="FULL STACK JUNIOR"
           description="Un día quise diseñar una web, así que me puse a investigar y, sin querer, estudié Ing. en Sistemas Computacionales.
 Al inicio no me gustaba la carrera, pero al comenzar mis prácticas, todo cambió: me encantó programar y diseñar webs. En el camino, tuve que aprender bastante HTML y CSS para personalizar mis propios diseños.
 Aprender React me motivó a conocer otras tecnologías como JSX y TSX. Luego, como no quedé satisfecho, quise saber cómo funcionaban otros frameworks de JavaScript, así que me adentré en Svelte.

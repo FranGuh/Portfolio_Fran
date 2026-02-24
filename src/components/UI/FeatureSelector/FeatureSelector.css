@@ -19,11 +19,12 @@
 
 .FeatureSelector__tabs button {
     background-color: #a8a8a871;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
+    border: none;
+    padding: 0.8rem 3rem;
+    font-size: 1.2rem;
     color: white;
     cursor: pointer;
-    border-radius: 0.5rem;
+    border-radius: 0.0rem;
     transition: all 0.3s ease;
 }
 
@@ -64,7 +65,7 @@
 .FeatureSelector__dialog-box {
     background: rgba(0, 0, 0, 0.5);
     border: 2px solid #fffffff1;
-    border-radius: 20px;
+    border-radius: 0px;
     padding: 1.5rem 2rem;
     max-width: 500px;
     color: #fff;

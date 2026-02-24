@@ -8,7 +8,8 @@
   background-color: white;
   color: #111;
   z-index: 15;
-  padding: 2rem;
+  padding: 1rem 2rem;
+  /* medidas header : 16 px x 32px */
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -41,6 +42,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0.75rem 0rem;
 }
 
 .close-btn {

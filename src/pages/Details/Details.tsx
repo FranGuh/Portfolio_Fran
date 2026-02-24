@@ -13,7 +13,7 @@ const Details = () => {
         text2='Portfolio'
       />
       <DetailSection
-      backgroundImg="/pictures/ImgProyects/Zelda.webp"
+      backgroundImg="/pictures/Aqua.webp"
       backgroundAlt="Fondo de la princesa Zelda"
       title="Soy Gustavo Francisco"
       description="Soy desarrollador web con experiencia en HTML, CSS y JavaScript/TypeScript, especializado en el desarrollo Frontend utilizando React para crear aplicaciones web dinámicas y SPA (Single Page Applications).
@@ -23,31 +23,31 @@ Tengo conocimientos en bases de datos en la nube como MongoDB Atlas y experienci
 "
       icons={[HtmlIcon, TsIcon, VercelIcon]}
       images={[
-        {
-          source: "/pictures/ImgProyects/Zelda2.svg",
-          alt: "Zelda",
-          title: "Zelda",
-          href: "https://redirect-link-flame.vercel.app/",
-        },
-        {
-          source: "/pictures/ImgProyects/Prunia.svg",
-          alt: "Zelda",
-          title: "Prunia",
-          href: "https://redirect-link-flame.vercel.app/",
-        },
-        {
-          source: "/pictures/ImgProyects/Josha.svg",
-          alt: "Zelda",
-          title: "Josha",
-          href: "https://redirect-link-flame.vercel.app/",
-        },
+        // {
+        //   source: "/pictures/ImgProyects/Zelda2.svg",
+        //   alt: "Zelda",
+        //   title: "Zelda",
+        //   href: "https://redirect-link-flame.vercel.app/",
+        // },
+        // {
+        //   source: "/pictures/ImgProyects/Prunia.svg",
+        //   alt: "Zelda",
+        //   title: "Prunia",
+        //   href: "https://redirect-link-flame.vercel.app/",
+        // },
+        // {
+        //   source: "/pictures/ImgProyects/Josha.svg",
+        //   alt: "Zelda",
+        //   title: "Josha",
+        //   href: "https://redirect-link-flame.vercel.app/",
+        // },
       ]}
     />
 
     <FeatureSelector />
 
     <DetailSection
-      backgroundImg="/pictures/ImgProyects/Talk.svg"
+      backgroundImg="/pictures/Aqua.webp"
       backgroundAlt="Fondo de la princesa Zelda"
       title="Desarrollo de mi propio portafolio web."
       description="En mi tiempo libre he desarrollado varios proyectos prácticos, incluyendo:
@@ -58,24 +58,24 @@ Un sistema experto con inferencia que recomienda computadoras en base a pregunta
 Estoy en búsqueda de una oportunidad laboral que me permita seguir creciendo como desarrollador web y dedicarme de forma plena a este campo profesional que me apasiona."
       icons={[CssIcon, TsIcon, ReactIcon]}
       images={[
-        {
-          source: "/pictures/ImgProyects/Urbosa.svg",
-          alt: "Zelda",
-          title: "Urbosa",
-          href: "https://redirect-link-flame.vercel.app/",
-        },
-        {
-          source: "/pictures/ImgProyects/Prunia.svg",
-          alt: "Zelda",
-          title: "Prunia",
-          href: "https://redirect-link-flame.vercel.app/",
-        },
-        {
-          source: "/pictures/ImgProyects/Sapo.svg",
-          alt: "Zelda",
-          title: "Sapo",
-          href: "https://redirect-link-flame.vercel.app/",
-        },
+        // {
+        //   source: "/pictures/ImgProyects/Urbosa.svg",
+        //   alt: "Zelda",
+        //   title: "Urbosa",
+        //   href: "https://redirect-link-flame.vercel.app/",
+        // },
+        // {
+        //   source: "/pictures/ImgProyects/Prunia.svg",
+        //   alt: "Zelda",
+        //   title: "Prunia",
+        //   href: "https://redirect-link-flame.vercel.app/",
+        // },
+        // {
+        //   source: "/pictures/ImgProyects/Sapo.svg",
+        //   alt: "Zelda",
+        //   title: "Sapo",
+        //   href: "https://redirect-link-flame.vercel.app/",
+        // },
       ]}
       layout='left'
     />

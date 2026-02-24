@@ -10,7 +10,8 @@
   transition: transform 250ms ease-in-out;
   color: white;
   object-fit: contain;
-  filter: blur(1px);
+  /* filter: drop-shadow(16px 16px 20px red) invert(75%); */
+  /* transition: opacity 2s ease-in-out; */
 }
 
 .LinkButtom::before {

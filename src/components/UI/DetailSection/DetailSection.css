@@ -27,7 +27,7 @@
   height: 100%;
   object-fit: cover;
   transform: scale(1.3);
-  filter: brightness(0.6);
+  filter: brightness(0.8) grayscale(90%);
 }
 
 
@@ -47,9 +47,9 @@
   min-width: 62%;
   max-width: 720px;
   height: auto;
-  border-radius: 1.5rem;
+  border-radius: 0rem;
   padding: 3rem;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(20px);
   box-shadow: 0 8px 30px #00000088;
   background: linear-gradient(270deg, #ff8f8529, #ffb3002f, #ef6c0028, #4e342e25);
   display: flex;
@@ -107,11 +107,14 @@
   min-height: 50px;
   align-content: center;
   justify-content: space-evenly;
+  backdrop-filter: blur(8px);
+  background-color: #99999907;
 }
 
 .DetailSection__content-grid>svg {
   width: 10dvw;
 }
+
 
 @media (max-width: 920px) {
   .DetailSection {
