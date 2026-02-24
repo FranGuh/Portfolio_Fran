@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Loader from "../../components/UI/Loader/Loader";
 import "../../styles/bg.css";
 import HomeSection from "../../components/UI/HomeSection/HomeSection";
