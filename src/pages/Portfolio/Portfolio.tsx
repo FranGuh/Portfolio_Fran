@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { cvData } from '../../data/cvData';
 
 import AboutSection from '../../components/UI/AboutSection/AboutSection';
