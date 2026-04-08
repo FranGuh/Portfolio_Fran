@@ -39,6 +39,7 @@
 
 .navbar-item a:hover {
   color: #13da2e;
+  font-weight: 500;
 }
 
 .navbar-right {

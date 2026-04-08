@@ -2,11 +2,36 @@ import { useState } from "react";
 import "./FeatureSelector.css";
 
 const features = [
-  { key: "web", label: "Web", description: "Desarrollo general de sitios y aplicaciones web." },
-  { key: "frontend", label: "Frontend", description: "Experiencia en React, TypeScript, HTML y CSS." },
-  { key: "backend", label: "Backend", description: "APIs, manejo de servidores, Node.js y bases de datos." },
-  { key: "cloud", label: "Nube", description: "Uso de servicios como AWS, Vercel y MongoDB Atlas." },
-  { key: "languages", label: "Lenguajes", description: "HTML, CSS, JavaScript, TypeScript y más." },
+  {
+    key: "perfil",
+    label: "Perfil",
+    description: "Ingeniero en Sistemas Computacionales. Enfoque en desarrollo de software y resolución de problemas técnicos."
+  },
+  {
+    key: "frontend",
+    label: "Frontend",
+    description: "Desarrollo de interfaces con React, JavaScript, TypeScript, HTML y CSS."
+  },
+  {
+    key: "backend",
+    label: "Backend",
+    description: "Construcción de APIs y lógica de servidor utilizando Node.js. Manejo de bases de datos SQL y NoSQL."
+  },
+  {
+    key: "python",
+    label: "Python & Datos",
+    description: "Creación de scripts de auditoría y sistemas de clasificación de imágenes (uso de dlib, CUDA y scikit-learn para clustering con DBSCAN)."
+  },
+  {
+    key: "cloud",
+    label: "Nube & Deploy",
+    description: "Despliegue y administración de infraestructura en la nube utilizando Vercel, Cloudflare y AWS."
+  },
+  {
+    key: "proyectos",
+    label: "Proyectos",
+    description: "Desarrollo de Plynte y herramientas de gestión de almacenamiento."
+  }
 ];
 
 export default function FeatureSelector() {
@@ -26,20 +51,9 @@ export default function FeatureSelector() {
         ))}
       </nav>
 
-      <div className="FeatureSelector__dialog-container">
-        <img
-          src="/pictures/ImgProyects/Character.webp"
-          alt="Personaje"
-          className="FeatureSelector__character"
-        />
-        <div className="FeatureSelector__dialog-content">
-            <h2>{selected.label}</h2>
-            <div className="FeatureSelector__dialog-box">
-                <p>{selected.description}</p>
-            </div>
-        </div>
-
-        
+      <div className="FeatureSelector__content">
+        <h2>{selected.label}</h2>
+        <p>{selected.description}</p>
       </div>
     </div>
   );

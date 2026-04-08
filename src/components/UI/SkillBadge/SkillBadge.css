@@ -1,0 +1,16 @@
+/* src/components/SkillBadge.css */
+.skill-badge {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  color: #e0e0e0;
+  display: inline-block;
+  margin: 4px;
+  transition: all 0.3s ease;
+}
+
+.skill-badge:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}

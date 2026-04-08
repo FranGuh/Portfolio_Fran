@@ -22,7 +22,12 @@ const Page404 = () => {
         </p>
 
         <div className="Page404__buttons">
-          <Button redirection="/" text="Volver al inicio" variant="primary" />
+          <Button variant="primary" onClick={() => window.location.href = '/'}>
+            Volver al Inicio
+          </Button>
+          <Button variant="secondary" onClick={() => window.location.href = '/about'}>
+            Ir a Sobre Mí
+          </Button>
         </div>
       </div>
     </div>

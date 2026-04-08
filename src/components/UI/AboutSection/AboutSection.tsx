@@ -1,4 +1,4 @@
-import LinkButtom from '../LinkButtom/LinkButtom';
+import LinkButtom from '../LinkButton/LinkButton';
 import './AboutSection.css'
 import { useEffect, useRef } from 'react';
 
@@ -9,8 +9,10 @@ interface Props {
   description?: string;
   source?: string;
   alt?: string;
+  className?: string;
+  imageClassName?: string;
 }
-const AboutSection = ({ title, titleHead, subtitle, description, source, alt }: Props) => {
+const AboutSection = ({ title, titleHead, subtitle, description, source, alt, className, imageClassName}: Props) => {
   const imgRef = useRef<HTMLImageElement | null>(null);
 useEffect(() => {
   if (!imgRef.current) return;
@@ -23,7 +25,7 @@ useEffect(() => {
         window.addEventListener('scroll', handleScroll);
       } else {
         window.removeEventListener('scroll', handleScroll);
-        img.style.transform = 'translateY(0px)'; // Reset
+        img.style.transform = 'translateY(0px)';
       }
     },
     {
@@ -54,7 +56,7 @@ useEffect(() => {
 
   return (
     <>
-      <section id='SobreMi' className='AboutSection'>
+      <section id='SobreMi' className={`AboutSection ${className || ''}`.trim()}>
         <div className='AboutSection-header'>
           <h3 className='AboutSection__titleHead'>{titleHead}</h3>
           <h1 className='AboutSection__title'>{title}</h1>
@@ -62,17 +64,19 @@ useEffect(() => {
           <p className='AboutSection__description'>{description}</p>
 
           <div className="AboutSection__contact">
-            <LinkButtom 
-            text='Linkedin'
+            <LinkButtom
             href='https://linkedin.com/in/gustavo-francisco-salgado-andrade-496553337'
-            />
-            <LinkButtom 
-              text='Github'
+            >
+              Linkedin
+            </LinkButtom>
+            <LinkButtom
               href='https://github.com/FranGuh'
-            />
+            >
+              Github
+            </LinkButtom>
           </div>
         </div>
-        <img ref={imgRef} src={source} alt={alt} className='AboutSection__img' loading='lazy' />
+        <img ref={imgRef} src={source} alt={alt} className={`AboutSection__img ${imageClassName || ''}`.trim()} loading='lazy' />
       </section>
     </>
   )

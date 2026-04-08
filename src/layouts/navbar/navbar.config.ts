@@ -19,11 +19,9 @@ export const NAV_ITEMS: NavigationItem[] = [
     ],
   },
   {
-    label: "PORTFOLIO", link: "/",
+    label: "PORTFOLIO", link: "/portfolio",
     children: [
-      { label: "RedirectLink", link: "/RedirectLink" },
-      { label: "Galeriq", link: "/Galeriq" },
-      { label: "Cacao-Cocoa", link: "/Cacao-cocoa" },
+      { label: "Portfolio", link: "/Portfolio" },
       // ...
     ],
   },

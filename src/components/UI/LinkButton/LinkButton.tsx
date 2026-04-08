@@ -1,15 +1,15 @@
-// LinkButtom.tsx
 import React from 'react';
-import './LinkButtom.css';
+import './LinkButton.css';
 
-interface LinkButtomProps {
-  text: string;
+interface LinkButtonProps {
+  children: React.ReactNode;
   Icon?: React.ComponentType<{ className?: string }>;
   href: string;
   onClick?: () => void;
+  className?: string;
 }
 
-const LinkButtom: React.FC<LinkButtomProps> = ({ text, Icon, href, onClick }) => {
+const LinkButton: React.FC<LinkButtonProps> = ({ children, Icon, href, onClick, className = "" }) => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (onClick) {
       e.preventDefault();
@@ -18,18 +18,18 @@ const LinkButtom: React.FC<LinkButtomProps> = ({ text, Icon, href, onClick }) =>
   };
 
   return (
-    <div className="LinkButtom">
+    <div className={`LinkButton ${className}`}>
       <a
         href={href}
         onClick={handleClick}
         target="_blank"
         rel="noopener noreferrer"
       >
-        {Icon && <Icon className="LinkButtom__icon" />}
-        {text}
+        {Icon && <Icon className="LinkButton__icon" />}
+        {children}
       </a>
     </div>
   );
 };
 
-export default LinkButtom;
+export default LinkButton;

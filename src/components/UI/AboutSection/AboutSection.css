@@ -74,11 +74,32 @@
     position: relative;
     pointer-events: none;
     user-select: none;
-    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
     transform: translateY(0px);
     transition: transform 0.1s linear;
 }
+
+.alternative-image{
+    flex: 1;
+    max-height: 80dvh;
+    min-height: 20dvh;
+    object-fit: contain;
+    z-index: 1;
+    position: relative;
+    pointer-events: none;
+    user-select: none;
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+     mask-image: linear-gradient(to top, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, black 30%, transparent 100%);
+    transform: translateY(0px);
+    transition: transform 0.1s linear;
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+
 
 @media (max-width: 920px) {
     .AboutSection {

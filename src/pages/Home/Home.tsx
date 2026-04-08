@@ -7,6 +7,7 @@ import ScrollableContainer from "../../components/UI/ScrollableContainer/Scrolla
 import AboutSection from "../../components/UI/AboutSection/AboutSection";
 import FeatureSelector from "../../components/UI/FeatureSelector/FeatureSelector";
 import { useImagePreloader } from "../../hooks/useImagePreloader";
+import Button from "../../components/UI/Button/Button";
 
 
 const imagesToLoad = [
@@ -59,9 +60,9 @@ const Home = () => {
         </section>
       <div className="bg-pan-right">
         <AboutSection
-          title="Programador"
-          titleHead="Mi historia."
-          subtitle="FULL STACK JUNIOR"
+          title="Desarrollador"
+          titleHead="Mi historia"
+          subtitle="FULL STACK"
           description="Un día quise diseñar una web, así que me puse a investigar y, sin querer, estudié Ing. en Sistemas Computacionales.
 Al inicio no me gustaba la carrera, pero al comenzar mis prácticas, todo cambió: me encantó programar y diseñar webs. En el camino, tuve que aprender bastante HTML y CSS para personalizar mis propios diseños.
 Aprender React me motivó a conocer otras tecnologías como JSX y TSX. Luego, como no quedé satisfecho, quise saber cómo funcionaban otros frameworks de JavaScript, así que me adentré en Svelte.
@@ -70,8 +71,10 @@ Me apasionó tanto el desarrollo web que ahora me dedico a ello. Por ahora, me h
           alt="Dibujo hecho por mí en Adobe Photoshop"
         />
       </div>
-
       <FeatureSelector />
+      <Button className='button--floating' onClick={() => window.location.href = '/portfolio'}>
+        Ir a Portfolio
+      </Button>
     </>
   );
 };

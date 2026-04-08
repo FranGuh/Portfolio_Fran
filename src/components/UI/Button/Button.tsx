@@ -1,26 +1,47 @@
-import { useNavigate } from 'react-router-dom';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import './Button.css';
 
-interface ButtonProps {
-  text: string;
-  redirection?: string;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'danger';
+  isLoading?: boolean;
+  children: ReactNode;
+  className?: string;
 }
 
-const Button = ({ text, redirection, variant = 'primary' }: ButtonProps) => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    if (redirection) {
-      const path = redirection.startsWith('/') ? redirection : `/${redirection}`;
-      navigate(path);
-    }
-  };
-
+const Button = ({ 
+  children, 
+  variant = 'primary', 
+  isLoading = false,
+  className = '',
+  disabled,
+  ...rest
+}: ButtonProps) => {
+  
+  const buttonClasses = [
+    'button',
+    `button--${variant}`,
+    isLoading ? 'button--loading' : '',
+    className
+  ].filter(Boolean).join(' ');
 
   return (
-    <button className={`button button--${variant}`} onClick={handleClick}>
-      {text}
+    <button 
+      className={buttonClasses} 
+      disabled={isLoading || disabled }
+      aria-busy={isLoading}
+      {...rest}
+    >
+      {/* Contenedor para evitar que el texto desaparezca y cause Layout Shift */}
+      <span className="button__content" style={{ visibility: isLoading ? 'hidden' : 'visible' }}>
+        {children}
+      </span>
+
+      {/* El Spinner se posiciona absolutamente para no empujar el texto */}
+      {isLoading && (
+        <span className="button__loader" aria-hidden="true">
+          <span className="button__spinner"></span>
+        </span>
+      )}
     </button>
   );
 };

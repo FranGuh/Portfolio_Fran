@@ -1,0 +1,9 @@
+/* src/styles/variables.css */
+:root {
+  --color-primary: #ff8903;
+  --color-secondary: #f4f4f4;
+  --color-danger: #ff4d4d;
+  --color-text-light: #ffffff;
+  --color-text-dark: #333333;
+  --transition-base: 0.3s ease;
+}

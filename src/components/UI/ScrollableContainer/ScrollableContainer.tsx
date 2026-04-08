@@ -38,7 +38,7 @@ const ScrollableContainer = ({ children }: ScrollableContainerProps) => {
       if (progress < 1) {
   requestAnimationFrame(animate);
 } else {
-  updateScrollButtons(); // Aquí
+  updateScrollButtons();
 }
 
     };
@@ -50,7 +50,7 @@ const ScrollableContainer = ({ children }: ScrollableContainerProps) => {
   const el = scrollRef.current;
   if (!el) return;
 
-  updateScrollButtons(); // Inicial
+  updateScrollButtons();
 
   el.addEventListener('scroll', updateScrollButtons);
   window.addEventListener('resize', updateScrollButtons);

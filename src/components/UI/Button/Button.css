@@ -1,33 +1,90 @@
+/* src/components/UI/Button/Button.css */
+
 .button {
+  position: relative; /* Necesario para que el spinner se posicione respecto al botón */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.6rem 1.2rem;
-  font-size: 1.1rem;
+  padding: 0.75rem 1.5rem;
   font-weight: 500;
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
   cursor: pointer;
-  box-sizing: border-box;
-  transition: background-color 0.3s ease;
+  transition: background-color var(--transition-base, 250ms), 
+              transform var(--transition-base, 250ms),
+              box-shadow var(--transition-base, 250ms);
+  font-size: 1rem;
+  overflow: hidden; /* Evita que el spinner se salga en botones muy pequeños */
 }
 
-/* Variantes */
+/* Botón Primario */
 .button--primary {
-  background-color: var(--color-accent);
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
 }
 
-.button--primary:hover {
-  opacity: 0.8;
+.button--primary:hover:not(:disabled) {
+  filter: brightness(0.9);
+  transform: translateY(-1px);
 }
 
+.button--primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Botón Secundario - CORREGIDO: eliminado "varvar" */
 .button--secondary {
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: var(--color-secondary);
+  color: var(--color-text-dark);
 }
 
+/* Botón de Peligro */
 .button--danger {
-  background-color: #ff4d4d;
-  color: white;
+  background-color: var(--color-danger);
+  color: var(--color-text-light);
+}
+
+.button--floating{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #ffa927c6;
+  transform: ease-in-out 0.3s;
+  z-index: 10;
+}
+
+.button--floating:hover{
+  background-color: #ffa527;
+}
+
+/* Estado deshabilitado */
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+/* --- NUEVAS REGLAS PARA EL LOADING --- */
+
+/* Contenedor del spinner (ajuste de opacidad para indicar carga) */
+.button--loading {
+  cursor: wait;
+}
+
+/* El Spinner */
+.button--loading::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top-color: currentColor; /* Usa el color del texto actual */
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

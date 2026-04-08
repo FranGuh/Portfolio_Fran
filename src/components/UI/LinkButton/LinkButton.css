@@ -1,4 +1,4 @@
-.LinkButtom {
+.LinkButton {
   position: relative;
   width: 200px;
   height: 50px;
@@ -14,7 +14,7 @@
   /* transition: opacity 2s ease-in-out; */
 }
 
-.LinkButtom::before {
+.LinkButton::before {
   content: '';
   position: absolute;
   top: 0;
@@ -38,18 +38,18 @@
   transition: opacity 2s ease-in-out;
 }
 
-.LinkButtom:hover::before {
+.LinkButton:hover::before {
   opacity: 1;
 
 }
 
-.LinkButtom:hover {
+.LinkButton:hover {
   transform: scale(1.05);
   color: #fff;
   filter: none;
 }
 
-.LinkButtom * {
+.LinkButton * {
   position: relative;
   z-index: 2;
 }
@@ -65,7 +65,7 @@
 }
 
 
-.LinkButtom>a {
+.LinkButton>a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,6 +77,6 @@
   height: 100%;
 }
 
-.LinkButtom__icon {
+.LinkButton__icon {
   margin-right: 5px;
 }

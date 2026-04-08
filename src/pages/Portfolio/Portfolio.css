@@ -1,0 +1,133 @@
+/* src/pages/PortfolioPage.css */
+
+.PortfolioPage {
+  background-color: #ebebeb; /* Fondo base de tu web */
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Barra de progreso para reclutadores */
+.PortfolioPage__progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: 9999;
+}
+
+.PortfolioPage__progress-bar {
+  height: 100%;
+  background-color: #ff9800; /* Tono naranja de Franguh */
+  transition: width 0.1s ease-out;
+}
+
+/* -------------------------------------------
+   Cuadrícula de Habilidades (Bento Box)
+------------------------------------------- */
+.PortfolioPage__skills-grid {
+  background-color: #0a0a0a;
+  padding: 4rem 2rem;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.skill-category {
+  background: #151515;
+  border: 1px solid #333;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-3px);
+  border-color: #444;
+}
+
+.skill-category__title {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  border-bottom: 2px solid #ff9800;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.skill-category__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.skill-tag {
+  background-color: #2a2a2a;
+  color: #ddd;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  font-family: monospace;
+  border: 1px solid #444;
+}
+
+/* -------------------------------------------
+   Sección del Filtro de Proyectos
+------------------------------------------- */
+.PortfolioPage__filter-section {
+  padding: 4rem 2rem 2rem 2rem;
+  background: linear-gradient(to bottom, #000000, #121212);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.filter-title {
+  color: #ffffff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  max-width: 100dvw;
+  padding: 0rem 2rem 2.5rem 2rem;
+}
+
+.filter-btn {
+  background-color: transparent;
+  border: 1px solid #444;
+  color: #ccc;
+  padding: 0.8rem 1.8rem;
+  cursor: pointer;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  border-color: #ff9800;
+  color: #fff;
+}
+
+.filter-btn.active {
+  background-color: #ff9800;
+  color: #000;
+  border-color: #ff9800;
+  font-weight: 600;
+}

@@ -19,7 +19,12 @@ Me apasionó tanto el desarrollo web que ahora me dedico a ello. Por ahora, me h
         alt="Dibujo hecho por mí en Adobe Photoshop"
       />
       <div className="About__floating">
-        <Button text="Ir a Detalles" redirection="/detail"/>
+        <Button className="button--floating" onClick={() => window.location.href = '/detail'}>
+          Ver detalles
+        </Button>
+      </div>
+      <div className="bg-pan-right">
+        {/* Aquí puedes agregar más contenido o secciones si lo deseas */}
       </div>
     </>
   );

@@ -22,7 +22,7 @@ También he explorado otros frameworks como Svelte.
 Tengo conocimientos en bases de datos en la nube como MongoDB Atlas y experiencia utilizando servicios en la nube como AWS. Me interesa crear interfaces agradables, accesibles y funcionales, cuidando el diseño visual con HTML y CSS.
 "
       icons={[HtmlIcon, TsIcon, VercelIcon]}
-      images={[
+      items={[
         // {
         //   source: "/pictures/ImgProyects/Zelda2.svg",
         //   alt: "Zelda",
@@ -57,7 +57,7 @@ Un sistema experto con inferencia que recomienda computadoras en base a pregunta
 
 Estoy en búsqueda de una oportunidad laboral que me permita seguir creciendo como desarrollador web y dedicarme de forma plena a este campo profesional que me apasiona."
       icons={[CssIcon, TsIcon, ReactIcon]}
-      images={[
+      items={[
         // {
         //   source: "/pictures/ImgProyects/Urbosa.svg",
         //   alt: "Zelda",
@@ -80,7 +80,12 @@ Estoy en búsqueda de una oportunidad laboral que me permita seguir creciendo co
       layout='left'
     />
     <div className="Details__floating">
-      <Button text="Sobre Mí" redirection="/about"/>
+      <Button className='button--floating' onClick={() => window.location.href = '/about'}>
+        Volver a Sobre mí
+      </Button>
+    </div>
+    <div className="bg-pan-right">
+      {/* Aquí puedes agregar más contenido o secciones si lo deseas */}
     </div>
     </div>
   )

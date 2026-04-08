@@ -1,152 +1,76 @@
 .FeatureSelector {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-    background: #000;
-    color: white;
-    font-family: 'Segoe UI', sans-serif;
-    box-shadow: 0 0 10px #00000066;
+  max-width: 100dvw;
+  margin: 0 auto;
+  padding: 3rem 0.5rem 0rem 1rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  box-sizing: border-box;
 }
 
 .FeatureSelector__tabs {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid #3333336c;
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+/* Ocultar barra de scroll en pestañas para diseño limpio */
+.FeatureSelector__tabs::-webkit-scrollbar {
+  height: 0;
 }
 
 .FeatureSelector__tabs button {
-    background-color: #a8a8a871;
-    border: none;
-    padding: 0.8rem 3rem;
-    font-size: 1.2rem;
-    color: white;
-    cursor: pointer;
-    border-radius: 0.0rem;
-    transition: all 0.3s ease;
+  background: transparent;
+  color: #888;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  margin-bottom: -1px;
 }
 
-.FeatureSelector__tabs button.active,
 .FeatureSelector__tabs button:hover {
-    background-color: white;
-    color: black;
+  color: #ddd;
 }
 
-.FeatureSelector__dialog-container {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    width: 100%;
-    max-width: 900px;
-    padding: 2rem;
-
+.FeatureSelector__tabs button.active {
+  color: #ff9800;
+  border-bottom-color: #ff9800;
 }
 
-.FeatureSelector__character {
-    z-index: 1;
-    min-width: 300px;
-    max-width: 60vw;
-    transform: translateX(100px);
-    height: auto;
-    object-fit: contain;
-    user-select: none;
-    flex: 1;
-    pointer-events: none;
-    user-select: none;
-    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-    filter: grayscale(1);
+.FeatureSelector__content {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  padding: 2.5rem 2rem 1rem 3rem ;
+  min-height: 150px;
+  margin-bottom: 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
-.FeatureSelector__dialog-box {
-    background: rgba(0, 0, 0, 0.5);
-    border: 2px solid #fffffff1;
-    border-radius: 0px;
-    padding: 1.5rem 2rem;
-    max-width: 500px;
-    color: #fff;
-    text-align: left;
-    box-shadow: 0 0 12px #000;
-    z-index: 6;
-    box-sizing: content-box;
+.FeatureSelector__content h2 {
+  margin: 0 0 1rem 0;
+  color: #fff;
+  font-size: 1.8rem;
 }
 
-.FeatureSelector__dialog-content {
-    border-radius: 20px;
-    padding: 1.5rem 2rem;
-    max-width: 500px;
-    color: #fff;
-    text-align: left;
-    z-index: 6;
-    box-sizing: content-box;
-    position: relative;
-    flex: 1;
+.FeatureSelector__content p {
+  margin: 0;
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
-.FeatureSelector__dialog-content h2 {
-    position: absolute;
-    font-size: 1.8rem;
-    color: #ffe100;
-    transform: translateY(-45px);
-    left: 65px;
-    background-color: #000;
-    width: 120px;
-    max-width: 100%;
-}
-
-.FeatureSelector__dialog-box p {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-}
-
-@media (max-width: 920px) {
-  .FeatureSelector {
-    padding: 1rem;
+@media (max-width: 600px) {
+  .FeatureSelector__content {
+    padding: 1.5rem;
   }
-
-  .FeatureSelector__tabs {
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .FeatureSelector__tabs button {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.9rem;
-  }
-
-  .FeatureSelector__dialog-container {
-    flex-direction: column;
-    padding: 1rem;
-    gap: 1rem;
-  }
-
-  .FeatureSelector__character {
-    transform: translateX(0);
-    min-width: 200px;
-    max-width: 80vw;
-  }
-
-  .FeatureSelector__dialog-box,
-  .FeatureSelector__dialog-content {
-    max-width: 90vw;
-    padding: 1rem;
-  }
-
-  .FeatureSelector__dialog-content h2 {
+  
+  .FeatureSelector__content h2 {
     font-size: 1.5rem;
-    left: 1rem;
-    transform: translateY(-35px);
-  }
-
-  .FeatureSelector__dialog-box p {
-    font-size: 1rem;
-    line-height: 1.4;
   }
 }
