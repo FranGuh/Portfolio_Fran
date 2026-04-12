@@ -4,8 +4,10 @@ import FeatureSelector from '../../components/UI/FeatureSelector/FeatureSelector
 import HomeSection from '../../components/UI/HomeSection/HomeSection'
 import { HtmlIcon, VercelIcon, TsIcon, ReactIcon, CssIcon } from '../../components/UI/Icons/SvgIcons'
 import './Details.css'
+import { useNavigate } from 'react-router-dom'
 
 const Details = () => {
+  const navigate = useNavigate();
   return (
     <div className='Details'>
       <HomeSection 
@@ -27,18 +29,6 @@ Tengo conocimientos en bases de datos en la nube como MongoDB Atlas y experienci
         //   source: "/pictures/ImgProyects/Zelda2.svg",
         //   alt: "Zelda",
         //   title: "Zelda",
-        //   href: "https://redirect-link-flame.vercel.app/",
-        // },
-        // {
-        //   source: "/pictures/ImgProyects/Prunia.svg",
-        //   alt: "Zelda",
-        //   title: "Prunia",
-        //   href: "https://redirect-link-flame.vercel.app/",
-        // },
-        // {
-        //   source: "/pictures/ImgProyects/Josha.svg",
-        //   alt: "Zelda",
-        //   title: "Josha",
         //   href: "https://redirect-link-flame.vercel.app/",
         // },
       ]}
@@ -64,23 +54,11 @@ Estoy en búsqueda de una oportunidad laboral que me permita seguir creciendo co
         //   title: "Urbosa",
         //   href: "https://redirect-link-flame.vercel.app/",
         // },
-        // {
-        //   source: "/pictures/ImgProyects/Prunia.svg",
-        //   alt: "Zelda",
-        //   title: "Prunia",
-        //   href: "https://redirect-link-flame.vercel.app/",
-        // },
-        // {
-        //   source: "/pictures/ImgProyects/Sapo.svg",
-        //   alt: "Zelda",
-        //   title: "Sapo",
-        //   href: "https://redirect-link-flame.vercel.app/",
-        // },
       ]}
       layout='left'
     />
     <div className="Details__floating">
-      <Button className='button--floating' onClick={() => window.location.href = '/about'}>
+        <Button className='button--floating' onClick={() => navigate("/about")}>
         Volver a Sobre mí
       </Button>
     </div>

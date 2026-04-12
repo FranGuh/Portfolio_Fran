@@ -1,29 +1,38 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "../pages/Home/Home";
-import Page404 from "../pages/Page404/Page404";
 import { MainLayout } from "../layouts/MainLayout";
-import About from "../pages/About/About";
-import Details from "../pages/Details/Details";
-import PortfolioPage from "../pages/Portfolio/Portfolio";
+import { lazy, Suspense } from "react";
+import Loader from "../components/UI/Loader/Loader";
+
+
+const Home = lazy(() => import("../pages/Home/Home"));
+const About = lazy(() => import("../pages/About/About"));
+const Details = lazy(() => import("../pages/Details/Details"));
+const PortfolioPage = lazy(() => import("../pages/Portfolio/Portfolio"));
+const Page404 = lazy(() => import("../pages/Page404/Page404"));
 
 /**
  * Refactor: Implementación de Route Grouping para evitar repetición de Layouts.
  * Esto permite que el MainLayout actúe como un wrapper global para las rutas hijas.
  */
+
+//<Suspense fallback = {<div style={{ display:"flex", alignItems:"center", justifyContent:"center" ,width:"100dvw", height: "100dvh",fontSize: "10rem", color:"white", background:"black" }}>Cargando...</div>}>//<Suspense fallback = {<div style={{ display:"flex", alignItems:"center", justifyContent:"center" ,width:"100dvw", height: "100dvh",fontSize: "10rem", color:"white", background:"black" }}>Cargando...</div>}>
+
 const AppRouter = () => (
     <BrowserRouter>
-        <Routes>
-            {/* Definición de Rutas Protegidas/Estructurales bajo MainLayout */}
-            <Route element={<MainLayout />}>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/detail" element={<Details />} />
-                <Route path="/portfolio" element={<PortfolioPage />} />
-            </Route>
+        <Suspense fallback={<Loader message="Cargando..." />}>
+            <Routes>
+                {/* Definición de Rutas Protegidas/Estructurales bajo MainLayout */}
+                <Route element={<MainLayout />}>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/detail" element={<Details />} />
+                    <Route path="/portfolio" element={<PortfolioPage />} />
+                </Route>
 
-            {/* Ruta para 404 o rutas que no requieran el MainLayout (ej. Login) */}
-            <Route path="*" element={<Page404 />} />
-        </Routes>
+                {/* Ruta para 404 o rutas que no requieran el MainLayout (ej. Login) */}
+                <Route path="*" element={<Page404 />} />
+            </Routes>
+        </Suspense>
     </BrowserRouter>
 );
 

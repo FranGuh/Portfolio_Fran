@@ -74,8 +74,8 @@
     position: relative;
     pointer-events: none;
     user-select: none;
-    mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
     transform: translateY(0px);
     transition: transform 0.1s linear;
 }

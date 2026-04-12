@@ -35,7 +35,7 @@ export default function PortfolioPage() {
         : cvData.projects;
 
     return (
-        <main className="PortfolioPage">
+        <div className="PortfolioPage" id="PortofioPage">
             <HomeSection
                 text1="Mi"
                 text2="Portafolio"
@@ -51,15 +51,18 @@ export default function PortfolioPage() {
 
 
             {/* 2. Hero y Biografía */}
-            <AboutSection
-                titleHead="Ingeniero"
-                title="En Sistemas"
-                imageClassName='alternative-image'
-                subtitle="Computacionales"
-                description={cvData.profile.bio}
-                source="/pictures/Homepicture.webp"
-                alt="Ilustración Gustavo"
-            />
+            <div className='bg-pan-right'>
+                <AboutSection
+                    titleHead="Ingeniero"
+                    title="En Sistemas"
+                    imageClassName='alternative-image'
+                    subtitle="Computacionales"
+                    description={cvData.profile.bio}
+                    source="/pictures/Homepicture.webp"
+                    alt="Ilustración Gustavo"
+                />
+            </div>
+            
 
             {/* 4. UX Reclutador: Filtro dinámico de proyectos */}
             <DetailSection
@@ -114,6 +117,6 @@ export default function PortfolioPage() {
                     ))}
                 </div>
             </section>
-        </main>
+        </div>
     );
 }

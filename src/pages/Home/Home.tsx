@@ -8,6 +8,7 @@ import AboutSection from "../../components/UI/AboutSection/AboutSection";
 import FeatureSelector from "../../components/UI/FeatureSelector/FeatureSelector";
 import { useImagePreloader } from "../../hooks/useImagePreloader";
 import Button from "../../components/UI/Button/Button";
+import { useNavigate } from "react-router-dom";
 
 
 const imagesToLoad = [
@@ -20,6 +21,7 @@ const imagesToLoad = [
 
 const Home = () => {
   const loading = useImagePreloader(imagesToLoad, "homePortfolioCargado");
+  const navigate = useNavigate();
 
   if (loading) return <Loader message="Cargando portfolio..." />;
 
@@ -30,7 +32,7 @@ const Home = () => {
         text2="Full Stack"
       />
       {/* <h1 className="Home__title">Mis Proyectos</h1> */}
-        <section className="Home__projects">
+        <section className="Home__proyects">
           <ScrollableContainer>
             <ImgContainer
               source="/pictures/ImgProyects/RedirectLink/Home.webp"
@@ -72,7 +74,7 @@ Me apasionó tanto el desarrollo web que ahora me dedico a ello. Por ahora, me h
         />
       </div>
       <FeatureSelector />
-      <Button className='button--floating' onClick={() => window.location.href = '/portfolio'}>
+      <Button className='button--floating' onClick={() => navigate("/portfolio")}>
         Ir a Portfolio
       </Button>
     </>

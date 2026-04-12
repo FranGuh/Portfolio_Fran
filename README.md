@@ -1,57 +1,51 @@
-# React + TypeScript + Vite
+# Pagina de mi portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+En este repositorio me dedico a practicar y estudiar con IA como instructor y agilizador conceptos nuevos sobre el desarrollo web.
 
-Currently, two official plugins are available:
+## Tecnologias usadas en este proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React, Typescript, Vite, React-Router, CSS3 Puro.
 
-## Expanding the ESLint configuration
+## Como esta estructurado este proyecto
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+![alt text](image.png)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Esta fue la idea inicial como decidi estructurar el proyecto para desarrollar mi página de portfolio.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Por que surge esta idea?
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+No es por mi egoismo, se que hay personas que lo harían mejor incluso la IA es mejor actualmente, solo decidi
+aprender por mi cuenta como estructurar un proyecto ya que en mis antiguas experencias trabajar e investigar a la vez
+conforme surgen las problematicas, no es del todo optimo mas si trabajaba en proyectos de finales de carrera (sin una dirección clara).
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
-# Portfolio_Frang
-# Portfolio_Fran
-# Portfolio_Fran
+Durante este proyecto me canse y decidi tomar las riendas y conocer a fondo los conceptos estructurales y esenciales del desarrollo web. Si bien no me las quiero dar de experto ya que incluso habiendo trabajado en este proyecto me he dado cuenta que desconozco muchisimo del campo, ahora doy por hecho que es un área hiperextensa con subramas inmensamente profundas.
+
+#### Aprendizajes
+
+> X para marcar completado, vacio si lo considere pero aun no esta implementado.
+
+**[ X ]** Si bien trate implementar una arquitectura mixta basada en pages y features, así como la ideologia de tener componentes modulares.
+
+**[ X ]** Tener en cuenta el rendimiento de la página.
+
+[ ] Los elementos deben de sumar no restar.
+
+[ ] A veces menos es más.
+
+[ ] Hacer un código perfecto(tardarme + tiempo) a uno funcional, siempre es lo ideal.
+
+[ ] Modularizar los estilos.
+
+[ ] Usar arquitectura de estilado BEM.
+
+[ ] No casarme con el código o identificarme con el.
+
+[ ] Aceptar cualquier critica para mejoras continuas.
+
+[ ] Tener en cuenta el SEO.
+
+[ ] Variables CSS para solo cambiar un color en una página en vez de 15 páginas.
+
+**[ X ]** Aprender diariamente...
+
+##### 

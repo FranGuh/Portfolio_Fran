@@ -2,24 +2,29 @@ import HomeSection from "../../components/UI/HomeSection/HomeSection";
 import "./About.css";
 import AboutSection from "../../components/UI/AboutSection/AboutSection";
 import Button from "../../components/UI/Button/Button";
+import { useNavigate } from "react-router-dom";
 
 const About = () => {
+  const navigate = useNavigate();
   return (
     <>
+      {/* Siempre me he cuestionado si realmente tengo la capacidad de hacer algo importante,
+      supongo que sí, pero a la hora de desarrollar una idea en mi cabeza soy incapaz de dejarla vivir ahi, me gusta profundizar sobre ella aun sabiendo
+      que fracasaré pero almenos se que aprenderé de ello, últimamente cuestiono mis conocimientos día a día, aunque me cueste demasiado entenderlo." */}
       <HomeSection text1="Soy" text2="Francisco" />
       <AboutSection
-        title="Programador"
-        titleHead="Web"
-        subtitle="Mi historia."
-        description="Un día quise diseñar una web, así que me puse a investigar y, sin querer, estudié Ing. en Sistemas Computacionales.
-Al inicio no me gustaba la carrera, pero al comenzar mis prácticas, todo cambió: me encantó programar y diseñar webs. En el camino, tuve que aprender bastante HTML y CSS para personalizar mis propios diseños.
-Aprender React me motivó a conocer otras tecnologías como JSX y TSX. Luego, como no quedé satisfecho, quise saber cómo funcionaban otros frameworks de JavaScript, así que me adentré en Svelte.
-Me apasionó tanto el desarrollo web que ahora me dedico a ello. Por ahora, me he enfocado en que mis proyectos resuelvan problemáticas reales."
-        source="/pictures/drawsByMe/drawByMe.webp"
+        title="Desarrollador"
+        titleHead="Creativo"
+        subtitle="Sobre mí"
+        description="Siempre cuestiono mis ideas y desafio mis propios límites.
+         Cuando algo me interesa, lo llevo más allá, incluso sabiendo que puedo fallar. Para mí, cada intento es una forma de aprender y construir algo mejor. 
+         Últimamente he enfocado esa mentalidad en mejorar mis habilidades día a día,
+          enfrentando lo que aún no entiendo. Algo que quisiera saber es si el ser humano tiene límites o si se los impone a sí mismo..."
+        source="/pictures/drawsByMe/Artur_master.webp"
         alt="Dibujo hecho por mí en Adobe Photoshop"
       />
       <div className="About__floating">
-        <Button className="button--floating" onClick={() => window.location.href = '/detail'}>
+        <Button className="button--floating" onClick={() => navigate("/detail")}>
           Ver detalles
         </Button>
       </div>
