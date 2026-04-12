@@ -28,10 +28,10 @@
    Cuadrícula de Habilidades (Bento Box)
 ------------------------------------------- */
 .PortfolioPage__skills-grid {
-  background-color: #0a0a0a;
+  background-color: var(--color-bg-primary);
   padding: 4rem 2rem;
-  border-top: 1px solid #222;
-  border-bottom: 1px solid #222;
+  border-top: 1px solid var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-bg-secondary);
   font-family: system-ui, -apple-system, sans-serif;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .skill-category {
-  background: #151515;
+  background: var(--color-bg-complementary);
   border: 1px solid #333;
   padding: 1.5rem;
   transition: transform 0.2s ease, border-color 0.2s ease;
@@ -72,7 +72,7 @@
 }
 
 .skill-tag {
-  background-color: #2a2a2a;
+  background-color: var(--color-bg-complementary);
   color: #ddd;
   padding: 0.4rem 0.8rem;
   font-size: 0.85rem;
@@ -85,7 +85,7 @@
 ------------------------------------------- */
 .PortfolioPage__filter-section {
   padding: 4rem 2rem 2rem 2rem;
-  background: linear-gradient(to bottom, #000000, #121212);
+  background: linear-gradient(to bottom, #000000, var(--color-bg-complementary));
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,6 +1,6 @@
 .ProjectsSection {
   padding: 4rem 2rem;
-  background-color: #121212;
+  background-color: var(--color-bg-secondary);
   color: #fff;
   max-width: 100dvw;
   width: 100%;
@@ -13,7 +13,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid var(--color-bg-complementary);
   padding-bottom: 1.5rem;
   margin-bottom: 2.5rem;
   flex-wrap: wrap;
@@ -51,7 +51,7 @@
 }
 
 .ProjectCard {
-  background-color: #1c1c1c;
+  background-color: var(--color-bg-complementary);
   border: 1px solid transparent;
   overflow: hidden;
   display: flex;

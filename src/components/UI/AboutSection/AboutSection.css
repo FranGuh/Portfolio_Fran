@@ -30,7 +30,7 @@
 
 .AboutSection__titleHead {
     font-size: clamp(1.5rem, 3vw, 2rem);
-    color: #008080;
+    color: var(--color-complementary);
 }
 
 .AboutSection__title {
@@ -74,8 +74,8 @@
     position: relative;
     pointer-events: none;
     user-select: none;
-    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, var(--color-bg-secondary) 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, var(--color-bg-secondary) 70%, transparent 100%);
     transform: translateY(0px);
     transition: transform 0.1s linear;
 }
@@ -89,10 +89,10 @@
     position: relative;
     pointer-events: none;
     user-select: none;
-    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
-     mask-image: linear-gradient(to top, black 80%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to top, black 30%, transparent 100%);
+    mask-image: linear-gradient(to bottom, var(--color-bg-secondary) 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, var(--color-bg-secondary) 30%, transparent 100%);
+     mask-image: linear-gradient(to top, var(--color-bg-secondary) 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, var(--color-bg-secondary) 30%, transparent 100%);
     transform: translateY(0px);
     transition: transform 0.1s linear;
     user-select: none;

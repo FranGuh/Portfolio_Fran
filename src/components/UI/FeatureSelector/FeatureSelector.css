@@ -44,7 +44,7 @@
 }
 
 .FeatureSelector__content {
-  background: #1e1e1e;
+  background: var(--color-bg-complementary);
   border: 1px solid #333;
   padding: 2.5rem 2rem 1rem 3rem ;
   min-height: 150px;

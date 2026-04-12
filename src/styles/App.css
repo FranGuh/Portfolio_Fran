@@ -14,18 +14,18 @@
 }
 
 #root::selection{
-  background-color: #ff9900;
-  color: white;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-secondary);
 }
 
 ::selection {
-  background-color: #ff9900;
-  color: white;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-secondary);
 }
 
 ::selection {
   background-color: rgba(255, 153, 0, 0.99);
-  color: white;
+  color: var(--color-text-secondary);
 }
 
 body::selection,
@@ -36,8 +36,8 @@ h3::selection,
 h4::selection,
 span::selection,
 .text::selection {
-  background-color: #ff9900;
-  color: white;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-secondary);
 }
 
 h1, h2, h3, h4 .title {

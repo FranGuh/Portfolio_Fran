@@ -15,16 +15,16 @@
 }
 
 .navbar-logo.dark {
-  color: #111;
+  color: var(--color-bg-secondary);
 }
 
 /* Hover */
 .navbar-logo:hover {
-  color: #13da2e;
+  color: var(--color-opposite);
 }
 
 .navbar-logo:hover .logo-arrow {
-  color: #13da2e;
+  color: var(--color-opposite);
 }
 
 /* Arrow default */

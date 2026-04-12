@@ -4,11 +4,19 @@
   --color-primary: #F5F5F7;
   --color-secondary: #9FA2B4;
   --color-accent: #D4AF37; */
-   --color-bg: #ffffff;
+  --color-bg: #ffffff;
   --color-text: #1a1a1a;
   --color-primary: #F5F5F7;
   --color-secondary: #9FA2B4;
+  --color-opposite: #13da2e;
+  --color-complementary: #008080;
   --color-accent: #ff9900;
+  --color-bg-primary: #ff9900;
+  --color-bg-secondary: black;
+  --color-bg-complementary: #101010;
+  --color-selection-primary: ;
+  --color-text-secondary: white;
+
 
 }
 

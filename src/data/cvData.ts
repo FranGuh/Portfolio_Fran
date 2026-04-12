@@ -153,6 +153,7 @@ export const cvData: CVData = {
       techStack: [
         "Python",
         "DBSCAN",
+        "Miniconda",
         "CUDA",
         "SQLite",
         "face_recognition",
