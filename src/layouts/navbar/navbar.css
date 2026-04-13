@@ -7,7 +7,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  padding: 1rem 2rem;
+  padding: var(--space-4) var(--space-8);
   z-index: 10;
   width: 100%;
   box-sizing: border-box;
@@ -23,7 +23,7 @@
 .navbar-menu {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: var(--space-8);
   list-style: none;
 }
 
@@ -31,7 +31,7 @@
   color: white;
   text-decoration: none;
   cursor: pointer;
-  padding: 0.5rem 0;
+  padding: var(--space-2) 0;
   font-weight: 400;
   display: inline-block;
   transition: color 0.2s ease-in-out;
@@ -45,36 +45,14 @@
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--space-4);
 }
 
-.search {
-  background: var(--color-bg-secondary);
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  color: white;
-  outline: none;
-}
-
-.sign-in {
-  background-color: #d1363a;
-  color: white;
-  border: none;
-  padding: 0.5rem 1.2rem;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.sign-in:hover {
-  background-color: #a6282d;
-}
 
 /* Optional: hide menu in mobile if you don't need it */
 @media (max-width: 920px) {
   .navbar {
-    padding: 2rem 2rem;
+    padding: var(--space-8) var(--space-8);
    
   }
 

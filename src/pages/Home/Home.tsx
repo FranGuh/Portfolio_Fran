@@ -1,11 +1,11 @@
 import Loader from "../../components/UI/Loader/Loader";
 import "../../styles/bg.css";
-import HomeSection from "../../components/UI/HomeSection/HomeSection";
+import HomeSection from "../../features/HomeSection/HomeSection";
 import ImgContainer from "../../components/UI/ImgContainer/ImgContainer";
 import "./Home.css";
 import ScrollableContainer from "../../components/UI/ScrollableContainer/ScrollableContainer";
-import AboutSection from "../../components/UI/AboutSection/AboutSection";
-import FeatureSelector from "../../components/UI/FeatureSelector/FeatureSelector";
+import AboutSection from "../../features/AboutSection/AboutSection";
+import FeatureSelector from "../../features/FeatureSelector/FeatureSelector";
 import { useImagePreloader } from "../../hooks/useImagePreloader";
 import Button from "../../components/UI/Button/Button";
 import { useNavigate } from "react-router-dom";

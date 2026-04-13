@@ -1,6 +1,6 @@
-import HomeSection from "../../components/UI/HomeSection/HomeSection";
+import HomeSection from "../../features/HomeSection/HomeSection";
 import "./About.css";
-import AboutSection from "../../components/UI/AboutSection/AboutSection";
+import AboutSection from "../../features/AboutSection/AboutSection";
 import Button from "../../components/UI/Button/Button";
 import { useNavigate } from "react-router-dom";
 

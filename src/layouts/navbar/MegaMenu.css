@@ -8,7 +8,7 @@
   background-color: white;
   color: black;
   z-index: 15;
-  padding: 1rem 2rem;
+  padding: var(--space-4) var(--space-8);
   /* medidas header : 16 px x 32px */
   overflow-y: auto;
   display: flex;
@@ -42,15 +42,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 0rem;
+  padding: var(--space-3) var(--space-0);
 }
 
 .close-btn {
   background: none;
   border: none;
-  font-size: 2rem;
+  font-size: var(--space-8);
   cursor: pointer;
-  color: #333;
+  color: var(--color-dark-border);
   transition: transform 0.6s ease;
 }
 
@@ -62,23 +62,23 @@
 .mega-menu-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 3rem;
-  margin-top: 2rem;
+  gap: var(--space-12);
+  margin-top: var(--space-8);
 }
 
 .menu-columns {
   display: flex;
   flex-wrap: wrap;
-  gap: 3rem;
+  gap: var(--space-12);
   flex: 2;
 }
 
 .menu-section h4 {
   font-weight: bold;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
+  font-size: var(--font-size-base);
+  margin-bottom: var(--space-2);
   background: #f5f5f5;
-  padding: 0.3rem 0.75rem;
+  padding: var(--space-2) var(--space-3);
   border-radius: 4px;
   text-transform: uppercase;
   color: #222;
@@ -87,16 +87,16 @@
 .menu-links {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: var(--space-2);
 }
 
 .menu-links a {
   color: #111;
   text-decoration: none;
-  padding: 0.2rem 0.5rem;
+  padding: var(--space-1) var(--space-2);
   border-radius: 4px;
   transition: background 0.2s ease;
-  font-size: 0.95rem;
+  font-size: var(--font-size-base);
 }
 
 .menu-links a:hover {
@@ -115,6 +115,7 @@
   height: 50%;
   filter: grayscale();
   transition: 2s ease;
+  box-sizing:border-box;
 }
 
 .menu-image img:hover {
@@ -125,6 +126,4 @@
   .menu-columns{
     max-height: 20%;
   }
-
- 
 }

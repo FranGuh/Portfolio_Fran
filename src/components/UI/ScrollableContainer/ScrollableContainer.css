@@ -11,8 +11,8 @@
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
-  gap: 1.5rem;
-  padding: 1rem;
+  gap: var(--space-6);
+  padding: var(--space-4);
   scrollbar-width: none; 
 }
 .scrollable-container::-webkit-scrollbar {
@@ -25,9 +25,9 @@
   background: rgba(0,0,0,0.5);
   color: white;
   border: none;
-  font-size: 2rem;
+  font-size: var(--font-size-2xl);
   cursor: pointer;
-  padding: 0.5rem;
+  padding: var(--space-2);
   top: 50%;
   transform: translateY(-50%);
   height: 150px;

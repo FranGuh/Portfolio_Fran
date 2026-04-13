@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { NAV_ITEMS } from "./navbar.config";
 import { MegaMenu } from "./MegaMenu";
 import "./navbar.css";
 import { NavbarLogo } from "../../components/UI/Navbar/NavbarLogo";
+
 
 export function Navbar() {
   const [isMegaOpen, setMegaOpen] = useState(false);
@@ -35,7 +36,7 @@ export function Navbar() {
         <ul className="navbar-menu">
           {NAV_ITEMS.map((item, index) => (
             <li key={index} className="navbar-item">
-              <a href={item.link}>{item.label}</a>
+              <Link to={item.link ?? "/"}>{item.label}</Link>
             </li>
           ))}
         </ul>

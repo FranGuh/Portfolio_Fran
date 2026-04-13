@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: var(--font-size-xl);
   cursor: pointer;
   line-height: 1;
   transition: color 0.3s ease;
@@ -29,8 +29,8 @@
 
 /* Arrow default */
 .logo-arrow {
-  margin-left: 0.5rem;
-  font-size: 1rem;
+  margin-left: var(--space-2);
+  font-size: var(--font-size-base);
   transition: transform 0.3s ease, color 0.3s ease;
   display: inline-block;
   transform: rotate(0deg);

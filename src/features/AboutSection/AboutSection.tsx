@@ -1,4 +1,4 @@
-import LinkButtom from '../LinkButton/LinkButton';
+import LinkButtom from '../../components/UI/LinkButton/LinkButton';
 import './AboutSection.css'
 import { useEffect, useRef } from 'react';
 

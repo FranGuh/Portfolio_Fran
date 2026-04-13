@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { cvData } from '../../data/cvData';
 
-import AboutSection from '../../components/UI/AboutSection/AboutSection';
-import DetailSection from '../../components/UI/DetailSection/DetailSection';
-import HomeSection from '../../components/UI/HomeSection/HomeSection';
+import AboutSection from '../../features/AboutSection/AboutSection';
+import DetailSection from '../../features/DetailSection/DetailSection';
+import HomeSection from '../../features/HomeSection/HomeSection';
 import { VercelIcon, ReactIcon, TsIcon, AWSIcon, AWSRDSIcon } from '../../components/UI/Icons/SvgIcons';
 import './Portfolio.css';
 

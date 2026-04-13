@@ -2,12 +2,12 @@
     display: flex;
     gap: 20px;
     text-align: center;
-    padding: 1rem;
+    padding: var(--space-3);
     box-sizing: border-box;
     justify-content: center;
 }
 
 .Home__title {
     text-align: left;
-    padding: 0.8rem;
+    padding: var(--space-6);
 }

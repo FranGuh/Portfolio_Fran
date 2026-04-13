@@ -1,7 +1,7 @@
 import "./HomeSection.css";
 import logo from "/Franguh.svg";
-import "../../../styles/bg.css";
-import ParticleField from "../ParticleField/ParticleField";
+import "../../styles/bg.css";
+import ParticleField from "../../components/UI/ParticleField/ParticleField";
 
 const HomeSection = ({text1="MI",text2="PORTFOLIO"}) => {
   return (

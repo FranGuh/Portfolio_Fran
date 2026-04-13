@@ -30,7 +30,9 @@ const AppRouter = () => (
                 </Route>
 
                 {/* Ruta para 404 o rutas que no requieran el MainLayout (ej. Login) */}
-                <Route path="*" element={<Page404 />} />
+                <Route element={<MainLayout/>}>
+                    <Route path="*"  element={<Page404></Page404>}/>
+                </Route>
             </Routes>
         </Suspense>
     </BrowserRouter>

@@ -1,0 +1,56 @@
+:root {
+  /* Colores */
+  --color-bg: #ffffff;
+  --color-surface: #f5f5f7;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-text-light: #ffffff;
+  --color-primary: #ff8903;
+  --color-primary-hover: #e67a00;
+  --color-accent: #ff9900;
+  --color-danger: #ff4d4d;
+  --color-brand-green: #13da2e;
+
+  /* Superficies oscuras */
+  --color-dark-bg: #0a0a0a;
+  --color-dark-surface: #121212;
+  --color-dark-card: #1c1c1c;
+  --color-dark-border: #333;
+
+  /* Tipografía */
+  --font-display: 'Anton', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: monospace;
+
+  --font-size-xs: 0.8rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-2lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+
+  /* Spacing */
+  --space-0: 0rem;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-9: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 500ms ease;
+
+  /* Z-index */
+  --z-navbar: 100;
+  --z-megamenu: 150;
+  --z-loader: 200;
+  --z-progress: 90;
+}

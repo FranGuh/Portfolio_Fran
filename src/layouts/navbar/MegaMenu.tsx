@@ -1,6 +1,7 @@
 import { NAV_ITEMS } from "./navbar.config";
 import "./MegaMenu.css";
 import { NavbarLogo } from "../../components/UI/Navbar/NavbarLogo";
+import { Link } from "react-router-dom";
 
 export const MegaMenu = ({
   onClose,
@@ -23,7 +24,8 @@ export const MegaMenu = ({
               <h4>{section.label.toUpperCase()}</h4>
               <div className="menu-links">
                 {section.children?.map((item, i) => (
-                  <a href={item.link} key={i}>{item.label}</a>
+                  //<a href={item.link} key={i}>{item.label}</a>
+                  <Link to={item.link ?? "/"} key={i}>{item.label}</Link>
                 ))}
               </div>
             </div>

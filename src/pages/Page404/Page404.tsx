@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import Button from "../../components/UI/Button/Button";
 import "./Page404.css";
-import HomeSection from "../../components/UI/HomeSection/HomeSection";
+import HomeSection from "../../features/HomeSection/HomeSection";
 
 const Page404 = () => {
   const location = useLocation();

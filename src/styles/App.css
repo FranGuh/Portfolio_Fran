@@ -1,4 +1,6 @@
 @import './colors.css';
+@import './design-tokens.css';
+
 #root {
   max-width: 100dvw;
   margin: 0 auto;
@@ -41,12 +43,12 @@ span::selection,
 }
 
 h1, h2, h3, h4 .title {
-  font-family: 'Anton', sans-serif;
+  font-family: var(--font-display);
   font-weight: 400;
 }
 
 body, p, span, .text {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   margin: 0;
   padding: 0;
   box-sizing: content-box;
@@ -56,5 +58,5 @@ body, p, span, .text {
 /* ===== Firefox ===== */
 * {
   scrollbar-width: auto; /* auto, thin, or none */
-  scrollbar-color: #ff8903 #000000; /* thumb color, track color */
+  scrollbar-color: var(--color-primary) #000000; /* thumb color, track color */
 }
