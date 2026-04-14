@@ -11,7 +11,7 @@ export const MegaMenu = ({
   isOpen: boolean;
 }) => {
   return (
-    <div className="mega-menu-overlay">
+    <div className={`mega-menu-overlay ${isOpen ? "open" : ""}`}>
       <div className="mega-menu-header">
         <NavbarLogo isOpen={isOpen} toggleMenu={onClose} dark={true} />
         <button className="close-btn" onClick={onClose}>✕</button>

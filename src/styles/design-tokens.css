@@ -10,6 +10,12 @@
   --color-accent: #ff9900;
   --color-danger: #ff4d4d;
   --color-brand-green: #13da2e;
+  --color-brand-blue: #0CFADA;
+  --color-brand-blue-2: #0081A7;
+  --color-brand-brown: #8B5E3C;
+  --color-brand-brown-2: #BA5F38;
+  --color-brand-orange: #FA540C;
+  --color-brand-orange-2: #FF8903;
 
   /* Superficies oscuras */
   --color-dark-bg: #0a0a0a;
@@ -45,8 +51,8 @@
 
   /* Transitions */
   --transition-fast: 150ms ease;
-  --transition-base: 250ms ease;
-  --transition-slow: 500ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
 
   /* Z-index */
   --z-navbar: 100;
