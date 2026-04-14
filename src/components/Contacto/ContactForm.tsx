@@ -7,7 +7,6 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error' | 'invalid'>('idle');
 
-  // Prevención de inyección de código: bloquea etiquetas o caracteres maliciosos
   const validateInput = (value: string) => {
     const xssPattern = /[<>{}]/;
     return !xssPattern.test(value);
@@ -16,7 +15,6 @@ export default function ContactForm() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     
-    // Filtro de resiliencia: límite de 500 caracteres (prevención de overflow por bots)
     if (name === 'message' && value.length > 500) return;
     if (name === 'name' && value.length > 50) return;
     
@@ -37,18 +35,18 @@ export default function ContactForm() {
 
     setStatus('sending');
 
-    /* NOTA DE CONEXIÓN: Reemplaza estos placeholders según correo.md */
     emailjs.send(
-      'SERVICE_ID_PLACEHOLDER',
-      'TEMPLATE_ID_PLACEHOLDER',
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
       {
         from_name: formData.name,
         reply_to: formData.email,
         message: formData.message,
-        to_email: 'gitrafuh@gmail.com'
+        to_email: import.meta.env.VITE_CONTACT_EMAIL
       },
-      'PUBLIC_KEY_PLACEHOLDER'
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
     )
+    
     .then(() => {
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
@@ -56,9 +54,10 @@ export default function ContactForm() {
     .catch((error) => {
       console.error('Error al enviar correo:', error);
       setStatus('error');
-      // Set to idle after a few seconds so they can retry
       setTimeout(() => setStatus('idle'), 5000);
     });
+
+    console.log("Service ID actual:", import.meta.env.VITE_EMAILJS_SERVICE_ID);
   };
 
   return (
