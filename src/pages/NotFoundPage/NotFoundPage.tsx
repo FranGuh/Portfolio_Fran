@@ -1,15 +1,18 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Button from "../../components/UI/Button/Button";
-import "./Page404.css";
+import "./NotFoundPage.css";
 import HomeSection from "../../features/HomeSection/HomeSection";
+import { SEOHead } from "../../components/SEOHead";
 
-const Page404 = () => {
+const NotFoundPage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const pathname = location.pathname;
 
   return (
     <div className="Page404">
+      <SEOHead title="404 No Encontrado" description="Esta página no existe o ha sido movida." />
       <HomeSection text1="😕 ¡Ups!" text2="Esta página no existe" />
 
       <div className="Page404__content">
@@ -17,15 +20,14 @@ const Page404 = () => {
           La URL <code>{pathname}</code> no corresponde a ningún recurso válido.
         </p>
         <p>
-          Es posible que escribiste mal la dirección o que la página fue
-          eliminada.
+          Es posible que escribiste mal la dirección o que la página fue eliminada.
         </p>
 
         <div className="Page404__buttons">
-          <Button variant="primary" onClick={() => window.location.href = '/'}>
+          <Button variant="primary" onClick={() => navigate('/')}>
             Volver al Inicio
           </Button>
-          <Button variant="secondary" onClick={() => window.location.href = '/about'}>
+          <Button variant="secondary" onClick={() => navigate('/about')}>
             Ir a Sobre Mí
           </Button>
         </div>
@@ -34,4 +36,4 @@ const Page404 = () => {
   );
 };
 
-export default Page404;
+export default NotFoundPage;

@@ -1,23 +1,17 @@
 @import './colors.css';
 @import './design-tokens.css';
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 #root {
+  width: 100%;
   max-width: 100dvw;
   margin: 0 auto;
   padding: 0;
-  box-sizing: content-box;
   color: var(--color-text);
   background-color: var(--color-bg);
-  /* text-decoration: underline;
-  text-decoration-color: #ff5733; 
-  text-decoration-thickness: 3px; 
-  text-underline-offset: 4px;  */
-  
-}
-
-#root::selection{
-  background-color: var(--color-bg-primary);
-  color: var(--color-text-secondary);
 }
 
 ::selection {
@@ -25,38 +19,32 @@
   color: var(--color-text-secondary);
 }
 
-::selection {
-  background-color: rgba(255, 153, 0, 0.99);
-  color: var(--color-text-secondary);
-}
-
-body::selection,
-p::selection,
-h1::selection,
-h2::selection,
-h3::selection,
-h4::selection,
-span::selection,
-.text::selection {
-  background-color: var(--color-bg-primary);
-  color: var(--color-text-secondary);
-}
-
-h1, h2, h3, h4 .title {
-  font-family: var(--font-display);
-  font-weight: 400;
+h1, h2, h3, h4, .title {
+  font-family: var(--font-display, inherit);
+  font-weight: 600;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 body, p, span, .text {
-  font-family: var(--font-body);
+  font-family: var(--font-body, inherit);
   margin: 0;
   padding: 0;
-  box-sizing: content-box;
 }
 
-
-/* ===== Firefox ===== */
+/* ===== Scrollbar Modernizado ===== */
 * {
-  scrollbar-width: auto; /* auto, thin, or none */
-  scrollbar-color: var(--color-primary) #000000; /* thumb color, track color */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary, #ff9900) #0d0d0d;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary, #ff9900);
+  border-radius: 10px;
 }

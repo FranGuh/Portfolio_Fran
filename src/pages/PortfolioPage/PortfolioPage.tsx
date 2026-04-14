@@ -5,7 +5,9 @@ import AboutSection from '../../features/AboutSection/AboutSection';
 import DetailSection from '../../features/DetailSection/DetailSection';
 import HomeSection from '../../features/HomeSection/HomeSection';
 import { VercelIcon, ReactIcon, TsIcon, AWSIcon, AWSRDSIcon } from '../../components/UI/Icons/SvgIcons';
-import './Portfolio.css';
+import ContactForm from '../../components/Contacto/ContactForm';
+import { SEOHead } from '../../components/SEOHead';
+import './PortfolioPage.css';
 
 export default function PortfolioPage() {
     const [scrollProgress, setScrollProgress] = useState(0);
@@ -36,6 +38,10 @@ export default function PortfolioPage() {
 
     return (
         <div className="PortfolioPage" id="PortofioPage">
+            <SEOHead 
+                title="Portafolio de Proyectos" 
+                description="Explora mis proyectos recientes, arquitecturas en la nube y mi experiencia técnica trabajando con stacks modernos." 
+            />
             <HomeSection
                 text1="Mi"
                 text2="Portafolio"
@@ -94,6 +100,12 @@ export default function PortfolioPage() {
                 </div>
             </DetailSection>
 
+            <section className="PortfolioPage__skills-grid">
+                <div className="skills-container-alternative">
+                    <h3 className="">Me gusta desarrollar <span>mis ideas</span> y compartir <span>mis aprendizajes</span></h3>
+                </div>
+            </section>
+
             {/* 6. Experiencia Laboral */}
             <DetailSection
                 layout="left"
@@ -117,6 +129,10 @@ export default function PortfolioPage() {
                     ))}
                 </div>
             </section>
+
+            
+
+            <ContactForm />
         </div>
     );
 }

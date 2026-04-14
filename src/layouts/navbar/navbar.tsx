@@ -42,7 +42,7 @@ export function Navbar() {
         </ul>
       </nav>
 
-      {isMegaOpen && <MegaMenu onClose={toggleMega} isOpen={isMegaOpen} />}
+      <MegaMenu onClose={toggleMega} isOpen={isMegaOpen} />
     </>
   );
 }

@@ -1,0 +1,48 @@
+.Home__proyects {
+    display: flex;
+    gap: 20px;
+    text-align: center;
+    padding: var(--space-4);
+    box-sizing: border-box;
+    justify-content: center;
+    background-color: var(--color-dark-card);
+
+}
+
+.Home__about-section {
+    margin-top: var(--space-0);
+}
+
+.Home__title {
+    text-align: left;
+    padding: var(--space-4);
+    color: var(--color-text-light);
+}
+
+.Home__floating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    text-align: center;
+    background-color: var(--color-dark-card);
+}
+
+.Home__floating-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: var(--space-6);
+}
+
+.Home__motto {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+    max-width: 600px;
+    padding: var(--space-4);
+}
