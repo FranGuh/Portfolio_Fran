@@ -56,8 +56,6 @@ export default function ContactForm() {
       setStatus('error');
       setTimeout(() => setStatus('idle'), 5000);
     });
-
-    console.log("Service ID actual:", import.meta.env.VITE_EMAILJS_SERVICE_ID);
   };
 
   return (
