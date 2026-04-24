@@ -13,28 +13,21 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  animation: designerAppear 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
   box-sizing: border-box;
   overflow: hidden;
   transform-origin: top center;
+
+  /* Animated properties */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-80px) scale(0.96) rotateX(180deg);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-
-@keyframes designerAppear {
-  0% {
-    opacity: 0;
-    transform: translateY(-80px) scale(0.96) rotateX(180deg);
-  }
-
-  50% {
-    opacity: 0.5;
-    transform: translateY(-5px) scale(1.05) rotateX(90deg);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1) rotateX(0deg);
-  }
+.mega-menu-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1) rotateX(0deg);
 }
 
 

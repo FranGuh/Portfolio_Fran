@@ -1,13 +1,18 @@
 import HomeSection from "../../features/HomeSection/HomeSection";
-import "./About.css";
+import "./AboutPage.css";
 import AboutSection from "../../features/AboutSection/AboutSection";
 import Button from "../../components/UI/Button/Button";
 import { useNavigate } from "react-router-dom";
+import { SEOHead } from "../../components/SEOHead";
 
-const About = () => {
+const AboutPage = () => {
   const navigate = useNavigate();
   return (
     <>
+      <SEOHead 
+        title="Sobre Mí" 
+        description="Conoce mi historia como Desarrollador Full Stack, mi filosofía de diseño y mi enfoque técnico resolviendo problemas complejos." 
+      />
       {/* Siempre me he cuestionado si realmente tengo la capacidad de hacer algo importante,
       supongo que sí, pero a la hora de desarrollar una idea en mi cabeza soy incapaz de dejarla vivir ahi, me gusta profundizar sobre ella aun sabiendo
       que fracasaré pero almenos se que aprenderé de ello, últimamente cuestiono mis conocimientos día a día, aunque me cueste demasiado entenderlo." */}
@@ -24,8 +29,8 @@ const About = () => {
         alt="Dibujo hecho por mí en Adobe Photoshop"
       />
       <div className="About__floating">
-        <Button className="button--floating" onClick={() => navigate("/detail")}>
-          Ver detalles
+        <Button className="button--floating" onClick={() => navigate("/portfolio")}>
+          Ver Portafolio
         </Button>
       </div>
       <div className="bg-pan-right">
@@ -35,4 +40,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutPage;

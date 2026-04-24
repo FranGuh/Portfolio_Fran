@@ -35,7 +35,7 @@
   font-family: system-ui, -apple-system, sans-serif;
 }
 
-.skills-container {
+.skills-container , .skills-container-alternative {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
@@ -130,4 +130,23 @@
   color: #000;
   border-color: #ff9800;
   font-weight: 600;
+}
+
+.PortfolioPage__skills-grid .skills-container-alternative h3 {
+  color: var(--color-text-light);
+  font-size: var(--font-size-3xl);
+  padding: var(--space-3);
+  display: inline-block;
+  text-align: center;
+}
+
+.PortfolioPage__skills-grid h3 span {
+  color: var(--color-brand-brown);
+}
+
+.PortfolioPage__skills-grid p {
+  color: var();
+  font-size: var(--font-size-lg);
+  padding: var(--space-3);
+  display: inline-block;
 }
