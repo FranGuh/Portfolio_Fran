@@ -8,3 +8,11 @@
     bottom: 20px;
     right: 20px;
 }
+.AboutPage__intro .PageHeader {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+}
+
+.AboutPage__intro .PageHeader__content {
+  margin-left: 0;
+}

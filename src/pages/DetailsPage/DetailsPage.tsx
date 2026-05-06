@@ -3,23 +3,28 @@ import { cvData } from '../../data/cvData'
 import Button from '../../components/UI/Button/Button'
 import DetailSection from '../../features/DetailSection/DetailSection'
 import FeatureSelector from '../../features/FeatureSelector/FeatureSelector'
-import HomeSection from '../../features/HomeSection/HomeSection'
+import PageHeader from '../../components/UI/PageHeader/PageHeader'
 import { SEOHead } from '../../components/SEOHead'
+import { generateSlug } from '../../utils/slug'
 import './DetailsPage.css'
 
-export const generateSlug = (str: string) => str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+type DetailTarget =
+  | { type: 'project'; data: NonNullable<(typeof cvData.projects)[number]> }
+  | { type: 'experience'; data: NonNullable<(typeof cvData.experience)[number]> };
 
 const DetailsPage = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   
-  // Buscar en proyectos y luego en experiencia
   const project = cvData.projects.find(p => generateSlug(p.title) === slug);
   const experience = !project ? cvData.experience.find(e => generateSlug(e.role) === slug) : null;
-  
-  const targetData = (project || experience) as any; // Hack: Type union resolving
+  const target: DetailTarget | null = project
+    ? { type: 'project', data: project }
+    : experience
+      ? { type: 'experience', data: experience }
+      : null;
 
-  if (!targetData) {
+  if (!target) {
     return (
       <div className='Details Details__not-found'>
         <SEOHead title="No encontrado" description="El recurso especificado no ha sido encontrado." />
@@ -30,23 +35,26 @@ const DetailsPage = () => {
     );
   }
 
-  const isExperience = 'company' in targetData;
+  const { data: targetData, type } = target;
+  const isExperience = type === 'experience';
+  const pageTitle = isExperience ? `${targetData.role} en ${targetData.company}` : targetData.title;
 
   return (
     <div className='Details'>
       <SEOHead 
-        title={targetData.title || `${targetData.role} en ${targetData.company}`} 
+        title={pageTitle} 
         description={targetData.description} 
         image={targetData.image}
       />
-      <HomeSection 
-        text1={isExperience ? 'Experiencia' : 'Proyecto'}
-        text2='Detalles'
+      <PageHeader 
+        eyebrow={isExperience ? 'Experiencia' : 'Proyecto'}
+        title={pageTitle}
+        description={targetData.description}
       />
       <DetailSection
         backgroundImg={targetData.image}
-        backgroundAlt={targetData.title || targetData.role}
-        title={targetData.title || `${targetData.role} en ${targetData.company}`}
+        backgroundAlt={pageTitle}
+        title={pageTitle}
         description={targetData.description}
         items={[targetData]} 
         layout="right"

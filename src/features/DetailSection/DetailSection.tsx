@@ -20,14 +20,22 @@ interface DetailSectionProps {
   icons?: IconComponent[];
   backgroundImg?: string;
   backgroundAlt?: string;
-  layout?: "left" | "right";
+  layout?: "left" | "right" | "center";
   children?: React.ReactNode;
 }
 
-const DetailSection = ({ title, description, items, icons, children }: DetailSectionProps) => {
+const DetailSection = ({ title, description, items, icons, backgroundImg, backgroundAlt, layout = "right", children }: DetailSectionProps) => {
   return (
-    <section className="ProjectsSection">
+    <section className={`ProjectsSection ProjectsSection--${layout}`}>
       <div className="ProjectsSection__header">
+        {backgroundImg && (
+          <img
+            src={backgroundImg}
+            alt={backgroundAlt || title}
+            className="ProjectsSection__header-img"
+            loading="lazy"
+          />
+        )}
         <div className="ProjectsSection__header-text">
           <h2>{title}</h2>
           <p>{description}</p>

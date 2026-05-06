@@ -1,8 +1,8 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import Button from "../../components/UI/Button/Button";
 import "./NotFoundPage.css";
-import HomeSection from "../../features/HomeSection/HomeSection";
 import { SEOHead } from "../../components/SEOHead";
+import PageHeader from "../../components/UI/PageHeader/PageHeader";
 
 const NotFoundPage = () => {
   const location = useLocation();
@@ -13,7 +13,11 @@ const NotFoundPage = () => {
   return (
     <div className="Page404">
       <SEOHead title="404 No Encontrado" description="Esta página no existe o ha sido movida." />
-      <HomeSection text1="😕 ¡Ups!" text2="Esta página no existe" />
+      <PageHeader
+        eyebrow="404"
+        title="Esta pagina no existe"
+        description="La ruta solicitada no corresponde a ningun recurso disponible en el portfolio."
+      />
 
       <div className="Page404__content">
         <p>

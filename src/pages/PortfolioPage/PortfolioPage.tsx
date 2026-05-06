@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { cvData } from '../../data/cvData';
 
 import AboutSection from '../../features/AboutSection/AboutSection';
@@ -7,23 +7,37 @@ import HomeSection from '../../features/HomeSection/HomeSection';
 import { VercelIcon, ReactIcon, TsIcon, AWSIcon, AWSRDSIcon } from '../../components/UI/Icons/SvgIcons';
 import ContactForm from '../../components/Contacto/ContactForm';
 import { SEOHead } from '../../components/SEOHead';
+import PageHeader from '../../components/UI/PageHeader/PageHeader';
 import './PortfolioPage.css';
 
 export default function PortfolioPage() {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [selectedTech, setSelectedTech] = useState<string | null>(null);
+    const scrollFrameRef = useRef<number | null>(null);
 
-    // Lógica de Barra de Progreso
     useEffect(() => {
-        const handleScroll = () => {
+        const updateProgress = () => {
             const totalScroll = document.documentElement.scrollTop;
             const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scroll = `${(totalScroll / windowHeight) * 100}`;
-            setScrollProgress(Number(scroll));
+            const progress = windowHeight > 0 ? (totalScroll / windowHeight) * 100 : 0;
+            setScrollProgress(progress);
+            scrollFrameRef.current = null;
+        };
+
+        const handleScroll = () => {
+            if (scrollFrameRef.current !== null) return;
+            scrollFrameRef.current = requestAnimationFrame(updateProgress);
         };
 
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        updateProgress();
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            if (scrollFrameRef.current !== null) {
+                cancelAnimationFrame(scrollFrameRef.current);
+            }
+        };
     }, []);
 
     // Extraer tecnologías únicas para el filtro
@@ -46,6 +60,13 @@ export default function PortfolioPage() {
                 text1="Mi"
                 text2="Portafolio"
             />
+            <div className="PortfolioPage__intro-section">
+                <PageHeader
+                    eyebrow="Portafolio"
+                    title="Proyectos, experiencia y stack real"
+                    description="Una vista directa de lo que he construido, las tecnologias que uso y el tipo de problemas que puedo resolver."
+                />
+            </div>
 
             {/* 1. UX Reclutador: Barra de progreso global */}
             <div className="PortfolioPage__progress-container">
@@ -108,7 +129,7 @@ export default function PortfolioPage() {
 
             {/* 6. Experiencia Laboral */}
             <DetailSection
-                layout="left"
+                layout="center"
                 title="Experiencia Profesional"
                 description="Implementación de infraestructura, desarrollo web y continuidad operativa en entornos reales."
                 icons={[ReactIcon, AWSRDSIcon, AWSIcon]}

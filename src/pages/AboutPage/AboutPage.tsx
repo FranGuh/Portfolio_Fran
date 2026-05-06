@@ -1,9 +1,10 @@
-import HomeSection from "../../features/HomeSection/HomeSection";
 import "./AboutPage.css";
 import AboutSection from "../../features/AboutSection/AboutSection";
+import HomeSection from "../../features/HomeSection/HomeSection";
 import Button from "../../components/UI/Button/Button";
 import { useNavigate } from "react-router-dom";
 import { SEOHead } from "../../components/SEOHead";
+import PageHeader from "../../components/UI/PageHeader/PageHeader";
 
 const AboutPage = () => {
   const navigate = useNavigate();
@@ -17,6 +18,13 @@ const AboutPage = () => {
       supongo que sí, pero a la hora de desarrollar una idea en mi cabeza soy incapaz de dejarla vivir ahi, me gusta profundizar sobre ella aun sabiendo
       que fracasaré pero almenos se que aprenderé de ello, últimamente cuestiono mis conocimientos día a día, aunque me cueste demasiado entenderlo." */}
       <HomeSection text1="Soy" text2="Francisco" />
+      <div className="AboutPage__intro">
+        <PageHeader
+          eyebrow="Sobre mi"
+          title="Francisco Salgado"
+          description="Desarrollador full stack con enfoque en interfaces claras, arquitectura mantenible y aprendizaje constante."
+        />
+      </div>
       <AboutSection
         title="Desarrollador"
         titleHead="Creativo"

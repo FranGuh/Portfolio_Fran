@@ -1,0 +1,41 @@
+.PageHeader {
+  width: 100%;
+  padding: calc(var(--space-16) + var(--space-8)) var(--space-8) var(--space-12);
+  background:
+    radial-gradient(circle at top left, rgba(255, 152, 0, 0.18), transparent 32rem),
+    var(--color-bg-secondary);
+  color: var(--color-text-light);
+  border-bottom: 1px solid var(--color-dark-border);
+}
+
+.PageHeader__content {
+  margin: 0 auto;
+}
+
+.PageHeader__eyebrow {
+  margin-bottom: var(--space-3);
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.PageHeader__title {
+  color: var(--color-text-light);
+  font-size: clamp(2.25rem, 7vw, 5rem);
+  line-height: 0.95;
+}
+
+.PageHeader__description {
+  margin-top: var(--space-4);
+  color: #d6d6d6;
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .PageHeader {
+    padding: calc(var(--space-12) + var(--space-8)) var(--space-4) var(--space-8);
+  }
+}

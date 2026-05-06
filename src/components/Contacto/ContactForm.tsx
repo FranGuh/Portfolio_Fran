@@ -6,6 +6,12 @@ import Button from '../UI/Button/Button';
 export default function ContactForm() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error' | 'invalid'>('idle');
+  const isEmailConfigured = Boolean(
+    import.meta.env.VITE_EMAILJS_SERVICE_ID &&
+    import.meta.env.VITE_EMAILJS_TEMPLATE_ID &&
+    import.meta.env.VITE_EMAILJS_PUBLIC_KEY &&
+    import.meta.env.VITE_CONTACT_EMAIL
+  );
 
   const validateInput = (value: string) => {
     const xssPattern = /[<>{}]/;
@@ -26,6 +32,11 @@ export default function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isEmailConfigured) {
+      setStatus('error');
+      return;
+    }
+
     if (!formData.name || !formData.email || !formData.message) return;
     
     if (!validateInput(formData.name) || !validateInput(formData.message)) {
@@ -52,7 +63,9 @@ export default function ContactForm() {
       setFormData({ name: '', email: '', message: '' });
     })
     .catch((error) => {
-      console.error('Error al enviar correo:', error);
+      if (import.meta.env.DEV) {
+        console.error('Error al enviar correo:', error);
+      }
       setStatus('error');
       setTimeout(() => setStatus('idle'), 5000);
     });
@@ -106,12 +119,15 @@ export default function ContactForm() {
           </div>
         </div>
 
-        {status === 'invalid' && <p className="ContactForm__feedback error">Caracteres inválidos detectados. Solo utiliza texto estándar.</p>}
-        {status === 'error' && <p className="ContactForm__feedback error">Ocurrió un error al enviar. El servicio requiere ser enlazado.</p>}
-        {status === 'success' && <p className="ContactForm__feedback success">¡Mensaje enviado con éxito!</p>}
+        <div aria-live="polite">
+          {!isEmailConfigured && <p className="ContactForm__feedback error">El formulario no está configurado todavía. Usa LinkedIn o GitHub para contactarme.</p>}
+          {status === 'invalid' && <p className="ContactForm__feedback error">Caracteres inválidos detectados. Solo utiliza texto estándar.</p>}
+          {status === 'error' && isEmailConfigured && <p className="ContactForm__feedback error">Ocurrió un error al enviar. Intenta de nuevo más tarde.</p>}
+          {status === 'success' && <p className="ContactForm__feedback success">¡Mensaje enviado con éxito!</p>}
+        </div>
         
         <div style={{ alignSelf: 'center', marginTop: "var(--space-2)" }}>
-          <Button type="submit" disabled={status === 'sending'} isLoading={status === 'sending'}>
+          <Button type="submit" disabled={status === 'sending' || !isEmailConfigured} isLoading={status === 'sending'}>
             {status === 'sending' ? 'Enviando...' : 'Enviar mensaje'}
           </Button>
         </div>

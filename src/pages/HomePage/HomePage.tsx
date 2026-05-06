@@ -8,7 +8,7 @@ import AboutSection from "../../features/AboutSection/AboutSection";
 import Button from "../../components/UI/Button/Button";
 import { useNavigate } from "react-router-dom";
 import { useImagePreloader } from "../../hooks/useImagePreloader";
-import { generateSlug } from "../DetailsPage/DetailsPage";
+import { generateSlug } from "../../utils/slug";
 import { SEOHead } from "../../components/SEOHead";
 
 const imagesToLoad = [
