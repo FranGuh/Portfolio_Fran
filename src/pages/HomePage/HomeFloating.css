@@ -40,23 +40,29 @@
   width: 100%;
   padding: var(--space-12) var(--space-8);
   box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.02); /* Glass translucency */
+  background: rgba(255, 255, 255, 0.02);
+  /* Glass translucency */
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.05); /* Thin flat border for glass structure */
-  border-top: 3px solid rgba(255, 137, 3, 0.15); /* Top orange accent from PhilosophySection */
-  border-radius: 0; /* Strict 90° flat edges */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  /* Thin flat border for glass structure */
+  border-top: 3px solid rgba(255, 137, 3, 0.15);
+  /* Top orange accent from PhilosophySection */
+  border-radius: 0;
+  /* Strict 90° flat edges */
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-  transition: transform var(--transition-base), 
-              border-color var(--transition-base), 
-              border-top-color var(--transition-base), 
-              box-shadow var(--transition-base);
+  transition: transform var(--transition-base),
+    border-color var(--transition-base),
+    border-top-color var(--transition-base),
+    box-shadow var(--transition-base);
 }
 
 .Home__floating-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.15); /* Lighten glass border on hover */
-  border-top-color: var(--color-brand-orange-2); /* Orange accent hover from PhilosophySection */
+  border-color: rgba(255, 255, 255, 0.15);
+  /* Lighten glass border on hover */
+  border-top-color: var(--color-brand-orange-2);
+  /* Orange accent hover from PhilosophySection */
   box-shadow: 0 12px 30px rgba(255, 137, 3, 0.12), 0 25px 50px rgba(0, 0, 0, 0.7);
 }
 

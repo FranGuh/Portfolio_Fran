@@ -9,6 +9,7 @@ import ContactForm from '../../components/Contacto/ContactForm';
 import { SEOHead } from '../../components/SEOHead';
 import PageHeader from '../../components/UI/PageHeader/PageHeader';
 import './PortfolioPage.css';
+import '../../styles/GlassUpgrades.css';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 export default function PortfolioPage() {

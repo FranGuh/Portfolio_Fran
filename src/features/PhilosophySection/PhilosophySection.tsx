@@ -1,5 +1,6 @@
 import React from "react";
 import "./PhilosophySection.css";
+import "../../styles/GlassUpgrades.css";
 import { useLanguage } from "../../contexts/LanguageContext";
 
 interface PhilosophySectionProps {
