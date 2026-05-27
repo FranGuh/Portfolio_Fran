@@ -73,8 +73,8 @@ export default function ContactForm() {
 
   return (
     <section className="ContactForm__container">
-      <h2 className="title" style={{ fontSize: "var(--font-size-2xl)", marginBottom: "var(--space-2)" }}>Contáctame</h2>
-      <p className="ContactForm__subtitle">¿Tienes un proyecto en mente? Envíame un mensaje.</p>
+      <h2 className="title ContactForm__title">Hablemos de tu próximo proyecto</h2>
+      <p className="ContactForm__subtitle">Si buscás a alguien que entienda tu problema y lo resuelva, escribime.</p>
       
       <form onSubmit={handleSubmit} className="ContactForm__form">
         <div className="ContactForm__input-group">

@@ -70,8 +70,8 @@ const HomePage = () => {
       </div>
 
       <div className="Home__floating">
-        <h2 className="Home__title" style={{ fontSize: "var(--font-size-2xl)", marginBottom: "var(--space-2)" }}>Listo para empezar un proyecto</h2>
-        <p className="Home__motto" style={{ marginBottom: "var(--space-6)" }}>Conoce más sobre mis proyectos.</p>
+        <h2 className="Home__title Home__title--floating">Cada línea de código que escribo resuelve un problema real</h2>
+        <p className="Home__motto" style={{ marginBottom: "var(--space-6)" }}>Mirá lo que construí. Si te sirve, trabajemos juntos.</p>
         <Button className="" onClick={() => navigate("/portfolio")}>
           Explorar Portfolio
         </Button>

@@ -203,5 +203,40 @@ export const cvData: CVData = {
       ],
       image: "/pictures/ImgProyects/Sloppy/SloppyDraw.webp",
     },
+    {
+      title: "VoiceAI",
+      period: "Mayo 2025 - Actualidad",
+      description: "Sistema de co-host de voz con IA para streamers. Ingiere chats de Twitch/YouTube en tiempo real, genera respuestas por voz mediante Whisper + LLM, y gestiona una agenda editorial con Cue Cards importadas como Markdown desde un LLM externo de confianza. Local-first y determinístico.",
+      techStack: ["Python", "Whisper", "SQLite", "Twitch API", "YouTube API", "Miniconda"],
+      image: "/pictures/Aqua.webp"
+    },
+    {
+      title: "LiveAudio",
+      period: "Mayo 2025 - Actualidad",
+      description: "Sistema de subtitulado automático en tiempo real para streamers. Ofrece detección de voz continua con Silero VAD + pre-buffer para no perder la primera palabra, transcripción Whisper local con prompt de contexto configurable, 7 temas visuales integrables en OBS y empaquetado portable con Nuitka.",
+      techStack: ["Python", "Whisper", "Silero VAD", "OBS", "CustomTkinter", "Nuitka"],
+      image: "/pictures/Aqua.webp"
+    },
+    {
+      title: "VoiceAI Kira",
+      period: "Mayo 2026 - Actualidad",
+      description: "Sitio web público de marketing y documentación bilingüe (EN/ES) para el asistente VoiceAI Kira. Explica el producto a streamers sin tecnicismos, con demos configurables para OBS, matriz de compatibilidad de hardware y guías de onboarding.",
+      techStack: ["React", "TypeScript", "Vite", "CSS3"],
+      image: "/pictures/Aqua.webp"
+    },
+    {
+      title: "RememberCompanion",
+      period: "Mayo 2026 - Actualidad",
+      description: "Aplicación móvil para Android enfocada en el diario de productividad local-first. Registra pensamientos, acciones cotidianas y el nivel de satisfacción diaria bajo un esquema de cifrado de base de datos SQLCipher para garantizar máxima privacidad por actividad.",
+      techStack: ["React Native", "TypeScript", "SQLite", "SQLCipher", "Android"],
+      image: "/pictures/Aqua.webp"
+    },
+    {
+      title: "Chat App — Grok",
+      period: "[COMPLETAR]",
+      description: "Interfaz de chatbot (UI pura) optimizada para dispositivos móviles que consume la API de Grok (xAI) para interacciones conversacionales fluidas.",
+      techStack: ["React", "TypeScript", "CSS3", "Grok API"],
+      image: "/pictures/ImgProyects/Chat/ChatMovil.webp"
+    }
   ],
 };
