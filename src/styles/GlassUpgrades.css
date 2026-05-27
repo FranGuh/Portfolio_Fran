@@ -4,7 +4,7 @@
    PhilosophySection Premium Visual Upgrades
    ========================================================================== */
 .PhilosophySection {
-  background: linear-gradient(135deg, var(--color-bg-secondary) 0%, #151515 100%) !important;
+  background: linear-gradient(135deg, var(--color-bg-secondary) 0%, #05232a 100%) !important;
 }
 
 .PhilosophyCard {
@@ -24,7 +24,7 @@
    PortfolioPage Skills Bento Grid Premium Visual Upgrades
    ========================================================================== */
 .PortfolioPage__skills-grid {
-  background: linear-gradient(135deg, var(--color-dark-bg) 0%, #151515 100%) !important;
+  background: linear-gradient(135deg, var(--color-dark-bg) 0%, #3f2d16 100%) !important;
 }
 
 .skill-category {
@@ -49,5 +49,6 @@
 
 .skill-tag:hover {
   border-color: var(--color-brand-orange-2) !important;
+  background-color: var(--color-brand-orange-2) !important;
   color: var(--color-text-light) !important;
 }
