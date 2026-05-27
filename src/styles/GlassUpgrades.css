@@ -1,0 +1,54 @@
+/* src/styles/GlassUpgrades.css */
+
+/* ==========================================================================
+   PhilosophySection Premium Visual Upgrades
+   ========================================================================== */
+.PhilosophySection {
+  background: linear-gradient(135deg, var(--color-bg-secondary) 0%, #05232a 100%) !important;
+}
+
+.PhilosophyCard {
+  background: rgba(255, 255, 255, 0.02) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-top: 3px solid rgba(255, 137, 3, 0.15) !important;
+}
+
+.PhilosophyCard:hover {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  border-top-color: var(--color-brand-orange-2) !important;
+}
+
+/* ==========================================================================
+   PortfolioPage Skills Bento Grid Premium Visual Upgrades
+   ========================================================================== */
+.PortfolioPage__skills-grid {
+  background: linear-gradient(135deg, var(--color-dark-bg) 0%, #3f2d16 100%) !important;
+}
+
+.skill-category {
+  background: rgba(255, 255, 255, 0.02) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base) !important;
+}
+
+.skill-category:hover {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 10px 25px rgba(255, 137, 3, 0.05), 0 20px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+.skill-tag {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: var(--color-secondary) !important;
+  transition: border-color var(--transition-fast), color var(--transition-fast) !important;
+}
+
+.skill-tag:hover {
+  border-color: var(--color-brand-orange-2) !important;
+  background-color: var(--color-brand-orange-2) !important;
+  color: var(--color-text-light) !important;
+}

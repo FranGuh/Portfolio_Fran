@@ -15,16 +15,11 @@ const AppRouter = () => (
         <ScrollToTop />
         <Suspense fallback={<Loader message="Cargando..." />}>
             <Routes>
-                {/* Definición de Rutas Protegidas/Estructurales bajo MainLayout */}
                 <Route element={<MainLayout />}>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/portfolio/:slug" element={<DetailsPage />} />
                     <Route path="/portfolio" element={<PortfolioPage />} />
-                </Route>
-
-                {/* Ruta para 404 o rutas que no requieran el MainLayout (ej. Login) */}
-                <Route element={<MainLayout/>}>
                     <Route path="*"  element={<NotFoundPage />} />
                 </Route>
             </Routes>

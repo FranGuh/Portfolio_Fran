@@ -1,5 +1,5 @@
 import './ImgContainer.css';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 interface LoaderProps {
   source?: string;
@@ -9,21 +9,29 @@ interface LoaderProps {
 }
 
 const ImgContainer = ({ source, alt, title, href }: LoaderProps) => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    if (href && !href.startsWith('http')) {
-      navigate(href);
-    } else if (href) {
-      window.open(href, '_blank');
-    }
-  };
-
-  return (
-    <article className='ImgContainer' onClick={handleClick} style={{ cursor: href ? 'pointer' : 'default' }}>
+  const content = (
+    <>
       <img src={source} alt={alt} className='ImgContainer__img' loading="lazy" />
       <h3 className='ImgContainer__title'>{title}</h3>
-    </article>
+    </>
+  );
+
+  if (!href) {
+    return <article className='ImgContainer'>{content}</article>;
+  }
+
+  if (href.startsWith('http')) {
+    return (
+      <a className='ImgContainer' href={href} target="_blank" rel="noopener noreferrer" aria-label={`Abrir ${title ?? 'proyecto'} en una pestaña nueva`}>
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link className='ImgContainer' to={href} aria-label={`Ver detalle de ${title ?? 'proyecto'}`}>
+      {content}
+    </Link>
   );
 };
 

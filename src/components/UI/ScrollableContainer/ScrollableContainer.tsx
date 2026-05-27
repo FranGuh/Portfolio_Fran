@@ -7,6 +7,7 @@ interface ScrollableContainerProps {
 
 const ScrollableContainer = ({ children }: ScrollableContainerProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const animationFrameRef = useRef<number | null>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
 
@@ -36,14 +37,15 @@ const ScrollableContainer = ({ children }: ScrollableContainerProps) => {
       element.scrollLeft = start + distance * ease;
 
       if (progress < 1) {
-  requestAnimationFrame(animate);
+  animationFrameRef.current = requestAnimationFrame(animate);
 } else {
+  animationFrameRef.current = null;
   updateScrollButtons();
 }
 
     };
 
-    requestAnimationFrame(animate);
+    animationFrameRef.current = requestAnimationFrame(animate);
   };
 
   useEffect(() => {
@@ -58,6 +60,9 @@ const ScrollableContainer = ({ children }: ScrollableContainerProps) => {
   return () => {
     el.removeEventListener('scroll', updateScrollButtons);
     window.removeEventListener('resize', updateScrollButtons);
+    if (animationFrameRef.current !== null) {
+      cancelAnimationFrame(animationFrameRef.current);
+    }
   };
 }, []);
 
@@ -69,11 +74,11 @@ const ScrollableContainer = ({ children }: ScrollableContainerProps) => {
 
   return (
     <div className="scrollable-wrapper">
-      <button className="scroll-btn left" onClick={() => scroll('left')} disabled={!canScrollLeft}>&lt;</button>
+      <button className="scroll-btn left" onClick={() => scroll('left')} disabled={!canScrollLeft} aria-label="Desplazar proyectos a la izquierda">&lt;</button>
       <div className="scrollable-container" ref={scrollRef}>
         {children}
       </div>
-      <button className="scroll-btn right" onClick={() => scroll('right')} disabled={!canScrollRight}>&gt;</button>
+      <button className="scroll-btn right" onClick={() => scroll('right')} disabled={!canScrollRight} aria-label="Desplazar proyectos a la derecha">&gt;</button>
     </div>
   );
 };

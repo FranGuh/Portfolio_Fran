@@ -24,11 +24,20 @@
   transition: width 0.1s ease-out;
 }
 
+.PortfolioPage__intro-section .PageHeader {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+}
+
+.PortfolioPage__intro-section .PageHeader__content {
+  margin-left: 0;
+}
+
 /* -------------------------------------------
    Cuadrícula de Habilidades (Bento Box)
 ------------------------------------------- */
 .PortfolioPage__skills-grid {
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-dark-bg);
   padding: 4rem 2rem;
   border-top: 1px solid var(--color-bg-secondary);
   border-bottom: 1px solid var(--color-bg-secondary);
@@ -145,7 +154,7 @@
 }
 
 .PortfolioPage__skills-grid p {
-  color: var();
+  color: var(--color-text-light);
   font-size: var(--font-size-lg);
   padding: var(--space-3);
   display: inline-block;

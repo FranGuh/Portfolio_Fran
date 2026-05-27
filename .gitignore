@@ -23,12 +23,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-
-result.md
-.agent/
-correo.md
-Agente.md
-Revision.md
-Prompt.md
-Mejoras.md

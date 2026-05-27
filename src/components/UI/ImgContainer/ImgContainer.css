@@ -11,12 +11,20 @@
     align-self: flex-end;
     z-index: 1;
     box-sizing: border-box;
+    color: inherit;
+    text-decoration: none;
 }
 
-.ImgContainer:hover{
+.ImgContainer:hover,
+.ImgContainer:focus-visible{
     transform: scale(1.1);
     overflow: hidden;
     z-index: 3; 
+}
+
+.ImgContainer:focus-visible{
+    outline: 3px solid var(--color-primary);
+    outline-offset: 4px;
 }
 
 .ImgContainer__img{
@@ -43,10 +51,4 @@
     padding: 10px;
     box-sizing: content-box;
     backdrop-filter: blur(10px);
-}
-
-a:has(.ImgContainer) {
-  display: block;
-  text-decoration: none;
-  color: inherit;
 }

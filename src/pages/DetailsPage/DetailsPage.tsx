@@ -3,51 +3,83 @@ import { cvData } from '../../data/cvData'
 import Button from '../../components/UI/Button/Button'
 import DetailSection from '../../features/DetailSection/DetailSection'
 import FeatureSelector from '../../features/FeatureSelector/FeatureSelector'
-import HomeSection from '../../features/HomeSection/HomeSection'
+import PageHeader from '../../components/UI/PageHeader/PageHeader'
 import { SEOHead } from '../../components/SEOHead'
+import { generateSlug } from '../../utils/slug'
 import './DetailsPage.css'
+import { useLanguage } from '../../contexts/LanguageContext'
+import {
+  getLocalizedProjectDesc,
+  getLocalizedExperienceRole,
+  getLocalizedExperienceDesc
+} from '../../data/projectTranslations'
 
-export const generateSlug = (str: string) => str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+type DetailTarget =
+  | { type: 'project'; data: NonNullable<(typeof cvData.projects)[number]> }
+  | { type: 'experience'; data: NonNullable<(typeof cvData.experience)[number]> };
 
 const DetailsPage = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const { language, t } = useLanguage();
   
-  // Buscar en proyectos y luego en experiencia
   const project = cvData.projects.find(p => generateSlug(p.title) === slug);
   const experience = !project ? cvData.experience.find(e => generateSlug(e.role) === slug) : null;
-  
-  const targetData = (project || experience) as any; // Hack: Type union resolving
+  const target: DetailTarget | null = project
+    ? { type: 'project', data: project }
+    : experience
+      ? { type: 'experience', data: experience }
+      : null;
 
-  if (!targetData) {
+  if (!target) {
     return (
       <div className='Details Details__not-found'>
         <SEOHead title="No encontrado" description="El recurso especificado no ha sido encontrado." />
-        <h2>El proyecto o experiencia no fue encontrado</h2>
+        <h2>{language === "en" ? "Project or experience not found" : "El proyecto o experiencia no fue encontrado"}</h2>
         <br />
-        <Button onClick={() => navigate("/portfolio")}>Volver a Portafolio</Button>
+        <Button onClick={() => navigate("/portfolio")}>
+          {t("portfolio.backToPortfolio")}
+        </Button>
       </div>
     );
   }
 
-  const isExperience = 'company' in targetData;
+  const { data: targetData, type } = target;
+  const isExperience = type === 'experience';
+
+  // Obtener descripciones y roles traducidos de manera dinámica y segura
+  const displayDesc = !isExperience
+    ? getLocalizedProjectDesc(targetData.title || "", language, targetData.description)
+    : getLocalizedExperienceDesc(targetData.company || "", language, targetData.description);
+
+  const displayRole = isExperience
+    ? getLocalizedExperienceRole(targetData.company || "", language, targetData.role || "")
+    : "";
+
+  const pageTitle = isExperience 
+    ? `${displayRole} ${language === "en" ? "at" : "en"} ${targetData.company}` 
+    : targetData.title;
 
   return (
     <div className='Details'>
       <SEOHead 
-        title={targetData.title || `${targetData.role} en ${targetData.company}`} 
-        description={targetData.description} 
+        title={pageTitle} 
+        description={displayDesc} 
         image={targetData.image}
       />
-      <HomeSection 
-        text1={isExperience ? 'Experiencia' : 'Proyecto'}
-        text2='Detalles'
+      <PageHeader 
+        eyebrow={isExperience 
+          ? (language === "en" ? 'Experience' : 'Experiencia') 
+          : (language === "en" ? 'Project' : 'Proyecto')
+        }
+        title={pageTitle}
+        description={displayDesc}
       />
       <DetailSection
         backgroundImg={targetData.image}
-        backgroundAlt={targetData.title || targetData.role}
-        title={targetData.title || `${targetData.role} en ${targetData.company}`}
-        description={targetData.description}
+        backgroundAlt={pageTitle}
+        title={pageTitle}
+        description={displayDesc}
         items={[targetData]} 
         layout="right"
       />
@@ -56,7 +88,7 @@ const DetailsPage = () => {
 
       <div className="Details__floating-container">
           <Button className='button--floating' onClick={() => navigate(-1)}>
-          Volver atrás
+          {language === "en" ? "Go back" : "Volver atrás"}
         </Button>
       </div>
     </div>

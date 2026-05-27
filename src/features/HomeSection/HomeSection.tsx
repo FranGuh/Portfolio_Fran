@@ -14,6 +14,14 @@ const HomeSection = ({text1="MI",text2="PORTFOLIO"}) => {
           <span>{text2}</span>
         </h1>
       </div>
+      <div className="HomeSection__scroll-indicator" onClick={() => {
+        const nextSec = document.querySelector("#SobreMi");
+        if (nextSec) nextSec.scrollIntoView({ behavior: 'smooth' });
+      }}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
     </section>
   );
 };

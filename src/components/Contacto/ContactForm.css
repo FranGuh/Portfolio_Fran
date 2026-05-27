@@ -40,7 +40,6 @@
     background-color: var(--color-dark-card);
     width: fit-content;
     padding: 0 var(--space-2);
-    border-radius: 4px;
 }
 
 .ContactForm__input-group input,
@@ -81,4 +80,9 @@
 
 .ContactForm__feedback.success {
     color: var(--color-brand-green);
+}
+
+.ContactForm__title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-2);
 }
