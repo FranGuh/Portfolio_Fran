@@ -8,7 +8,7 @@
   justify-content: center;
   padding: var(--space-16) var(--space-8);
   text-align: center;
-  background-color: var(--color-dark-bg);
+  background: linear-gradient(135deg, var(--color-dark-bg) 0%, #1a1a1a 100%);
   overflow: hidden;
 }
 
@@ -38,11 +38,11 @@
   width: 100%;
   padding: var(--space-12) var(--space-8);
   box-sizing: border-box;
-  background: linear-gradient(135deg, rgba(28, 28, 28, 0.5) 0%, rgba(15, 15, 15, 0.7) 100%);
+  background: rgba(255, 255, 255, 0.02); /* Sheer flat glass */
   border: none;
   border-radius: 0; /* Strict 90° flat edges */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
   transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
               transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
