@@ -8,11 +8,17 @@
 }
 
 .PhilosophyCard {
-  background: rgba(255, 255, 255, 0.02) !important;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(15, 15, 15, 0.85) !important; /* Fallback background */
   border: 1px solid rgba(255, 255, 255, 0.05) !important;
   border-top: 3px solid rgba(255, 137, 3, 0.15) !important;
+}
+
+@supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
+  .PhilosophyCard {
+    background: rgba(255, 255, 255, 0.02) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
 }
 
 .PhilosophyCard:hover {
@@ -28,11 +34,17 @@
 }
 
 .skill-category {
-  background: rgba(255, 255, 255, 0.02) !important;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(15, 15, 15, 0.85) !important; /* Fallback background */
   border: 1px solid rgba(255, 255, 255, 0.05) !important;
   transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base) !important;
+}
+
+@supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
+  .skill-category {
+    background: rgba(255, 255, 255, 0.02) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
 }
 
 .skill-category:hover {

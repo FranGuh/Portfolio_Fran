@@ -45,8 +45,8 @@ export const projectTranslations: Record<string, { description: { es: string; en
   },
   "VoiceAI": {
     description: {
-      es: "Sistema de co-host de voz con IA para streamers. Ingiere chats de Twitch/YouTube en tiempo real, genera respuestas por voz mediante Whisper + LLM, y gestiona una agenda editorial con Cue Cards importadas como Markdown desde un LLM externo de confianza. Local-first y determinístico.",
-      en: "AI voice co-host system for streamers. Ingests Twitch/YouTube chats in real time, generates vocal responses using Whisper + LLM, and manages an editorial agenda via Cue Cards imported as Markdown from a trusted external LLM. Local-first and deterministic."
+      es: "Sistema de co-host de voz con IA para streamers. Ingiere chats de Twitch/YouTube en tiempo real con SmartAggregator, genera respuestas con Ollama (11 modelos locales), sintetiza voz con QwenTTS y Edge-TTS, y gestiona agenda editorial con Cue Cards vía importación de Markdown desde LLM externo. Local-first y determinístico.",
+      en: "AI voice co-host system for streamers. Ingests Twitch/YouTube chats in real time with SmartAggregator, generates responses with Ollama (11 local models), synthesizes voice with QwenTTS and Edge-TTS, and manages an editorial agenda with Cue Cards via Markdown import from an external LLM. Local-first and deterministic."
     }
   },
   "LiveAudio": {

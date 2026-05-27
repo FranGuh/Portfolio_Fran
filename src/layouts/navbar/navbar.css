@@ -66,3 +66,15 @@
     display: none;
   }
 }
+
+/* Ocultar Navbar en impresión/PDF */
+@media print {
+  .navbar {
+    display: none;
+  }
+}
+
+/* Ocultar Navbar en capturas programáticas (Puppeteer, Vercel OG, Playwright) */
+.is-screenshot .navbar {
+  display: none;
+}

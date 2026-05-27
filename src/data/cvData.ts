@@ -166,7 +166,7 @@ export const cvData: CVData = {
       period: "Junio 2025 - Actualidad",
       description:
         "Sistema web que permite mostrar mi portfolio, así como gestionar tráfico y visualizar estadísticas del sitio mediante Cloudflare.",
-      techStack: ["Typescript", "React", "CSS3", "Cloudflare", "Vercel"],
+      techStack: ["Typescript", "React", "CSS3", "i18n", "Cloudflare", "Vercel"],
       image: "/pictures/ImgProyects/Plynte/image.webp",
     },
     {
@@ -206,8 +206,8 @@ export const cvData: CVData = {
     {
       title: "VoiceAI",
       period: "Mayo 2025 - Actualidad",
-      description: "Sistema de co-host de voz con IA para streamers. Ingiere chats de Twitch/YouTube en tiempo real, genera respuestas por voz mediante Whisper + LLM, y gestiona una agenda editorial con Cue Cards importadas como Markdown desde un LLM externo de confianza. Local-first y determinístico.",
-      techStack: ["Python", "Whisper", "SQLite", "Twitch API", "YouTube API", "Miniconda"],
+      description: "Sistema de co-host de voz con IA para streamers. Ingiere chats de Twitch/YouTube en tiempo real con SmartAggregator, genera respuestas con Ollama (11 modelos locales), sintetiza voz con QwenTTS y Edge-TTS, y gestiona agenda editorial con Cue Cards vía importación de Markdown desde LLM externo. Local-first y determinístico.",
+      techStack: ["Python", "Ollama", "QwenTTS", "Edge-TTS", "CustomTkinter", "Flask", "SQLite", "SmartAggregator"],
       image: "/pictures/Aqua.webp"
     },
     {
@@ -233,7 +233,7 @@ export const cvData: CVData = {
     },
     {
       title: "Chat App — Grok",
-      period: "[COMPLETAR]",
+      period: "Mayo 2025",
       description: "Interfaz de chatbot (UI pura) optimizada para dispositivos móviles que consume la API de Grok (xAI) para interacciones conversacionales fluidas.",
       techStack: ["React", "TypeScript", "CSS3", "Grok API"],
       image: "/pictures/ImgProyects/Chat/ChatMovil.webp"
