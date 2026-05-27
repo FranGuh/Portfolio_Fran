@@ -28,13 +28,15 @@ interface DetailSectionProps {
   backgroundAlt?: string;
   layout?: "left" | "right" | "center";
   children?: React.ReactNode;
+  onSelectItem?: (item: ItemData) => void;
+  selectedItem?: ItemData | null;
 }
 
-const DetailSection = ({ title, description, items, icons, backgroundImg, backgroundAlt, layout = "right", children }: DetailSectionProps) => {
+const DetailSection = ({ title, description, items, icons, backgroundImg, backgroundAlt, layout = "right", children, onSelectItem, selectedItem }: DetailSectionProps) => {
   const { language, t } = useLanguage();
 
   return (
-    <section className={`ProjectsSection ProjectsSection--${layout}`}>
+    <section className={`ProjectsSection ProjectsSection--${layout} ${selectedItem ? "has-active-selection" : ""}`}>
       <div className="ProjectsSection__header">
         {backgroundImg && (
           <img
@@ -75,8 +77,23 @@ const DetailSection = ({ title, description, items, icons, backgroundImg, backgr
             ? getLocalizedExperienceRole(item.company || "", language, item.role || "")
             : "";
 
+          const isSelected = selectedItem && (
+            (isProject && selectedItem.title === item.title) ||
+            (!isProject && selectedItem.company === item.company)
+          );
+
           return (
-            <article key={index} className="ProjectCard">
+            <article 
+              key={index} 
+              className={`ProjectCard ${isSelected ? 'selected' : ''}`}
+              onClick={() => onSelectItem?.(item)}
+              style={onSelectItem ? { cursor: 'pointer' } : undefined}
+            >
+              {isProject && item.title === "Plynte.com" && (
+                <div className="ProjectCard__watermark" aria-hidden="true">
+                  {language === "en" ? "THIS PORTFOLIO" : "ESTE PROYECTO"}
+                </div>
+              )}
               <img
                 src={item.image || '/pictures/default-project.jpg'}
                 alt={item.title || item.company}
@@ -99,7 +116,13 @@ const DetailSection = ({ title, description, items, icons, backgroundImg, backgr
                 </div>
 
                 {item.link && (
-                  <a href={item.link} target="_blank" rel="noopener noreferrer" className="ProjectCard__link">
+                  <a 
+                    href={item.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="ProjectCard__link"
+                    onClick={(e) => e.stopPropagation()}
+                  >
                     {t("portfolio.viewProject")}
                   </a>
                 )}

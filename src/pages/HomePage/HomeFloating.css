@@ -40,10 +40,8 @@
   width: 100%;
   padding: var(--space-12) var(--space-8);
   box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.02);
-  /* Glass translucency */
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  /* Premium dark fallback for screenshots & older browsers */
+  background: rgba(15, 15, 15, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.05);
   /* Thin flat border for glass structure */
   border-top: 3px solid rgba(255, 137, 3, 0.15);
@@ -55,6 +53,15 @@
     border-color var(--transition-base),
     border-top-color var(--transition-base),
     box-shadow var(--transition-base);
+}
+
+@supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
+  .Home__floating-card {
+    background: rgba(255, 255, 255, 0.02);
+    /* Glass translucency */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
 }
 
 .Home__floating-card:hover {

@@ -115,10 +115,38 @@ export const cvData: CVData = {
   ],
   projects: [
     {
+      title: "VoiceAI Kira",
+      period: "Mayo 2026 - Actualidad",
+      description: "Sitio web público de marketing y documentación bilingüe (EN/ES) para el asistente VoiceAI Kira. Explica el producto a streamers sin tecnicismos, con demos configurables para OBS, matriz de compatibilidad de hardware y guías de onboarding.",
+      techStack: ["React", "TypeScript", "Vite", "CSS3", "Tailwind", "Vercel"],
+      image: "/pictures/ImgProyects/VoiceAI.Kira/Home.webp",
+      link: "https://voiceaikira.vercel.app/"
+    },
+    {
+      title: "RememberCompanion",
+      period: "Mayo 2026 - Actualidad",
+      description: "Aplicación móvil para Android enfocada en el diario de productividad local-first. Registra pensamientos, acciones cotidianas y el nivel de satisfacción diaria bajo un esquema de cifrado de base de datos SQLCipher para garantizar máxima privacidad por activity.",
+      techStack: ["React Native", "TypeScript", "SQLite", "SQLCipher", "Android"],
+      image: "/pictures/ImgProyects/RememberCompanion/Home.webp"
+    }, {
+      title: "VoiceAI",
+      period: "Mayo 2026 - Actualidad",
+      description: "Sistema de co-host de voz con IA para streamers. Ingiere chats de Twitch/YouTube en tiempo real con SmartAggregator, genera respuestas con Ollama (11 modelos locales), sintetiza voz con QwenTTS and Edge-TTS, y gestiona agenda editorial con Cue Cards vía importación de Markdown desde LLM externo. Local-first y determinístico.",
+      techStack: ["Python", "Ollama", "QwenTTS", "Edge-TTS", "CustomTkinter", "Flask", "SQLite", "SmartAggregator"],
+      image: "/pictures/ImgProyects/VoiceAI/VoiceAI.webp"
+    },
+    {
+      title: "LiveAudio",
+      period: "Mayo 2026 - Actualidad",
+      description: "Sistema de subtitulado automático en tiempo real para streamers. Ofrece detección de voz continua con Silero VAD + pre-buffer para no perder la primera palabra, transcripción Whisper local con prompt de contexto configurable, 7 temas visuales integrables en OBS y empaquetado portable con Nuitka.",
+      techStack: ["Python", "Whisper", "Silero VAD", "OBS", "CustomTkinter", "Nuitka"],
+      image: "/pictures/ImgProyects/LiveAudio/LiveAudio.webp"
+    },
+    {
       title: "Brick.draw",
       period: "Marzo 2026 - Actualidad",
       description:
-        "Software de escritorio de uso ligero para uso creativo, inspirado en Paint y Photoshop para dibujo en capas con la posibilidad de comunicarse con un servicio para mejorar los dibujos del usuario mediante modelos locales de Stable Diffusion XL. ",
+        "Software de escritorio de uso ligero para uso creativo, inspirado en Paint y Photoshop para dibujo en capas, con la posibilidad de comunicarse con Sloppy (un servicio de visión artificial local) para mejorar los dibujos del usuario mediante modelos de Stable Diffusion XL.",
       techStack: [
         "React",
         "TypeScript",
@@ -127,7 +155,7 @@ export const cvData: CVData = {
         "Rust",
         "Zustand",
       ],
-      image: "/pictures/ImgProyects/Brick.draw/Home.webp",
+      image: "/pictures/ImgProyects/Brick.draw/Home.webp"
     },
     {
       title: "Dog-bros (BroDogs)",
@@ -143,48 +171,7 @@ export const cvData: CVData = {
         "Zustand",
       ],
       image: "/pictures/ImgProyects/BroDogs/Landing.webp",
-      link: "https://san-burgus.vercel.app/",
-    },
-    {
-      title: "Floppy",
-      period: "Febrero 2026 - Actualidad",
-      description:
-        "Pipeline automatizado de visión artificial para procesamiento masivo de datos y gestión de VRAM.",
-      techStack: [
-        "Python",
-        "DBSCAN",
-        "Miniconda",
-        "CUDA",
-        "SQLite",
-        "face_recognition",
-        "Sklearn",
-      ],
-      image: "/pictures/ImgProyects/Floppy/Home.webp",
-    },
-    {
-      title: "Plynte.com",
-      period: "Junio 2025 - Actualidad",
-      description:
-        "Sistema web que permite mostrar mi portfolio, así como gestionar tráfico y visualizar estadísticas del sitio mediante Cloudflare.",
-      techStack: ["Typescript", "React", "CSS3", "Cloudflare", "Vercel"],
-      image: "/pictures/ImgProyects/Plynte/image.webp",
-    },
-    {
-      title: "Computer Selector Helper ",
-      period: "Junio 2025",
-      description: "Sistema experto recomendador de laptops usando inferencia.",
-      techStack: ["Javascript", "React", "CSS3", "Vercel"],
-      image: "/pictures/ImgProyects/ComputerHelper/CSH.webp",
-      link: "https://computer-selector-helper.vercel.app/",
-    },
-    {
-      title: "Redirect - Link ",
-      period: "Junio 2025",
-      description:
-        "Sistema web que permite redireccionar y agrupar links a proyectos importantes (Clon para uso personal de linktree). ",
-      techStack: ["Javascript", "React", "CSS3", "Vercel"],
-      image: "/pictures/ImgProyects/RedirectLink/Home.webp",
-      link: "https://redirect-link-flame.vercel.app/",
+      link: "https://san-burgus.vercel.app/"
     },
     {
       title: "Sloppy",
@@ -201,42 +188,56 @@ export const cvData: CVData = {
         "CUDA",
         "HuggingFace",
       ],
-      image: "/pictures/ImgProyects/Sloppy/SloppyDraw.webp",
+      image: "/pictures/ImgProyects/Sloppy/SloppyDraw.webp"
     },
     {
-      title: "VoiceAI",
-      period: "Mayo 2025 - Actualidad",
-      description: "Sistema de co-host de voz con IA para streamers. Ingiere chats de Twitch/YouTube en tiempo real, genera respuestas por voz mediante Whisper + LLM, y gestiona una agenda editorial con Cue Cards importadas como Markdown desde un LLM externo de confianza. Local-first y determinístico.",
-      techStack: ["Python", "Whisper", "SQLite", "Twitch API", "YouTube API", "Miniconda"],
-      image: "/pictures/Aqua.webp"
+      title: "Floppy",
+      period: "Febrero 2026 - Actualidad",
+      description:
+        "Pipeline automatizado de visión artificial para procesamiento masivo de datos y gestión de VRAM.",
+      techStack: [
+        "Python",
+        "DBSCAN",
+        "Miniconda",
+        "CUDA",
+        "SQLite",
+        "face_recognition",
+        "Sklearn",
+      ],
+      image: "/pictures/ImgProyects/Floppy/Home.webp"
     },
     {
-      title: "LiveAudio",
-      period: "Mayo 2025 - Actualidad",
-      description: "Sistema de subtitulado automático en tiempo real para streamers. Ofrece detección de voz continua con Silero VAD + pre-buffer para no perder la primera palabra, transcripción Whisper local con prompt de contexto configurable, 7 temas visuales integrables en OBS y empaquetado portable con Nuitka.",
-      techStack: ["Python", "Whisper", "Silero VAD", "OBS", "CustomTkinter", "Nuitka"],
-      image: "/pictures/Aqua.webp"
+      title: "Plynte.com",
+      period: "Junio 2025 - Actualidad",
+      description:
+        "Sistema web que permite mostrar mi portfolio, así como gestionar tráfico y visualizar estadísticas del sitio mediante Cloudflare.",
+      techStack: ["Typescript", "React", "CSS3", "i18n", "Cloudflare", "Vercel"],
+      image: "/pictures/ImgProyects/Plynte/image.webp"
     },
     {
-      title: "VoiceAI Kira",
-      period: "Mayo 2026 - Actualidad",
-      description: "Sitio web público de marketing y documentación bilingüe (EN/ES) para el asistente VoiceAI Kira. Explica el producto a streamers sin tecnicismos, con demos configurables para OBS, matriz de compatibilidad de hardware y guías de onboarding.",
-      techStack: ["React", "TypeScript", "Vite", "CSS3"],
-      image: "/pictures/Aqua.webp"
+      title: "Computer Selector Helper ",
+      period: "Junio 2025",
+      description: "Sistema experto recomendador de laptops usando inferencia.",
+      techStack: ["Javascript", "React", "CSS3", "Vercel"],
+      image: "/pictures/ImgProyects/ComputerHelper/CSH.webp",
+      link: "https://computer-selector-helper.vercel.app/"
     },
     {
-      title: "RememberCompanion",
-      period: "Mayo 2026 - Actualidad",
-      description: "Aplicación móvil para Android enfocada en el diario de productividad local-first. Registra pensamientos, acciones cotidianas y el nivel de satisfacción diaria bajo un esquema de cifrado de base de datos SQLCipher para garantizar máxima privacidad por actividad.",
-      techStack: ["React Native", "TypeScript", "SQLite", "SQLCipher", "Android"],
-      image: "/pictures/Aqua.webp"
+      title: "Redirect - Link ",
+      period: "Junio 2025",
+      description:
+        "Sistema web que permite redireccionar y agrupar links a proyectos importantes (Clon para uso personal de linktree). ",
+      techStack: ["Javascript", "React", "CSS3", "Vercel"],
+      image: "/pictures/ImgProyects/RedirectLink/Home.webp",
+      link: "https://redirect-link-flame.vercel.app/"
     },
     {
-      title: "Chat App — Grok",
-      period: "[COMPLETAR]",
-      description: "Interfaz de chatbot (UI pura) optimizada para dispositivos móviles que consume la API de Grok (xAI) para interacciones conversacionales fluidas.",
-      techStack: ["React", "TypeScript", "CSS3", "Grok API"],
-      image: "/pictures/ImgProyects/Chat/ChatMovil.webp"
+      title: "Chat App — DeepSeek",
+      period: "Mayo 2025",
+      description: "Interfaz de chatbot (UI pura) optimizada para dispositivos móviles que consume la API de DeepSeek para interacciones conversacionales fluidas.",
+      techStack: ["React", "TypeScript", "CSS3", "Vercel", "DeepSeek API"],
+      image: "/pictures/ImgProyects/Chat/ChatMovil.webp",
+      link: "https://memories-app-red.vercel.app/chat"
     }
   ],
 };

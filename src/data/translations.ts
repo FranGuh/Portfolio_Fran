@@ -160,7 +160,7 @@ export const translations: Record<string, any> = {
       portfolioDesc: "Explore my featured projects in software development, automation, and local integration of AI models.",
     },
     home: {
-      intro: "I am",
+      intro: "I'm",
       name: "Francisco",
       floatingTitle: "Every line of code I write solves a real problem",
       floatingMotto: "Check out what I built. If it works for you, let's work together.",
