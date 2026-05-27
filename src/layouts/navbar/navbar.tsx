@@ -5,12 +5,14 @@ import { MegaMenu } from "./MegaMenu";
 import "./navbar.css";
 import { NavbarLogo } from "../../components/UI/Navbar/NavbarLogo";
 import { LanguageSwitcher } from "../../components/UI/LanguageSwitcher/LanguageSwitcher";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 
 export function Navbar() {
   const [isMegaOpen, setMegaOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
 
   useEffect(() => {
     setMegaOpen(false);
@@ -36,11 +38,14 @@ export function Navbar() {
 
         <div className="navbar-right">
           <ul className="navbar-menu">
-            {NAV_ITEMS.map((item, index) => (
-              <li key={index} className="navbar-item">
-                <Link to={item.link ?? "/"}>{item.label}</Link>
-              </li>
-            ))}
+            {NAV_ITEMS.map((item, index) => {
+              const displayLabel = item.translationKey ? t(item.translationKey) : item.label;
+              return (
+                <li key={index} className="navbar-item">
+                  <Link to={item.link ?? "/"}>{displayLabel}</Link>
+                </li>
+              );
+            })}
           </ul>
           <LanguageSwitcher />
         </div>

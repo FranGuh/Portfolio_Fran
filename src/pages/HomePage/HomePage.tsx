@@ -3,6 +3,7 @@ import "../../styles/bg.css";
 import HomeSection from "../../features/HomeSection/HomeSection";
 import ImgContainer from "../../components/UI/ImgContainer/ImgContainer";
 import "./HomePage.css";
+import "./HomeFloating.css";
 import ScrollableContainer from "../../components/UI/ScrollableContainer/ScrollableContainer";
 import AboutSection from "../../features/AboutSection/AboutSection";
 import Button from "../../components/UI/Button/Button";
@@ -41,20 +42,20 @@ const HomePage = () => {
         <ScrollableContainer>
           <ImgContainer
             source="/pictures/ImgProyects/RedirectLink/Home.webp"
-            alt="Landing RedirectLink"
+            alt={t("home.projects.redirectAlt")}
             title="RedirectLink"
             href="https://redirect-link-flame.vercel.app/"
           />
           <ImgContainer
             source="/pictures/ImgProyects/ComputerHelper/CSH.webp"
-            alt="Landing CSH"
-            title="Selector de Laptops"
+            alt={t("home.projects.selectorAlt")}
+            title={t("home.projects.selectorTitle")}
             href="https://computer-selector-helper.vercel.app/"
           />
           <ImgContainer
             source="/pictures/goatatwork.webp"
-            alt="Plataforma RaukeIT"
-            title="Backend & Cloud"
+            alt={t("home.projects.backendAlt")}
+            title={t("home.projects.backendTitle")}
             href={`/portfolio/${generateSlug('Desarrollador e Implementador de Infraestructura')}`}
           />
         </ScrollableContainer>
@@ -72,11 +73,13 @@ const HomePage = () => {
       </div>
 
       <div className="Home__floating">
-        <h2 className="Home__title Home__title--floating">{t("home.floatingTitle")}</h2>
-        <p className="Home__motto" style={{ marginBottom: "var(--space-6)" }}>{t("home.floatingMotto")}</p>
-        <Button className="" onClick={() => navigate("/portfolio")}>
-          {t("home.exploreBtn")}
-        </Button>
+        <div className="Home__floating-card">
+          <h2 className="Home__title Home__title--floating">{t("home.floatingTitle")}</h2>
+          <p className="Home__motto">{t("home.floatingMotto")}</p>
+          <Button className="" onClick={() => navigate("/portfolio")}>
+            {t("home.exploreBtn")}
+          </Button>
+        </div>
       </div>
     </>
   );

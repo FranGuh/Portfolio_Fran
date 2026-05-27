@@ -6,6 +6,10 @@ export const translations: Record<string, any> = {
       sobreMi: "SOBRE MÍ",
       portfolio: "PORTFOLIO",
       detalles: "Detalles",
+      inicioSub: "Inicio",
+      sobreMiSub: "Sobre mí",
+      detallesSub: "Detalles",
+      portfolioSub: "Portfolio",
     },
     seo: {
       homeTitle: "Inicio",
@@ -20,7 +24,14 @@ export const translations: Record<string, any> = {
       name: "Francisco",
       floatingTitle: "Cada línea de código que escribo resuelve un problema real",
       floatingMotto: "Mirá lo que construí. Si te sirve, trabajemos juntos.",
-      exploreBtn: "Explorar Portfolio"
+      exploreBtn: "Explorar Portfolio",
+      projects: {
+        selectorTitle: "Selector de Laptops",
+        backendTitle: "Backend & Cloud",
+        redirectAlt: "Landing RedirectLink",
+        selectorAlt: "Landing CSH",
+        backendAlt: "Plataforma RaukeIT"
+      }
     },
     about: {
       eyebrow: "Sobre mi",
@@ -135,6 +146,10 @@ export const translations: Record<string, any> = {
       sobreMi: "ABOUT ME",
       portfolio: "PORTFOLIO",
       detalles: "Details",
+      inicioSub: "Home",
+      sobreMiSub: "About me",
+      detallesSub: "Details",
+      portfolioSub: "Portfolio",
     },
     seo: {
       homeTitle: "Home",
@@ -149,7 +164,14 @@ export const translations: Record<string, any> = {
       name: "Francisco",
       floatingTitle: "Every line of code I write solves a real problem",
       floatingMotto: "Check out what I built. If it works for you, let's work together.",
-      exploreBtn: "Explore Portfolio"
+      exploreBtn: "Explore Portfolio",
+      projects: {
+        selectorTitle: "Laptop Selector",
+        backendTitle: "Backend & Cloud",
+        redirectAlt: "RedirectLink Landing",
+        selectorAlt: "CSH Landing",
+        backendAlt: "RaukeIT Platform"
+      }
     },
     about: {
       eyebrow: "About me",

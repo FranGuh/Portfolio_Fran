@@ -3,6 +3,7 @@ import "./MegaMenu.css";
 import { NavbarLogo } from "../../components/UI/Navbar/NavbarLogo";
 import { Link } from "react-router-dom";
 import { LanguageSwitcher } from "../../components/UI/LanguageSwitcher/LanguageSwitcher";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 export const MegaMenu = ({
   onClose,
@@ -11,6 +12,8 @@ export const MegaMenu = ({
   onClose: () => void;
   isOpen: boolean;
 }) => {
+  const { t } = useLanguage();
+
   return (
     <div className={`mega-menu-overlay ${isOpen ? "open" : ""}`}>
       <div className="mega-menu-header">
@@ -23,17 +26,26 @@ export const MegaMenu = ({
 
       <div className="mega-menu-content">
         <div className="menu-columns">
-          {NAV_ITEMS.map((section, idx) => (
-            <div className="menu-section" key={idx}>
-              <h4>{section.label.toUpperCase()}</h4>
-              <div className="menu-links">
-                {section.children?.map((item, i) => (
-                  //<a href={item.link} key={i}>{item.label}</a>
-                  <Link to={item.link ?? "/"} key={i}>{item.label}</Link>
-                ))}
+          {NAV_ITEMS.map((section, idx) => {
+            const displaySectionLabel = section.translationKey ? t(section.translationKey) : section.label;
+
+            return (
+              <div className="menu-section" key={idx}>
+                <h4>{displaySectionLabel.toUpperCase()}</h4>
+                <div className="menu-links">
+                  {section.children?.map((item, i) => {
+                    const displayItemLabel = item.translationKey ? t(item.translationKey) : item.label;
+
+                    return (
+                      <Link to={item.link ?? "/"} key={i} onClick={onClose}>
+                        {displayItemLabel}
+                      </Link>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         <div className="menu-image">
           <img src="/pictures/Aqua.webp" alt="Featured" loading="lazy" />
