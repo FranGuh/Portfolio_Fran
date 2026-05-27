@@ -8,7 +8,7 @@
   color: #ffffff;
   padding: var(--space-6);
   position: relative;
-  background: var(--color-dark-card);
+  background: var(--color-dark-surface);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-top: 3px solid var(--color-brand-orange-2);
   transition: border-color var(--transition-base), box-shadow var(--transition-base);
@@ -16,7 +16,7 @@
 
 @supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
   .ProjectDetailsPanel {
-    background: rgba(15, 15, 15, 0.45);
+    background: rgba(18, 18, 18, 0.96);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }
@@ -66,11 +66,11 @@
 .ProjectDetailsPanel__img-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   margin-bottom: var(--space-6);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  cursor: pointer;
+  cursor: zoom-in;
 }
 
 .ProjectDetailsPanel__img {
@@ -199,4 +199,64 @@
   color: var(--color-brand-orange-2);
   border-color: var(--color-brand-orange-2);
   transform: translateY(-2px);
+}
+
+/* Lightbox modal overlay (Premium, inline-screen, no tab redirection) */
+.ProjectDetailsPanel__lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  cursor: zoom-out;
+  animation: ProjectDetailsPanel__fadeIn 0.25s ease;
+}
+
+.ProjectDetailsPanel__lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: ProjectDetailsPanel__scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ProjectDetailsPanel__lightbox-close {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-8);
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.ProjectDetailsPanel__lightbox-close:hover {
+  color: var(--color-brand-orange-2);
+  transform: scale(1.1);
+}
+
+@keyframes ProjectDetailsPanel__fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes ProjectDetailsPanel__scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

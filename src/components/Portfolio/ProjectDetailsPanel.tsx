@@ -1,4 +1,5 @@
 // src/components/Portfolio/ProjectDetailsPanel.tsx
+import { useState } from "react";
 import type { ItemData } from "../../features/DetailSection/DetailSection";
 import { useLanguage } from "../../contexts/LanguageContext";
 import { getLocalizedProjectDesc, getLocalizedExperienceDesc, getLocalizedExperienceRole } from "../../data/projectTranslations";
@@ -11,6 +12,7 @@ interface ProjectDetailsPanelProps {
 
 export const ProjectDetailsPanel = ({ item, onClose }: ProjectDetailsPanelProps) => {
   const { language, t } = useLanguage();
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   if (!item) return null;
 
@@ -47,13 +49,15 @@ export const ProjectDetailsPanel = ({ item, onClose }: ProjectDetailsPanelProps)
 
       <div className="ProjectDetailsPanel__body">
         {item.image && (
-          <div className="ProjectDetailsPanel__img-container">
-            <a href={item.image} target="_blank" rel="noopener noreferrer" title={language === "en" ? "Click to open image in new tab" : "Hacé clic para ver la imagen en grande"}>
-              <img src={item.image} alt={displayTitle} className="ProjectDetailsPanel__img" />
-              <div className="ProjectDetailsPanel__img-overlay">
-                <span>{language === "en" ? "Open Fullscreen ↗" : "Ver a Pantalla Completa ↗"}</span>
-              </div>
-            </a>
+          <div 
+            className="ProjectDetailsPanel__img-container"
+            onClick={() => setIsLightboxOpen(true)}
+            title={language === "en" ? "Click to view fullscreen" : "Hacé clic para ver a pantalla completa"}
+          >
+            <img src={item.image} alt={displayTitle} className="ProjectDetailsPanel__img" />
+            <div className="ProjectDetailsPanel__img-overlay">
+              <span>{language === "en" ? "Zoom In 🔍" : "Agrandar Imagen 🔍"}</span>
+            </div>
           </div>
         )}
 
@@ -86,6 +90,20 @@ export const ProjectDetailsPanel = ({ item, onClose }: ProjectDetailsPanelProps)
           </div>
         )}
       </div>
+
+      {isLightboxOpen && item.image && (
+        <div className="ProjectDetailsPanel__lightbox" onClick={() => setIsLightboxOpen(false)}>
+          <button className="ProjectDetailsPanel__lightbox-close" onClick={() => setIsLightboxOpen(false)}>
+            ✕
+          </button>
+          <img 
+            src={item.image} 
+            alt={displayTitle} 
+            className="ProjectDetailsPanel__lightbox-img" 
+            onClick={(e) => e.stopPropagation()} 
+          />
+        </div>
+      )}
     </div>
   );
 };

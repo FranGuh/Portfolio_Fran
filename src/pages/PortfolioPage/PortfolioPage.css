@@ -189,6 +189,7 @@
 /* Contenedor del Dashboard (Desktop) */
 .ProjectsDashboard {
   display: flex;
+  align-items: flex-start; /* Evita que el panel se estire al 100% del flex y anule el position: sticky */
   gap: var(--space-6);
   width: 100%;
   box-sizing: border-box;
