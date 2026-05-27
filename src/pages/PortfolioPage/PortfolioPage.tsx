@@ -9,11 +9,13 @@ import ContactForm from '../../components/Contacto/ContactForm';
 import { SEOHead } from '../../components/SEOHead';
 import PageHeader from '../../components/UI/PageHeader/PageHeader';
 import './PortfolioPage.css';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 export default function PortfolioPage() {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [selectedTech, setSelectedTech] = useState<string | null>(null);
     const scrollFrameRef = useRef<number | null>(null);
+    const { language, t } = useLanguage();
 
     useEffect(() => {
         const updateProgress = () => {
@@ -57,14 +59,14 @@ export default function PortfolioPage() {
                 description="Explora mis proyectos recientes, arquitecturas en la nube y mi experiencia técnica trabajando con stacks modernos." 
             />
             <HomeSection
-                text1="Mi"
-                text2="Portafolio"
+                text1={language === "en" ? "My" : "Mi"}
+                text2={language === "en" ? "Portfolio" : "Portafolio"}
             />
             <div className="PortfolioPage__intro-section">
                 <PageHeader
-                    eyebrow="Portafolio"
-                    title="Proyectos, experiencia y stack real"
-                    description="Una vista directa de lo que he construido, las tecnologias que uso y el tipo de problemas que puedo resolver."
+                    eyebrow={t("portfolio.eyebrow")}
+                    title={t("portfolio.title")}
+                    description={t("portfolio.description")}
                 />
             </div>
 
@@ -80,11 +82,11 @@ export default function PortfolioPage() {
             {/* 2. Hero y Biografía */}
             <div className='bg-pan-right'>
                 <AboutSection
-                    titleHead="Ingeniero"
-                    title="En Sistemas"
+                    titleHead={language === "en" ? "Systems" : "En Sistemas"}
+                    title={language === "en" ? "Computer" : "Ingeniero"}
                     imageClassName='alternative-image'
-                    subtitle="Computacionales"
-                    description={cvData.profile.bio}
+                    subtitle={language === "en" ? "Engineer" : "Computacionales"}
+                    description={language === "en" ? "Specialized in dynamic resource optimization and operational continuity through automated systems. Experienced in cloud servers administration, comprehensive technical support and processes automation." : cvData.profile.bio}
                     source="/pictures/Homepicture.webp"
                     alt="Ilustración Gustavo"
                 />
@@ -94,10 +96,10 @@ export default function PortfolioPage() {
             {/* 4. UX Reclutador: Filtro dinámico de proyectos */}
             <DetailSection
                 layout="right"
-                title="Mis Proyectos"
+                title={t("portfolio.titleProjects")}
                 description={selectedTech
-                    ? `Mostrando proyectos construidos con ${selectedTech}.`
-                    : "Desarrollo enfocado en resolver problemáticas reales con tecnologías modernas."}
+                    ? t("portfolio.descProjectsFiltered").replace("{tech}", selectedTech)
+                    : t("portfolio.descProjectsAll")}
                 icons={[TsIcon, VercelIcon, ReactIcon]}
                 items={filteredProjects}
             >
@@ -107,7 +109,7 @@ export default function PortfolioPage() {
                         className={`filter-btn ${selectedTech === null ? 'active' : ''}`}
                         onClick={() => setSelectedTech(null)}
                     >
-                        Todos
+                        {t("portfolio.filterAll")}
                     </button>
                     {allProjectTechs.map(tech => (
                         <button
@@ -123,15 +125,20 @@ export default function PortfolioPage() {
 
             <section className="PortfolioPage__skills-grid">
                 <div className="skills-container-alternative">
-                    <h3 className="">Me gusta desarrollar <span>mis ideas</span> y compartir <span>mis aprendizajes</span></h3>
+                    <h3 className="">
+                        {language === "en" ? "I like to develop " : "Me gusta desarrollar "}
+                        <span>{t("portfolio.skillsSpan1")}</span>
+                        {language === "en" ? " and share " : " y compartir "}
+                        <span>{t("portfolio.skillsSpan2")}</span>
+                    </h3>
                 </div>
             </section>
 
             {/* 6. Experiencia Laboral */}
             <DetailSection
                 layout="center"
-                title="Experiencia Profesional"
-                description="Implementación de infraestructura, desarrollo web y continuidad operativa en entornos reales."
+                title={t("portfolio.titleExperience")}
+                description={t("portfolio.descExperience")}
                 icons={[ReactIcon, AWSRDSIcon, AWSIcon]}
                 items={cvData.experience}
             />
@@ -150,8 +157,6 @@ export default function PortfolioPage() {
                     ))}
                 </div>
             </section>
-
-            
 
             <ContactForm />
         </div>

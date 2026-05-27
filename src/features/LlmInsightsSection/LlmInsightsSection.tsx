@@ -1,19 +1,14 @@
 import React from "react";
 import "./LlmInsightsSection.css";
+import { useLanguage } from "../../contexts/LanguageContext";
 
-interface InsightItem {
-  tag: string;
-  title: string;
-  description: string;
-}
+const LlmInsightsSection: React.FC = () => {
+  const { t } = useLanguage();
 
-interface LlmInsightsSectionProps {
-  title: string;
-  subtitle: string;
-  insights: InsightItem[];
-}
+  const title = t("insights.title");
+  const subtitle = t("insights.subtitle");
+  const insights = t("insights.items") || [];
 
-const LlmInsightsSection: React.FC<LlmInsightsSectionProps> = ({ title, subtitle, insights }) => {
   return (
     <section className="LlmInsightsSection">
       <div className="LlmInsightsSection__content">
@@ -23,7 +18,7 @@ const LlmInsightsSection: React.FC<LlmInsightsSectionProps> = ({ title, subtitle
           <p className="LlmInsightsSection__subtitle">{subtitle}</p>
         </div>
         <div className="LlmInsightsSection__grid">
-          {insights.map((insight, index) => (
+          {insights.map((insight: any, index: number) => (
             <div key={index} className="LlmInsightCard">
               <span className="LlmInsightCard__tag">{insight.tag}</span>
               <h3 className="LlmInsightCard__title">{insight.title}</h3>

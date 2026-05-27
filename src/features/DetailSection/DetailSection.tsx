@@ -1,5 +1,11 @@
 import React from "react";
 import "./DetailSection.css";
+import { useLanguage } from "../../contexts/LanguageContext";
+import {
+  getLocalizedProjectDesc,
+  getLocalizedExperienceRole,
+  getLocalizedExperienceDesc
+} from "../../data/projectTranslations";
 
 type IconComponent = React.FC<React.SVGProps<SVGSVGElement>>;
 
@@ -25,6 +31,8 @@ interface DetailSectionProps {
 }
 
 const DetailSection = ({ title, description, items, icons, backgroundImg, backgroundAlt, layout = "right", children }: DetailSectionProps) => {
+  const { language, t } = useLanguage();
+
   return (
     <section className={`ProjectsSection ProjectsSection--${layout}`}>
       <div className="ProjectsSection__header">
@@ -56,35 +64,49 @@ const DetailSection = ({ title, description, items, icons, backgroundImg, backgr
       )}
 
       <div className="ProjectsSection__grid">
-        {items.map((item, index) => (
-          <article key={index} className="ProjectCard">
-            <img
-              src={item.image || '/pictures/default-project.jpg'}
-              alt={item.title || item.company}
-              className="ProjectCard__img"
-              loading="lazy"
-            />
+        {items.map((item, index) => {
+          // Obtener textos localizados de proyectos y experiencias de manera segura
+          const isProject = Boolean(item.title);
+          const displayDesc = isProject
+            ? getLocalizedProjectDesc(item.title || "", language, item.description)
+            : getLocalizedExperienceDesc(item.company || "", language, item.description);
 
-            <div className="ProjectCard__content">
-              <h3 className="ProjectCard__title">
-                {item.title || `${item.role} en ${item.company}`}
-              </h3>
-              <p className="ProjectCard__desc">{item.description}</p>
+          const displayRole = !isProject
+            ? getLocalizedExperienceRole(item.company || "", language, item.role || "")
+            : "";
 
-              <div className="ProjectCard__tags">
-                {item.techStack && item.techStack.map(tech => (
-                  <span key={tech} className="ProjectCard__tag">{tech}</span>
-                ))}
+          return (
+            <article key={index} className="ProjectCard">
+              <img
+                src={item.image || '/pictures/default-project.jpg'}
+                alt={item.title || item.company}
+                className="ProjectCard__img"
+                loading="lazy"
+                draggable={false}
+                style={{ pointerEvents: 'none' }}
+              />
+
+              <div className="ProjectCard__content">
+                <h3 className="ProjectCard__title">
+                  {item.title || `${displayRole} ${language === "en" ? "at" : "en"} ${item.company}`}
+                </h3>
+                <p className="ProjectCard__desc">{displayDesc}</p>
+
+                <div className="ProjectCard__tags">
+                  {item.techStack && item.techStack.map(tech => (
+                    <span key={tech} className="ProjectCard__tag">{tech}</span>
+                  ))}
+                </div>
+
+                {item.link && (
+                  <a href={item.link} target="_blank" rel="noopener noreferrer" className="ProjectCard__link">
+                    {t("portfolio.viewProject")}
+                  </a>
+                )}
               </div>
-
-              {item.link && (
-                <a href={item.link} target="_blank" rel="noopener noreferrer" className="ProjectCard__link">
-                  Ver Proyecto ➔
-                </a>
-              )}
-            </div>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </div>
     </section>
   );

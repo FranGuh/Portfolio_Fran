@@ -7,6 +7,12 @@ import PageHeader from '../../components/UI/PageHeader/PageHeader'
 import { SEOHead } from '../../components/SEOHead'
 import { generateSlug } from '../../utils/slug'
 import './DetailsPage.css'
+import { useLanguage } from '../../contexts/LanguageContext'
+import {
+  getLocalizedProjectDesc,
+  getLocalizedExperienceRole,
+  getLocalizedExperienceDesc
+} from '../../data/projectTranslations'
 
 type DetailTarget =
   | { type: 'project'; data: NonNullable<(typeof cvData.projects)[number]> }
@@ -15,6 +21,7 @@ type DetailTarget =
 const DetailsPage = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const { language, t } = useLanguage();
   
   const project = cvData.projects.find(p => generateSlug(p.title) === slug);
   const experience = !project ? cvData.experience.find(e => generateSlug(e.role) === slug) : null;
@@ -28,34 +35,51 @@ const DetailsPage = () => {
     return (
       <div className='Details Details__not-found'>
         <SEOHead title="No encontrado" description="El recurso especificado no ha sido encontrado." />
-        <h2>El proyecto o experiencia no fue encontrado</h2>
+        <h2>{language === "en" ? "Project or experience not found" : "El proyecto o experiencia no fue encontrado"}</h2>
         <br />
-        <Button onClick={() => navigate("/portfolio")}>Volver a Portafolio</Button>
+        <Button onClick={() => navigate("/portfolio")}>
+          {t("portfolio.backToPortfolio")}
+        </Button>
       </div>
     );
   }
 
   const { data: targetData, type } = target;
   const isExperience = type === 'experience';
-  const pageTitle = isExperience ? `${targetData.role} en ${targetData.company}` : targetData.title;
+
+  // Obtener descripciones y roles traducidos de manera dinámica y segura
+  const displayDesc = !isExperience
+    ? getLocalizedProjectDesc(targetData.title || "", language, targetData.description)
+    : getLocalizedExperienceDesc(targetData.company || "", language, targetData.description);
+
+  const displayRole = isExperience
+    ? getLocalizedExperienceRole(targetData.company || "", language, targetData.role || "")
+    : "";
+
+  const pageTitle = isExperience 
+    ? `${displayRole} ${language === "en" ? "at" : "en"} ${targetData.company}` 
+    : targetData.title;
 
   return (
     <div className='Details'>
       <SEOHead 
         title={pageTitle} 
-        description={targetData.description} 
+        description={displayDesc} 
         image={targetData.image}
       />
       <PageHeader 
-        eyebrow={isExperience ? 'Experiencia' : 'Proyecto'}
+        eyebrow={isExperience 
+          ? (language === "en" ? 'Experience' : 'Experiencia') 
+          : (language === "en" ? 'Project' : 'Proyecto')
+        }
         title={pageTitle}
-        description={targetData.description}
+        description={displayDesc}
       />
       <DetailSection
         backgroundImg={targetData.image}
         backgroundAlt={pageTitle}
         title={pageTitle}
-        description={targetData.description}
+        description={displayDesc}
         items={[targetData]} 
         layout="right"
       />
@@ -64,7 +88,7 @@ const DetailsPage = () => {
 
       <div className="Details__floating-container">
           <Button className='button--floating' onClick={() => navigate(-1)}>
-          Volver atrás
+          {language === "en" ? "Go back" : "Volver atrás"}
         </Button>
       </div>
     </div>

@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { useImagePreloader } from "../../hooks/useImagePreloader";
 import { generateSlug } from "../../utils/slug";
 import { SEOHead } from "../../components/SEOHead";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const imagesToLoad = [
     "/pictures/ImgProyects/RedirectLink/Home.webp",
@@ -21,6 +22,7 @@ const imagesToLoad = [
 const HomePage = () => {
   const loading = useImagePreloader(imagesToLoad, "homePortfolioCargado");
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   if (loading) return <Loader message="Cargando portfolio..." />;
 
@@ -31,8 +33,8 @@ const HomePage = () => {
         description="Portafolio de Gustavo Francisco, Ingeniero Full Stack especializado en diseño funcional, experiencias modernas y despliegues en la nube." 
       />
       <HomeSection 
-        text1="Ingeniero"
-        text2="Full Stack"
+        text1={t("home.intro")}
+        text2={t("home.name")}
       />
 
       <section className="Home__proyects">
@@ -60,20 +62,20 @@ const HomePage = () => {
 
       <div className="bg-pan-right Home__about-section">
         <AboutSection
-          title="Desarrollador"
-          titleHead="Mi enfoque"
-          subtitle="FULL STACK"
-          description="Descubrí el desarrollo web accidentalmente, y desde entonces no he parado. Mi enfoque prioriza el diseño visual limpio (UX/UI) y arquitecturas sólidas (TSX/AWS/DBs). Constantemente aprendo e investigo para que cada línea de código aporte valor real."
+          title={t("about.sectionTitle")}
+          titleHead={t("about.sectionTitleHead")}
+          subtitle={t("about.sectionSubtitle")}
+          description={t("about.sectionDescription")}
           source="/pictures/drawsByMe/drawByMe.webp"
           alt="Ilustración creativa"
         />
       </div>
 
       <div className="Home__floating">
-        <h2 className="Home__title Home__title--floating">Cada línea de código que escribo resuelve un problema real</h2>
-        <p className="Home__motto" style={{ marginBottom: "var(--space-6)" }}>Mirá lo que construí. Si te sirve, trabajemos juntos.</p>
+        <h2 className="Home__title Home__title--floating">{t("home.floatingTitle")}</h2>
+        <p className="Home__motto" style={{ marginBottom: "var(--space-6)" }}>{t("home.floatingMotto")}</p>
         <Button className="" onClick={() => navigate("/portfolio")}>
-          Explorar Portfolio
+          {t("home.exploreBtn")}
         </Button>
       </div>
     </>

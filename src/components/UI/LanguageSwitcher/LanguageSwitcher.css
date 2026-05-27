@@ -1,0 +1,50 @@
+/* src/components/UI/LanguageSwitcher/LanguageSwitcher.css */
+
+.LanguageSwitcher__container {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+.LanguageSwitcher__btn {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-dark-border);
+  border-radius: 0; /* Strict 90° flat edges */
+  padding: var(--space-2) var(--space-4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+  height: 38px;
+  box-sizing: border-box;
+}
+
+.LanguageSwitcher__btn:hover {
+  border-color: var(--color-brand-orange-2);
+  background-color: var(--color-dark-card);
+}
+
+.LanguageSwitcher__btn:focus-visible {
+  outline: 2px solid var(--color-brand-orange-2);
+  outline-offset: 2px;
+}
+
+.LanguageSwitcher__option {
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.LanguageSwitcher__option.active {
+  color: var(--color-text-light);
+  font-weight: 600;
+}
+
+.LanguageSwitcher__divider {
+  color: rgba(255, 255, 255, 0.2);
+  font-weight: 300;
+}
