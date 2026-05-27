@@ -8,7 +8,9 @@
   justify-content: center;
   padding: var(--space-16) var(--space-8);
   text-align: center;
-  background: linear-gradient(135deg, var(--color-dark-bg) 0%, #1a1a1a 100%);
+  background-color: var(--color-dark-bg);
+  border-top: 1px solid var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-bg-secondary);
   overflow: hidden;
 }
 
@@ -38,19 +40,22 @@
   width: 100%;
   padding: var(--space-12) var(--space-8);
   box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.02); /* Sheer flat glass */
-  border: none;
+  background: var(--color-bg-complementary); /* Solid dark complement from skills-grid */
+  border: 1px solid #333; /* Solid flat border from skills-grid */
+  border-top: 3px solid rgba(255, 137, 3, 0.15); /* Top orange accent from PhilosophySection */
   border-radius: 0; /* Strict 90° flat edges */
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-  transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: transform var(--transition-base), 
+              border-color var(--transition-base), 
+              border-top-color var(--transition-base), 
+              box-shadow var(--transition-base);
 }
 
 .Home__floating-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+  border-color: #444; /* Clean hover border from skills-grid */
+  border-top-color: var(--color-brand-orange-2); /* Orange accent hover from PhilosophySection */
+  box-shadow: 0 12px 30px rgba(255, 137, 3, 0.12), 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 /* Typographic upgrades */
