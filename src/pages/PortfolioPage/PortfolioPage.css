@@ -159,3 +159,129 @@
   padding: var(--space-3);
   display: inline-block;
 }
+
+/* ==========================================================================
+   Projects Section Premium Redesign (Split Layout & Bottom Sheet)
+   ========================================================================== */
+
+/* Píldora de expansión del filtro */
+.filter-btn--toggle {
+  border-color: var(--color-brand-orange-2) !important;
+  color: var(--color-brand-orange-2) !important;
+  font-weight: 600;
+}
+
+.filter-btn--toggle:hover {
+  background-color: var(--color-brand-orange-2) !important;
+  color: #000000 !important;
+}
+
+/* Grilla responsive adaptativa en selección activa */
+.has-active-selection .ProjectsSection__grid {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+}
+
+.ProjectCard.selected {
+  border-color: var(--color-brand-orange-2) !important;
+  box-shadow: 0 4px 15px rgba(255, 137, 3, 0.2);
+}
+
+/* Contenedor del Dashboard (Desktop) */
+.ProjectsDashboard {
+  display: flex;
+  gap: var(--space-6);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ProjectsDashboard__list {
+  flex: 1;
+  width: 100%;
+  transition: flex var(--transition-base), max-width var(--transition-base);
+}
+
+.ProjectsDashboard__panel-desktop {
+  flex: 0;
+  width: 0;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+  transition: flex var(--transition-base), width var(--transition-base), opacity 0.2s ease;
+}
+
+/* Comportamiento Split-Screen en Desktop */
+@media (min-width: 921px) {
+  .ProjectsDashboard.has-split-layout .ProjectsDashboard__list {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+
+  .ProjectsDashboard.has-split-layout .ProjectsDashboard__panel-desktop {
+    flex: 0 0 40%;
+    width: 40%;
+    opacity: 1;
+    pointer-events: auto;
+    position: sticky;
+    top: 90px;
+    height: calc(100dvh - 120px);
+    overflow: hidden;
+  }
+  
+  /* Ocultar el Bottom Sheet móvil en Desktop */
+  .bottom-sheet-backdrop,
+  .bottom-sheet-container {
+    display: none !important;
+  }
+}
+
+/* Comportamiento Mobile (Drawer Deslizable) */
+@media (max-width: 920px) {
+  .ProjectsDashboard__panel-desktop {
+    display: none !important;
+  }
+
+  .bottom-sheet-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100dvw;
+    height: 100dvh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-base);
+  }
+
+  .bottom-sheet-backdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .bottom-sheet-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100dvw;
+    height: 80dvh;
+    background: var(--color-dark-surface);
+    border-top: 3px solid var(--color-brand-orange-2);
+    z-index: 1001;
+    box-sizing: border-box;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+  }
+
+  .bottom-sheet-container.is-open {
+    transform: translateY(0);
+  }
+  
+  .bottom-sheet-container .ProjectDetailsPanel {
+    height: 100%;
+    border: none;
+    background: transparent;
+  }
+}

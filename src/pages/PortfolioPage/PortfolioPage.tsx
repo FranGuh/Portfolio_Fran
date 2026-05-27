@@ -3,18 +3,24 @@ import { cvData } from '../../data/cvData';
 
 import AboutSection from '../../features/AboutSection/AboutSection';
 import DetailSection from '../../features/DetailSection/DetailSection';
+import type { ItemData } from '../../features/DetailSection/DetailSection';
 import HomeSection from '../../features/HomeSection/HomeSection';
 import { VercelIcon, ReactIcon, TsIcon, AWSIcon, AWSRDSIcon } from '../../components/UI/Icons/SvgIcons';
 import ContactForm from '../../components/Contacto/ContactForm';
 import { SEOHead } from '../../components/SEOHead';
 import PageHeader from '../../components/UI/PageHeader/PageHeader';
+import { ProjectDetailsPanel } from '../../components/Portfolio/ProjectDetailsPanel';
 import './PortfolioPage.css';
 import '../../styles/GlassUpgrades.css';
 import { useLanguage } from '../../contexts/LanguageContext';
 
+const CORE_TECHS = ["React", "TypeScript", "Python", "AWS", "Ollama", "NextJS", "Vite", "Android", "Cloudflare"];
+
 export default function PortfolioPage() {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [selectedTech, setSelectedTech] = useState<string | null>(null);
+    const [selectedProject, setSelectedProject] = useState<ItemData | null>(null);
+    const [isFilterExpanded, setIsFilterExpanded] = useState(false);
     const scrollFrameRef = useRef<number | null>(null);
     const { language, t } = useLanguage();
 
@@ -95,34 +101,83 @@ export default function PortfolioPage() {
             
 
             {/* 4. UX Reclutador: Filtro dinámico de proyectos */}
-            <DetailSection
-                layout="right"
-                title={t("portfolio.titleProjects")}
-                description={selectedTech
-                    ? t("portfolio.descProjectsFiltered").replace("{tech}", selectedTech)
-                    : t("portfolio.descProjectsAll")}
-                icons={[TsIcon, VercelIcon, ReactIcon]}
-                items={filteredProjects}
-            >
-                {/* Este div completo entra como "children" en el DetailSection */}
-                <div className="filter-pills">
-                    <button
-                        className={`filter-btn ${selectedTech === null ? 'active' : ''}`}
-                        onClick={() => setSelectedTech(null)}
+            <div className={`ProjectsDashboard ${selectedProject ? "has-split-layout" : ""}`}>
+                <div className="ProjectsDashboard__list">
+                    <DetailSection
+                        layout="right"
+                        title={t("portfolio.titleProjects")}
+                        description={selectedTech
+                            ? t("portfolio.descProjectsFiltered").replace("{tech}", selectedTech)
+                            : t("portfolio.descProjectsAll")}
+                        icons={[TsIcon, VercelIcon, ReactIcon]}
+                        items={filteredProjects}
+                        onSelectItem={(item) => setSelectedProject(item)}
+                        selectedItem={selectedProject}
                     >
-                        {t("portfolio.filterAll")}
-                    </button>
-                    {allProjectTechs.map(tech => (
-                        <button
-                            key={tech}
-                            className={`filter-btn ${selectedTech === tech ? 'active' : ''}`}
-                            onClick={() => setSelectedTech(tech)}
-                        >
-                            {tech}
-                        </button>
-                    ))}
+                        {/* Este div completo entra como "children" en el DetailSection */}
+                        <div className="filter-pills">
+                            <button
+                                className={`filter-btn ${selectedTech === null ? 'active' : ''}`}
+                                onClick={() => {
+                                    setSelectedTech(null);
+                                    setSelectedProject(null);
+                                }}
+                            >
+                                {t("portfolio.filterAll")}
+                            </button>
+                            {allProjectTechs
+                                .filter(tech => isFilterExpanded || CORE_TECHS.includes(tech) || selectedTech === tech)
+                                .map(tech => (
+                                    <button
+                                        key={tech}
+                                        className={`filter-btn ${selectedTech === tech ? 'active' : ''}`}
+                                        onClick={() => {
+                                            setSelectedTech(tech);
+                                            setSelectedProject(null);
+                                        }}
+                                    >
+                                        {tech}
+                                    </button>
+                                ))
+                            }
+                            {allProjectTechs.length > allProjectTechs.filter(tech => CORE_TECHS.includes(tech) || selectedTech === tech).length && (
+                                <button
+                                    className="filter-btn filter-btn--toggle"
+                                    onClick={() => setIsFilterExpanded(prev => !prev)}
+                                >
+                                    {isFilterExpanded 
+                                        ? (language === "en" ? "Show less" : "Ver menos")
+                                        : (language === "en" 
+                                            ? `Show all (+${allProjectTechs.length - allProjectTechs.filter(tech => CORE_TECHS.includes(tech) || selectedTech === tech).length})` 
+                                            : `Ver más (+${allProjectTechs.length - allProjectTechs.filter(tech => CORE_TECHS.includes(tech) || selectedTech === tech).length})`
+                                          )
+                                    }
+                                </button>
+                            )}
+                        </div>
+                    </DetailSection>
                 </div>
-            </DetailSection>
+
+                {/* Panel de detalles en desktop (Split Screen) */}
+                <div className="ProjectsDashboard__panel-desktop">
+                    <ProjectDetailsPanel 
+                        item={selectedProject} 
+                        onClose={() => setSelectedProject(null)} 
+                    />
+                </div>
+            </div>
+
+            {/* Bottom Sheet en Mobile (GPU optimized) */}
+            <div 
+                className={`bottom-sheet-backdrop ${selectedProject ? "is-open" : ""}`} 
+                onClick={() => setSelectedProject(null)}
+            ></div>
+            <div className={`bottom-sheet-container ${selectedProject ? "is-open" : ""}`}>
+                <ProjectDetailsPanel 
+                    item={selectedProject} 
+                    onClose={() => setSelectedProject(null)} 
+                />
+            </div>
 
             <section className="PortfolioPage__skills-grid">
                 <div className="skills-container-alternative">
