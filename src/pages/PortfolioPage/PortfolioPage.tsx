@@ -20,6 +20,8 @@ export default function PortfolioPage() {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [selectedTech, setSelectedTech] = useState<string | null>(null);
     const [selectedProject, setSelectedProject] = useState<ItemData | null>(null);
+    const [lightboxActiveImage, setLightboxActiveImage] = useState<string | null>(null);
+    const [isLightboxVisible, setIsLightboxVisible] = useState(false);
     const [isFilterExpanded, setIsFilterExpanded] = useState(false);
     const scrollFrameRef = useRef<number | null>(null);
     const { language, t } = useLanguage();
@@ -48,6 +50,46 @@ export default function PortfolioPage() {
             }
         };
     }, []);
+
+    const closeTimeoutRef = useRef<number | null>(null);
+
+    const openLightbox = (imageUrl: string) => {
+        if (closeTimeoutRef.current) {
+            clearTimeout(closeTimeoutRef.current);
+            closeTimeoutRef.current = null;
+        }
+        setLightboxActiveImage(imageUrl);
+        // Esperamos un frame para aplicar la clase is-open y disparar la animación de entrada
+        requestAnimationFrame(() => {
+            setIsLightboxVisible(true);
+        });
+    };
+
+    const closeLightbox = () => {
+        setIsLightboxVisible(false);
+        if (closeTimeoutRef.current) {
+            clearTimeout(closeTimeoutRef.current);
+        }
+        closeTimeoutRef.current = window.setTimeout(() => {
+            setLightboxActiveImage(null);
+            closeTimeoutRef.current = null;
+        }, 300); // Mismo tiempo que la transición de CSS (0.3s)
+    };
+
+    // Cerrar el modal/lightbox automáticamente si el usuario hace scroll o desplaza la pantalla
+    useEffect(() => {
+        if (!isLightboxVisible) return;
+
+        const handleScrollClose = () => {
+            closeLightbox();
+        };
+
+        window.addEventListener('scroll', handleScrollClose, { passive: true, capture: true });
+        
+        return () => {
+            window.removeEventListener('scroll', handleScrollClose, { capture: true });
+        };
+    }, [isLightboxVisible]);
 
     // Extraer tecnologías únicas para el filtro
     const allProjectTechs = Array.from(
@@ -161,8 +203,10 @@ export default function PortfolioPage() {
                 {/* Panel de detalles en desktop (Split Screen) */}
                 <div className="ProjectsDashboard__panel-desktop">
                     <ProjectDetailsPanel 
+                        key={selectedProject ? `desktop-${selectedProject.title || selectedProject.company}` : 'desktop-empty'}
                         item={selectedProject} 
                         onClose={() => setSelectedProject(null)} 
+                        onOpenLightbox={openLightbox}
                     />
                 </div>
             </div>
@@ -174,8 +218,10 @@ export default function PortfolioPage() {
             ></div>
             <div className={`bottom-sheet-container ${selectedProject ? "is-open" : ""}`}>
                 <ProjectDetailsPanel 
+                    key={selectedProject ? `mobile-${selectedProject.title || selectedProject.company}` : 'mobile-empty'}
                     item={selectedProject} 
                     onClose={() => setSelectedProject(null)} 
+                    onOpenLightbox={openLightbox}
                 />
             </div>
 
@@ -215,6 +261,20 @@ export default function PortfolioPage() {
             </section>
 
             <ContactForm />
+
+            {lightboxActiveImage && (
+                <div className={`ProjectDetailsPanel__lightbox ${isLightboxVisible ? "is-open" : ""}`} onClick={closeLightbox}>
+                    <button className="ProjectDetailsPanel__lightbox-close" onClick={closeLightbox}>
+                        ✕
+                    </button>
+                    <img 
+                        src={lightboxActiveImage} 
+                        alt="Preview fullscreen" 
+                        className="ProjectDetailsPanel__lightbox-img" 
+                        onClick={(e) => e.stopPropagation()} 
+                    />
+                </div>
+            )}
         </div>
     );
 }

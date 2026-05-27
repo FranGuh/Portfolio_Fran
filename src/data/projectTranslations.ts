@@ -3,8 +3,8 @@
 export const projectTranslations: Record<string, { description: { es: string; en: string }; period?: { es: string; en: string } }> = {
   "Brick.draw": {
     description: {
-      es: "Software de escritorio ligero para uso creativo, inspirado en Paint y Photoshop para dibujo en capas con la posibilidad de comunicarse con un servicio para mejorar los dibujos del usuario mediante modelos locales de Stable Diffusion XL.",
-      en: "Lightweight desktop creative software inspired by Paint and Photoshop for layered drawing, featuring integration with a local service to enhance user drawings using Stable Diffusion XL models."
+      es: "Software de escritorio ligero para uso creativo, inspirado en Paint y Photoshop para dibujo en capas, con la posibilidad de comunicarse con Sloppy (un servicio de visión artificial local) para mejorar los dibujos del usuario mediante modelos de Stable Diffusion XL.",
+      en: "Lightweight desktop creative software inspired by Paint and Photoshop for layered drawing, featuring integration with Sloppy (a local computer vision service) to enhance user drawings using Stable Diffusion XL models."
     }
   },
   "Dog-bros (BroDogs)": {

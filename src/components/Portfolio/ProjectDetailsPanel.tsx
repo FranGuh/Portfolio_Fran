@@ -8,9 +8,10 @@ import "./ProjectDetailsPanel.css";
 interface ProjectDetailsPanelProps {
   item: ItemData | null;
   onClose: () => void;
+  onOpenLightbox?: (imageUrl: string) => void;
 }
 
-export const ProjectDetailsPanel = ({ item, onClose }: ProjectDetailsPanelProps) => {
+export const ProjectDetailsPanel = ({ item, onClose, onOpenLightbox }: ProjectDetailsPanelProps) => {
   const { language, t } = useLanguage();
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
@@ -38,6 +39,11 @@ export const ProjectDetailsPanel = ({ item, onClose }: ProjectDetailsPanelProps)
 
   return (
     <div className="ProjectDetailsPanel">
+      {isPlynte && (
+        <div className="ProjectDetailsPanel__watermark" aria-hidden="true">
+          {language === "en" ? "THIS PORTFOLIO" : "ESTE PROYECTO"}
+        </div>
+      )}
       <div className="ProjectDetailsPanel__header">
         <h3 className="ProjectDetailsPanel__eyebrow">
           {isProject ? t("portfolio.titleProjects") : t("portfolio.titleExperience")}
@@ -51,13 +57,16 @@ export const ProjectDetailsPanel = ({ item, onClose }: ProjectDetailsPanelProps)
         {item.image && (
           <div 
             className="ProjectDetailsPanel__img-container"
-            onClick={() => setIsLightboxOpen(true)}
+            onClick={() => {
+              if (onOpenLightbox) {
+                onOpenLightbox(item.image!);
+              } else {
+                setIsLightboxOpen(true);
+              }
+            }}
             title={language === "en" ? "Click to view fullscreen" : "Hacé clic para ver a pantalla completa"}
           >
             <img src={item.image} alt={displayTitle} className="ProjectDetailsPanel__img" />
-            <div className="ProjectDetailsPanel__img-overlay">
-              <span>{language === "en" ? "Zoom In 🔍" : "Agrandar Imagen 🔍"}</span>
-            </div>
           </div>
         )}
 
@@ -85,7 +94,7 @@ export const ProjectDetailsPanel = ({ item, onClose }: ProjectDetailsPanelProps)
         {item.link && (
           <div className="ProjectDetailsPanel__actions">
             <a href={item.link} target="_blank" rel="noopener noreferrer" className="ProjectDetailsPanel__link-btn">
-              {t("portfolio.viewProject")} ↗
+              {t("portfolio.viewProject")}
             </a>
           </div>
         )}

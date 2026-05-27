@@ -89,6 +89,11 @@ const DetailSection = ({ title, description, items, icons, backgroundImg, backgr
               onClick={() => onSelectItem?.(item)}
               style={onSelectItem ? { cursor: 'pointer' } : undefined}
             >
+              {isProject && item.title === "Plynte.com" && (
+                <div className="ProjectCard__watermark" aria-hidden="true">
+                  {language === "en" ? "THIS PORTFOLIO" : "ESTE PROYECTO"}
+                </div>
+              )}
               <img
                 src={item.image || '/pictures/default-project.jpg'}
                 alt={item.title || item.company}

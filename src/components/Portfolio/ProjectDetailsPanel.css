@@ -14,6 +14,7 @@
   transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
+
 @supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
   .ProjectDetailsPanel {
     background: rgba(18, 18, 18, 0.96);
@@ -29,6 +30,8 @@
   margin-bottom: var(--space-4);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding-bottom: var(--space-3);
+  position: relative;
+  z-index: 1;
 }
 
 .ProjectDetailsPanel__eyebrow {
@@ -61,6 +64,8 @@
   flex-direction: column;
   overflow-y: auto;
   padding-right: var(--space-1);
+  position: relative;
+  z-index: 1;
 }
 
 .ProjectDetailsPanel__img-container {
@@ -71,46 +76,21 @@
   margin-bottom: var(--space-6);
   border: 1px solid rgba(255, 255, 255, 0.08);
   cursor: zoom-in;
+  background-color: #050505;
+  /* Fondo negro sólido para enmarcar capturas de pantalla */
 }
 
 .ProjectDetailsPanel__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Evita que la imagen se estire o recorte fuera del contenedor */
   transition: transform var(--transition-slow);
 }
 
-.ProjectDetailsPanel__img-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity var(--transition-base);
-}
-
-.ProjectDetailsPanel__img-overlay span {
-  font-family: var(--font-body);
-  font-size: var(--font-size-base);
-  color: #fff;
-  font-weight: 500;
-  border: 1px solid #fff;
-  padding: var(--space-2) var(--space-4);
-  background: rgba(0, 0, 0, 0.6);
-  transition: background-color var(--transition-fast);
-}
-
 .ProjectDetailsPanel__img-container:hover .ProjectDetailsPanel__img {
-  transform: scale(1.03);
-}
-
-.ProjectDetailsPanel__img-container:hover .ProjectDetailsPanel__img-overlay {
-  opacity: 1;
+  transform: scale(1.02);
+  /* Sutil efecto premium de acercamiento */
 }
 
 .ProjectDetailsPanel__title {
@@ -209,14 +189,23 @@
   width: 100dvw;
   height: 100dvh;
   background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2000;
   cursor: zoom-out;
-  animation: ProjectDetailsPanel__fadeIn 0.25s ease;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease;
+}
+
+.ProjectDetailsPanel__lightbox.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .ProjectDetailsPanel__lightbox-img {
@@ -225,7 +214,14 @@
   object-fit: contain;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  animation: ProjectDetailsPanel__scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(0.95);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.ProjectDetailsPanel__lightbox.is-open .ProjectDetailsPanel__lightbox-img {
+  transform: scale(1);
+  opacity: 1;
 }
 
 .ProjectDetailsPanel__lightbox-close {
@@ -237,26 +233,37 @@
   color: #fff;
   font-size: 2.5rem;
   cursor: pointer;
-  transition: transform 0.2s, color 0.2s;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: transform 0.3s ease, color 0.2s, opacity 0.3s ease;
+}
+
+.ProjectDetailsPanel__lightbox.is-open .ProjectDetailsPanel__lightbox-close {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .ProjectDetailsPanel__lightbox-close:hover {
   color: var(--color-brand-orange-2);
-  transform: scale(1.1);
+  transform: scale(1.1) !important;
 }
 
-@keyframes ProjectDetailsPanel__fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes ProjectDetailsPanel__scaleIn {
-  from {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+/* Marca de agua premium para Plynte.com (Este portafolio) */
+.ProjectDetailsPanel__watermark {
+  position: absolute;
+  bottom: var(--space-4);
+  right: var(--space-4);
+  font-family: 'Bebas Neue', var(--font-display), sans-serif;
+  font-size: clamp(3rem, 12cqi, 6rem);
+  /* Escala responsiva premium */
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 152, 0, 0.09);
+  /* Naranja Franguh con transparencia */
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+  letter-spacing: 2px;
+  line-height: 1;
+  white-space: nowrap;
 }

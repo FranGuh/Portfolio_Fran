@@ -4,7 +4,7 @@
   background-color: #ebebeb; /* Fondo base de tu web */
   min-height: 100vh;
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip; /* Permite position: sticky sin romper el scroll vertical */
 }
 
 /* Barra de progreso para reclutadores */
@@ -193,6 +193,7 @@
   gap: var(--space-6);
   width: 100%;
   box-sizing: border-box;
+  background-color: var(--color-bg-secondary); /* Fondo oscuro uniforme para evitar filtraciones del fondo claro */
 }
 
 .ProjectsDashboard__list {
