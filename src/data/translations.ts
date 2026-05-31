@@ -138,6 +138,22 @@ export const translations: Record<string, any> = {
       skillsSubtitle: "Me gusta desarrollar {span1} y compartir {span2}",
       skillsSpan1: "mis ideas",
       skillsSpan2: "mis aprendizajes",
+    },
+    notFound: {
+      title: "Esta página no existe",
+      description: "La ruta solicitada no corresponde a ningún recurso disponible en el portfolio.",
+      urlInfo: "La URL {path} no corresponde a ningún recurso válido.",
+      subInfo: "Es posible que escribiste mal la dirección o que la página fue eliminada.",
+      btnHome: "Volver al Inicio",
+      btnAbout: "Ir a Sobre Mí",
+    },
+    featureSelector: {
+      perfil: { label: "Perfil", desc: "Ingeniero en Sistemas Computacionales. Enfoque en desarrollo de software y resolución de problemas técnicos." },
+      frontend: { label: "Frontend", desc: "Desarrollo de interfaces con React, JavaScript, TypeScript, HTML y CSS." },
+      backend: { label: "Backend", desc: "Construcción de APIs y lógica de servidor utilizando Node.js. Manejo de bases de datos SQL y NoSQL." },
+      python: { label: "Python & Datos", desc: "Creación de scripts de auditoría y sistemas de clasificación de imágenes (uso de dlib, CUDA y scikit-learn para clustering con DBSCAN)." },
+      cloud: { label: "Nube & Deploy", desc: "Despliegue y administración de infraestructura en la nube utilizando Vercel, Cloudflare y AWS." },
+      proyectos: { label: "Proyectos", desc: "Desarrollo de Plynte y herramientas de gestión de almacenamiento." }
     }
   },
   en: {
@@ -278,6 +294,22 @@ export const translations: Record<string, any> = {
       skillsSubtitle: "I like to develop {span1} and share {span2}",
       skillsSpan1: "my ideas",
       skillsSpan2: "my learnings",
+    },
+    notFound: {
+      title: "This page does not exist",
+      description: "The requested path does not correspond to any resource available in the portfolio.",
+      urlInfo: "The URL {path} does not correspond to any valid resource.",
+      subInfo: "You might have typed the address wrong or the page was deleted.",
+      btnHome: "Back to Home",
+      btnAbout: "Go to About Me",
+    },
+    featureSelector: {
+      perfil: { label: "Profile", desc: "Computer Systems Engineer. Focused on software development and technical problem solving." },
+      frontend: { label: "Frontend", desc: "UI development with React, JavaScript, TypeScript, HTML, and CSS." },
+      backend: { label: "Backend", desc: "API and server-side logic construction using Node.js. SQL and NoSQL database management." },
+      python: { label: "Python & Data", desc: "Audit scripting and image classification pipelines (utilizing dlib, CUDA, and scikit-learn for DBSCAN clustering)." },
+      cloud: { label: "Cloud & Deploy", desc: "Deployment and cloud infrastructure administration utilizing Vercel, Cloudflare, and AWS." },
+      proyectos: { label: "Projects", desc: "Plynte development and storage management utilities." }
     }
   }
 };

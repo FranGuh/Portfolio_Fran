@@ -8,6 +8,8 @@ import { SEOHead } from '../../components/SEOHead'
 import { generateSlug } from '../../utils/slug'
 import './DetailsPage.css'
 import { useLanguage } from '../../contexts/LanguageContext'
+import { InfrastructureDetail } from '../../features/InfrastructureDetail/InfrastructureDetail'
+import HomeSection from '../../features/HomeSection/HomeSection'
 import {
   getLocalizedProjectDesc,
   getLocalizedExperienceRole,
@@ -61,11 +63,21 @@ const DetailsPage = () => {
     : targetData.title;
 
   return (
-    <div className='Details'>
+    <div className={`Details ${slug === 'desarrollador-e-implementador-de-infraestructura' ? 'Details--dark' : ''}`}>
       <SEOHead 
         title={pageTitle} 
         description={displayDesc} 
         image={targetData.image}
+      />
+      <HomeSection 
+        text1={isExperience 
+          ? (language === "en" ? 'My' : 'Mi') 
+          : (language === "en" ? 'Project' : 'Detalle')
+        }
+        text2={isExperience 
+          ? (language === "en" ? 'Experience' : 'Experiencia') 
+          : (language === "en" ? 'Details' : 'Proyecto')
+        }
       />
       <PageHeader 
         eyebrow={isExperience 
@@ -75,16 +87,21 @@ const DetailsPage = () => {
         title={pageTitle}
         description={displayDesc}
       />
-      <DetailSection
-        backgroundImg={targetData.image}
-        backgroundAlt={pageTitle}
-        title={pageTitle}
-        description={displayDesc}
-        items={[targetData]} 
-        layout="right"
-      />
-
-      <FeatureSelector />
+      {slug === 'desarrollador-e-implementador-de-infraestructura' ? (
+        <InfrastructureDetail />
+      ) : (
+        <>
+          <DetailSection
+            backgroundImg={targetData.image}
+            backgroundAlt={pageTitle}
+            title={pageTitle}
+            description={displayDesc}
+            items={[targetData]} 
+            layout="right"
+          />
+          <FeatureSelector />
+        </>
+      )}
 
       <div className="Details__floating-container">
           <Button className='button--floating' onClick={() => navigate(-1)}>
