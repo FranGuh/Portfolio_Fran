@@ -3,36 +3,39 @@ import Button from "../../components/UI/Button/Button";
 import "./NotFoundPage.css";
 import { SEOHead } from "../../components/SEOHead";
 import PageHeader from "../../components/UI/PageHeader/PageHeader";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const NotFoundPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const pathname = location.pathname;
+  const urlInfoParts = t("notFound.urlInfo").split("{path}");
 
   return (
     <div className="Page404">
-      <SEOHead title="404 No Encontrado" description="Esta página no existe o ha sido movida." />
+      <SEOHead title={`404 - ${t("notFound.title")}`} description={t("notFound.description")} />
       <PageHeader
         eyebrow="404"
-        title="Esta pagina no existe"
-        description="La ruta solicitada no corresponde a ningun recurso disponible en el portfolio."
+        title={t("notFound.title")}
+        description={t("notFound.description")}
       />
 
       <div className="Page404__content">
         <p>
-          La URL <code>{pathname}</code> no corresponde a ningún recurso válido.
+          {urlInfoParts[0]}<code>{pathname}</code>{urlInfoParts[1]}
         </p>
         <p>
-          Es posible que escribiste mal la dirección o que la página fue eliminada.
+          {t("notFound.subInfo")}
         </p>
 
         <div className="Page404__buttons">
           <Button variant="primary" onClick={() => navigate('/')}>
-            Volver al Inicio
+            {t("notFound.btnHome")}
           </Button>
           <Button variant="secondary" onClick={() => navigate('/about')}>
-            Ir a Sobre Mí
+            {t("notFound.btnAbout")}
           </Button>
         </div>
       </div>

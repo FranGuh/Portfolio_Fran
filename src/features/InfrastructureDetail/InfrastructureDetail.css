@@ -1,0 +1,380 @@
+/* src/features/InfrastructureDetail/InfrastructureDetail.css */
+
+.InfraDetail {
+  width: 100%;
+  padding: 5rem 4rem;
+  background: linear-gradient(135deg, #08080a 0%, #0d0905 50%, #160f07 100%);
+  border-top: 1px solid rgba(255, 137, 3, 0.15);
+  border-bottom: none; /* Borde blanco/naranja inferior removido completamente */
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.InfraDetail__container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 5rem;
+  align-items: start;
+  box-sizing: border-box;
+}
+
+@media (max-width: 992px) {
+  .InfraDetail__container {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+  .InfraDetail {
+    padding: 3rem 1.5rem;
+  }
+}
+
+/* Lado A: Columna de Navegación A24 */
+.InfraDetail__nav-column {
+  width: 100%;
+}
+
+.A24Marquee {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.A24Marquee__row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.6rem 0;
+  cursor: pointer;
+  outline: none;
+  text-align: left;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.A24Marquee__num {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.15);
+  width: 35px;
+  flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+
+.A24Marquee__name {
+  font-family: var(--font-display), 'Anton', sans-serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem); /* Tamaño monumental de cartelera A24 */
+  font-weight: 800;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.18);
+  letter-spacing: -1.5px;
+  line-height: 1.05;
+  white-space: nowrap; /* Impide saltos de línea */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80%;
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s ease, text-shadow 0.35s ease;
+}
+
+/* Indicador de Activación A24 (Ubicado absoluto al extremo derecho) */
+.A24Marquee__dot {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%) scale(0);
+  width: 5px;
+  height: 5px;
+  background-color: #ff8903;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 0 8px #ff8903;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+}
+
+/* Efectos Hover */
+.A24Marquee__row:hover .A24Marquee__name {
+  color: rgba(255, 255, 255, 0.85);
+  transform: translateX(8px); /* Traslación en GPU para evitar Layout Shifts */
+}
+
+.A24Marquee__row:hover .A24Marquee__num {
+  color: rgba(255, 137, 3, 0.6);
+}
+
+/* Estado Seleccionado (Active Marquee) */
+.A24Marquee__row.is-selected .A24Marquee__name {
+  color: #ff8903;
+  text-shadow: 0 0 25px rgba(255, 137, 3, 0.25);
+  transform: translateX(12px); /* Traslación fija en GPU sin modificar el ancho */
+}
+
+.A24Marquee__row.is-selected .A24Marquee__num {
+  color: #ff8903;
+}
+
+.A24Marquee__row.is-selected .A24Marquee__dot {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+/* Lado B: Columna de Ficha Técnica Side-by-Side (Sticky) */
+.InfraDetail__card-column {
+  width: 100%;
+  position: sticky;
+  z-index: 1;
+}
+
+@media (max-width: 992px) {
+  .InfraDetail__card-column {
+    position: static;
+  }
+}
+
+.A24DetailCard {
+  width: 100%;
+  background: rgba(12, 12, 15, 0.85);
+  border: 1px solid rgba(255, 137, 3, 0.15);
+  border-radius: 4px;
+  padding: 2.5rem;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  position: relative;
+  backdrop-filter: blur(20px);
+  transition: border-color 0.3s ease;
+}
+
+.A24DetailCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff8903 0%, #ffc837 50%, #00f2fe 100%);
+}
+
+.A24DetailCard:hover {
+  border-color: rgba(255, 137, 3, 0.4);
+}
+
+.A24DetailCard__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.A24DetailCard__meta {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.A24DetailCard__number {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #ff8903;
+  border: 1px solid rgba(255, 137, 3, 0.3);
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+  border-radius: 2px;
+}
+
+.A24DetailCard__title {
+  font-family: var(--font-display), 'Anton', sans-serif;
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.A24DetailCard__subtitle {
+  font-family: var(--font-body), 'Inter', sans-serif;
+  color: #ff8903;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0.35rem 0 0 0;
+  letter-spacing: 0.5px;
+}
+
+.A24DetailCard__telemetry {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  border-left: 2px solid #00f2fe;
+  padding-left: 1rem;
+}
+
+@media (max-width: 600px) {
+  .A24DetailCard__telemetry {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.telemetry-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.telemetry-value {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85rem;
+  color: #00f2fe;
+  font-weight: 700;
+  margin-top: 0.25rem;
+  letter-spacing: -0.5px;
+}
+
+/* Cuerpo de la Tarjeta */
+.A24DetailCard__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.A24DetailCard__section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.section-label {
+  font-family: var(--font-display), 'Anton', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #6e6e73;
+  letter-spacing: 1px;
+}
+
+.A24DetailCard__section p {
+  font-family: var(--font-body), 'Inter', sans-serif;
+  color: #d1d1d6;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Footer de la Tarjeta */
+.A24DetailCard__footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.tech-label {
+  font-family: var(--font-display), 'Anton', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #6e6e73;
+  letter-spacing: 1px;
+}
+
+.A24DetailCard__techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.A24DetailCard__tag {
+  font-family: var(--font-mono, monospace);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  padding: 0.35rem 0.75rem;
+  color: #d1d1d6;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.A24DetailCard__tag:hover {
+  background: rgba(255, 137, 3, 0.12);
+  border-color: #ff8903;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Llamada a la Acción (A24-style CTA: White Glassmorphism Card)
+   ========================================================================== */
+.A24CTA {
+  grid-column: 1 / -1; /* Ocupa todo el ancho en grids de 2 columnas */
+  width: 100%;
+  border-top: none; /* Borde blanco superior removido para total limpieza */
+  padding-top: 4rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.A24CTA__button {
+  background: rgba(255, 255, 255, 0.05); /* Cristal traslúcido blanco */
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Borde blanco sutil */
+  border-radius: 4px; /* Esquinas rectas técnicas */
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+  padding: 2.2rem 3rem;
+  text-align: center;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.A24CTA__text {
+  font-family: var(--font-display), 'Anton', sans-serif;
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem); /* Tamaño refinado y elegante */
+  font-weight: 800;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85); /* Texto blanco puro brillante */
+  letter-spacing: 0.5px;
+  line-height: 1.05;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+}
+
+/* Efectos al hacer Hover en el botón de Cristal Blanco */
+.A24CTA__button:hover {
+  background: rgba(255, 255, 255, 0.12); /* Brillo blanco */
+  border-color: #ff8903; /* Borde naranja neón sutil */
+  box-shadow: 0 0 35px rgba(255, 137, 3, 0.25), inset 0 0 15px rgba(255, 255, 255, 0.05);
+  transform: translateY(-4px); /* Movimiento físico suave en GPU */
+}
+
+.A24CTA__button:hover .A24CTA__text {
+  color: #ffffff;
+  transform: scale(1.01);
+}
+
+.InfraDetail__description {
+  max-width: none !important; /* Desbloquea el ancho completo */
+}

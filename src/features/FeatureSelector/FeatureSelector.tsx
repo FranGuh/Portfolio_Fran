@@ -1,41 +1,45 @@
 import { useState } from "react";
 import "./FeatureSelector.css";
-
-const features = [
-  {
-    key: "perfil",
-    label: "Perfil",
-    description: "Ingeniero en Sistemas Computacionales. Enfoque en desarrollo de software y resolución de problemas técnicos."
-  },
-  {
-    key: "frontend",
-    label: "Frontend",
-    description: "Desarrollo de interfaces con React, JavaScript, TypeScript, HTML y CSS."
-  },
-  {
-    key: "backend",
-    label: "Backend",
-    description: "Construcción de APIs y lógica de servidor utilizando Node.js. Manejo de bases de datos SQL y NoSQL."
-  },
-  {
-    key: "python",
-    label: "Python & Datos",
-    description: "Creación de scripts de auditoría y sistemas de clasificación de imágenes (uso de dlib, CUDA y scikit-learn para clustering con DBSCAN)."
-  },
-  {
-    key: "cloud",
-    label: "Nube & Deploy",
-    description: "Despliegue y administración de infraestructura en la nube utilizando Vercel, Cloudflare y AWS."
-  },
-  {
-    key: "proyectos",
-    label: "Proyectos",
-    description: "Desarrollo de Plynte y herramientas de gestión de almacenamiento."
-  }
-];
+import { useLanguage } from "../../contexts/LanguageContext";
 
 export default function FeatureSelector() {
-  const [selected, setSelected] = useState(features[0]);
+  const { t } = useLanguage();
+
+  const features = [
+    {
+      key: "perfil",
+      label: t("featureSelector.perfil.label"),
+      description: t("featureSelector.perfil.desc")
+    },
+    {
+      key: "frontend",
+      label: t("featureSelector.frontend.label"),
+      description: t("featureSelector.frontend.desc")
+    },
+    {
+      key: "backend",
+      label: t("featureSelector.backend.label"),
+      description: t("featureSelector.backend.desc")
+    },
+    {
+      key: "python",
+      label: t("featureSelector.python.label"),
+      description: t("featureSelector.python.desc")
+    },
+    {
+      key: "cloud",
+      label: t("featureSelector.cloud.label"),
+      description: t("featureSelector.cloud.desc")
+    },
+    {
+      key: "proyectos",
+      label: t("featureSelector.proyectos.label"),
+      description: t("featureSelector.proyectos.desc")
+    }
+  ];
+
+  const [selectedKey, setSelectedKey] = useState("perfil");
+  const selectedFeature = features.find(f => f.key === selectedKey) || features[0];
 
   return (
     <div className="FeatureSelector">
@@ -43,8 +47,8 @@ export default function FeatureSelector() {
         {features.map((feature) => (
           <button
             key={feature.key}
-            className={selected.key === feature.key ? "active" : ""}
-            onClick={() => setSelected(feature)}
+            className={selectedKey === feature.key ? "active" : ""}
+            onClick={() => setSelectedKey(feature.key)}
           >
             {feature.label}
           </button>
@@ -52,8 +56,8 @@ export default function FeatureSelector() {
       </nav>
 
       <div className="FeatureSelector__content">
-        <h2>{selected.label}</h2>
-        <p>{selected.description}</p>
+        <h2>{selectedFeature.label}</h2>
+        <p>{selectedFeature.description}</p>
       </div>
     </div>
   );
