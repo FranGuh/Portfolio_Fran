@@ -4,7 +4,8 @@ import { useLanguage } from "../../contexts/LanguageContext";
 import {
   getLocalizedProjectDesc,
   getLocalizedExperienceRole,
-  getLocalizedExperienceDesc
+  getLocalizedExperienceDesc,
+  getLocalizedProjectPeriod
 } from "../../data/projectTranslations";
 
 type IconComponent = React.FC<React.SVGProps<SVGSVGElement>>;
@@ -17,6 +18,7 @@ export interface ItemData {
   techStack: string[];
   image?: string;
   link?: string;
+  period?: string;
 }
 
 interface DetailSectionProps {
@@ -82,6 +84,10 @@ const DetailSection = ({ title, description, items, icons, backgroundImg, backgr
             (!isProject && selectedItem.company === item.company)
           );
 
+          const displayPeriod = item.period
+            ? getLocalizedProjectPeriod(item.title || item.company || "", language, item.period)
+            : "";
+
           return (
             <article 
               key={index} 
@@ -104,6 +110,9 @@ const DetailSection = ({ title, description, items, icons, backgroundImg, backgr
               />
 
               <div className="ProjectCard__content">
+                {displayPeriod && (
+                  <span className="ProjectCard__period-tag">{displayPeriod}</span>
+                )}
                 <h3 className="ProjectCard__title">
                   {item.title || `${displayRole} ${language === "en" ? "at" : "en"} ${item.company}`}
                 </h3>
@@ -124,6 +133,25 @@ const DetailSection = ({ title, description, items, icons, backgroundImg, backgr
                     onClick={(e) => e.stopPropagation()}
                   >
                     {t("portfolio.viewProject")}
+                  </a>
+                )}
+
+                {item.company === "Cacao-Cocoa (RaukeIT)" && (
+                  <a 
+                    href="https://www.figma.com/design/7WwOrwfeQWIM29lMRMla73/Cacao?m=auto&t=HgMFoQ407ffaGWWZ-1" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="ProjectCard__link"
+                    style={{ 
+                      marginTop: 'var(--space-2)', 
+                      border: '1px dashed var(--color-brand-orange-2)', 
+                      color: 'var(--color-brand-orange-2)', 
+                      backgroundColor: 'transparent',
+                      textAlign: 'center'
+                    }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    🎨 {language === "en" ? "Figma Design" : "Diseño en Figma"}
                   </a>
                 )}
               </div>
