@@ -2,7 +2,7 @@
 import { useState } from "react";
 import type { ItemData } from "../../features/DetailSection/DetailSection";
 import { useLanguage } from "../../contexts/LanguageContext";
-import { getLocalizedProjectDesc, getLocalizedExperienceDesc, getLocalizedExperienceRole } from "../../data/projectTranslations";
+import { getLocalizedProjectDesc, getLocalizedExperienceDesc, getLocalizedExperienceRole, getLocalizedProjectPeriod } from "../../data/projectTranslations";
 import "./ProjectDetailsPanel.css";
 
 interface ProjectDetailsPanelProps {
@@ -14,6 +14,7 @@ interface ProjectDetailsPanelProps {
 export const ProjectDetailsPanel = ({ item, onClose, onOpenLightbox }: ProjectDetailsPanelProps) => {
   const { language, t } = useLanguage();
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<'details' | 'architecture'>('details');
 
   if (!item) return null;
 
@@ -78,24 +79,117 @@ export const ProjectDetailsPanel = ({ item, onClose, onOpenLightbox }: ProjectDe
           <h4 className="ProjectDetailsPanel__meta">{item.company}</h4>
         )}
 
+        {item.period && (
+          <div className="ProjectDetailsPanel__period">
+            {getLocalizedProjectPeriod(item.title || item.company || "", language, item.period)}
+          </div>
+        )}
+
+        {item.title === "Dog-bros (BroDogs)" && (
+          <div className="ProjectDetailsPanel__tabs">
+            <button 
+              className={`ProjectDetailsPanel__tab-btn ${activeTab === 'details' ? 'active' : ''}`}
+              onClick={() => setActiveTab('details')}
+            >
+              {language === "en" ? "Implementation & Tech" : "Implementación y Tech"}
+            </button>
+            <button 
+              className={`ProjectDetailsPanel__tab-btn ${activeTab === 'architecture' ? 'active' : ''}`}
+              onClick={() => setActiveTab('architecture')}
+            >
+              {language === "en" ? "Architecture Blueprint" : "Diseño de Arquitectura"}
+            </button>
+          </div>
+        )}
+
         <div className="ProjectDetailsPanel__divider"></div>
 
-        <p className="ProjectDetailsPanel__desc">{displayDesc}</p>
+        {activeTab === 'details' || item.title !== "Dog-bros (BroDogs)" ? (
+          <>
+            <p className="ProjectDetailsPanel__desc">{displayDesc}</p>
 
-        <h3 className="ProjectDetailsPanel__section-title">
-          {language === "en" ? "Technologies Used" : "Tecnologías Utilizadas"}
-        </h3>
-        <div className="ProjectDetailsPanel__tags">
-          {item.techStack.map(tech => (
-            <span key={tech} className="ProjectDetailsPanel__tag">{tech}</span>
-          ))}
-        </div>
+            <h3 className="ProjectDetailsPanel__section-title">
+              {language === "en" ? "Technologies Used" : "Tecnologías Utilizadas"}
+            </h3>
+            <div className="ProjectDetailsPanel__tags">
+              {item.techStack.map(tech => (
+                <span key={tech} className="ProjectDetailsPanel__tag">{tech}</span>
+              ))}
+            </div>
 
-        {item.link && (
-          <div className="ProjectDetailsPanel__actions">
-            <a href={item.link} target="_blank" rel="noopener noreferrer" className="ProjectDetailsPanel__link-btn">
-              {t("portfolio.viewProject")}
-            </a>
+            {item.link && (
+              <div className="ProjectDetailsPanel__actions">
+                <a href={item.link} target="_blank" rel="noopener noreferrer" className="ProjectDetailsPanel__link-btn">
+                  {t("portfolio.viewProject")}
+                </a>
+                {item.company === "Cacao-Cocoa (RaukeIT)" && (
+                  <a 
+                    href="https://www.figma.com/design/7WwOrwfeQWIM29lMRMla73/Cacao?m=auto&t=HgMFoQ407ffaGWWZ-1" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="ProjectDetailsPanel__figjam-btn"
+                    style={{ marginTop: 'var(--space-2)' }}
+                  >
+                    🎨 {language === "en" ? "Figma Design" : "Diseño en Figma"}
+                  </a>
+                )}
+              </div>
+            )}
+          </>
+        ) : (
+          <div className="ProjectDetailsPanel__architecture">
+            <h3 className="ProjectDetailsPanel__section-title">
+              {language === "en" ? "System Design Blueprint" : "Plan de Arquitectura de Producción"}
+            </h3>
+            <p className="ProjectDetailsPanel__desc">
+              {language === "en"
+                ? "This blueprint maps the physical dark kitchen operations directly to software engineering patterns, outlining a production-ready architecture design and proactive risk mitigation strategies (not implemented in the current live frontend MVP)."
+                : "Este plano mapea las operaciones físicas de la dark kitchen directamente con patrones de ingeniería de software, detallando una propuesta de arquitectura de producción y mitigación de riesgos (no implementados en el MVP actual de solo frontend)."}
+            </p>
+            <div className="architecture-grid">
+              <div className="architecture-card">
+                <h5>🛡️ {language === "en" ? "Early Payload Validation" : "Validación Temprana de Payload"}</h5>
+                <p>
+                  {language === "en" 
+                    ? "Prevents 'last-mile' delivery failures by validating complete transaction details (payment method, bill denomination, exact address) at the client level before pushing to the core queue."
+                    : "Previene fallos en la 'última milla' validando los detalles completos de la orden (método de pago, denominación del billete, dirección exacta) en el cliente antes de ingresarla a la cola del sistema."}
+                </p>
+              </div>
+              <div className="architecture-card">
+                <h5>🔄 {language === "en" ? "Asynchronous Decoupling" : "Desacoplamiento Asíncrono"}</h5>
+                <p>
+                  {language === "en"
+                    ? "Kitchen preparation and courier dispatch operate as independent microservices. Cougars listen for the 'ORDER_READY' event, eliminating main-thread blocking and sync dependencies."
+                    : "La preparación en cocina y el despacho de repartidores operan como microservicios desacoplados. Las motos escuchan el evento asíncrono 'ORDER_READY', eliminando bloqueos y dependencias síncronas."}
+                </p>
+              </div>
+              <div className="architecture-card">
+                <h5>⏱️ {language === "en" ? "Retention Async Timer" : "Timer Asíncrono de Retención"}</h5>
+                <p>
+                  {language === "en"
+                    ? "A custom retention alarm (40-70 mins post-delivery) automates proactive QA. Captures high-value customer feedback for social proof (Instagram) or mitigates cold-delivery complaints offline."
+                    : "Un temporizador automático (40-70 mins post-entrega) gatilla un QA proactivo. Captura reseñas de alto valor para marketing o contiene quejas por comida fría de forma offline antes de que lleguen a redes."}
+                </p>
+              </div>
+              <div className="architecture-card">
+                <h5>🚦 {language === "en" ? "Priority Queue (Jiutepec)" : "Cola de Prioridades (Jiutepec)"}</h5>
+                <p>
+                  {language === "en"
+                    ? "Location-based routing algorithm. Orders from the immediate local zone (Jiutepec) are dynamically tagged as HIGH_PRIORITY to minimize overhead and maximize delivery turnaround."
+                    : "Algoritmo de ruteo por geocercanía. Los pedidos de la zona local inmediata (Jiutepec) se etiquetan dinámicamente con ALTA_PRIORIDAD para reducir costos logísticos y acelerar los despachos."}
+                </p>
+              </div>
+            </div>
+            <div className="ProjectDetailsPanel__figjam-container" style={{ marginTop: 'var(--space-6)' }}>
+              <a 
+                href="https://www.figma.com/board/pQMpB4D8A26F9nYB0CG2gb/SamBurger?node-id=0-1&p=f&t=HgMFoQ407ffaGWWZ-0" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="ProjectDetailsPanel__figjam-btn"
+              >
+                🎨 {language === "en" ? "View Full Interactive FigJam Board" : "Ver Diagrama Completo en FigJam"}
+              </a>
+            </div>
           </div>
         )}
       </div>

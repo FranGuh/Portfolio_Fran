@@ -111,19 +111,17 @@ export function getLocalizedProjectPeriod(title: string, lang: string, fallback:
   if (trans && trans.period) {
     return lang === "en" ? trans.period.en : trans.period.es;
   }
-  // Traducir dinámicamente si dice "Actualidad" o similares
-  if (fallback.includes("Actualidad") && lang === "en") {
-    return fallback.replace("Actualidad", "Present");
-  }
-  if (fallback.includes("Actualidad") && lang === "es") {
-    return fallback;
-  }
-  if (fallback.includes("[COMPLETAR]") && lang === "en") {
-    return "[TO COMPLETE]";
-  }
-  // Traducir nombres de meses
+  
   let result = fallback;
+  
   if (lang === "en") {
+    if (result.includes("Actualidad")) {
+      result = result.replace("Actualidad", "Present");
+    }
+    if (result.includes("[COMPLETAR]")) {
+      result = result.replace("[COMPLETAR]", "TO COMPLETE");
+    }
+    
     const months = {
       "Enero": "January", "Febrero": "February", "Marzo": "March", "Abril": "April",
       "Mayo": "May", "Junio": "June", "Julio": "July", "Agosto": "August",
@@ -133,6 +131,7 @@ export function getLocalizedProjectPeriod(title: string, lang: string, fallback:
       result = result.replace(esMonth, enMonth);
     }
   }
+  
   return result;
 }
 
