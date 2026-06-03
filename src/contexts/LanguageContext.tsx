@@ -1,13 +1,13 @@
 // src/contexts/LanguageContext.tsx
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { translations } from "../data/translations";
+import { translations, type TranslationTree, type TranslationValue } from "../data/translations";
 
 export type Language = "es" | "en";
 
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: string) => any;
+  t: <T = string>(key: string) => T | string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -33,19 +33,24 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   }, [language]);
 
   // Función traductora ligera que navega objetos anidados (ej. t('navbar.inicio'))
-  const t = (key: string): any => {
+  const t = <T = string,>(key: string): T | string => {
     const keys = key.split(".");
-    let current: any = translations[language];
+    let current: TranslationValue | undefined = translations[language];
 
     for (const k of keys) {
-      if (current && typeof current === "object" && k in current) {
-        current = current[k];
+      if (
+        current &&
+        typeof current === "object" &&
+        !Array.isArray(current) &&
+        k in current
+      ) {
+        current = (current as TranslationTree)[k];
       } else {
         return key; // Fallback: retorna la clave si no la encuentra
       }
     }
 
-    return current !== undefined ? current : key;
+    return (current as T | undefined) ?? key;
   };
 
   return (
@@ -55,6 +60,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
   if (!context) {

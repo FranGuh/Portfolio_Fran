@@ -11,7 +11,7 @@ interface LoaderProps {
 const ImgContainer = ({ source, alt, title, href }: LoaderProps) => {
   const content = (
     <>
-      <img src={source} alt={alt} className='ImgContainer__img' loading="lazy" />
+      <img src={source} alt={alt} className='ImgContainer__img' loading="lazy" decoding="async" />
       <h3 className='ImgContainer__title'>{title}</h3>
     </>
   );

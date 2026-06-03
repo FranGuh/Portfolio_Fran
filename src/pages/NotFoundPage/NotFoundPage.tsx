@@ -15,7 +15,11 @@ const NotFoundPage = () => {
 
   return (
     <div className="Page404">
-      <SEOHead title={`404 - ${t("notFound.title")}`} description={t("notFound.description")} />
+      <SEOHead
+        title={`404 - ${t("notFound.title")}`}
+        description={t("notFound.description")}
+        robots="noindex, nofollow"
+      />
       <PageHeader
         eyebrow="404"
         title={t("notFound.title")}

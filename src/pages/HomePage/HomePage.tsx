@@ -1,4 +1,3 @@
-import Loader from "../../components/UI/Loader/Loader";
 import "../../styles/bg.css";
 import HomeSection from "../../features/HomeSection/HomeSection";
 import ImgContainer from "../../components/UI/ImgContainer/ImgContainer";
@@ -8,24 +7,13 @@ import ScrollableContainer from "../../components/UI/ScrollableContainer/Scrolla
 import AboutSection from "../../features/AboutSection/AboutSection";
 import Button from "../../components/UI/Button/Button";
 import { useNavigate } from "react-router-dom";
-import { useImagePreloader } from "../../hooks/useImagePreloader";
 import { generateSlug } from "../../utils/slug";
 import { SEOHead } from "../../components/SEOHead";
 import { useLanguage } from "../../contexts/LanguageContext";
 
-const imagesToLoad = [
-    "/pictures/ImgProyects/RedirectLink/Home.webp",
-    "/pictures/ImgProyects/ComputerHelper/CSH.webp",
-    "/pictures/ImgProyects/Chat/ChatMovil.webp",
-    "/pictures/drawsByMe/drawByMe.webp",
-];
-
 const HomePage = () => {
-  const loading = useImagePreloader(imagesToLoad, "homePortfolioCargado");
   const navigate = useNavigate();
   const { t } = useLanguage();
-
-  if (loading) return <Loader message="Cargando portfolio..." />;
 
   return (
     <>

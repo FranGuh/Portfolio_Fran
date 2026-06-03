@@ -1,5 +1,15 @@
 // src/data/translations.ts
-export const translations: Record<string, any> = {
+export type TranslationValue =
+  | string
+  | number
+  | boolean
+  | null
+  | TranslationValue[]
+  | { [key: string]: TranslationValue };
+
+export type TranslationTree = Record<string, TranslationValue>;
+
+export const translations: Record<"es" | "en", TranslationTree> = {
   es: {
     navbar: {
       inicio: "INICIO",

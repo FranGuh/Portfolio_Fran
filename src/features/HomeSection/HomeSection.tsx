@@ -8,7 +8,7 @@ const HomeSection = ({text1="MI",text2="PORTFOLIO"}) => {
     <section className="HomeSection explosion-bg">
       <ParticleField count={0} />
       <div className="HomeSection__content">
-        <img src={logo} alt="Mi logo" className="HomeSection__logo" />
+        <img src={logo} alt="Mi logo" className="HomeSection__logo" fetchPriority="high" decoding="async" />
         <h1 className="HomeSection__title">
           <span>{text1}</span>
           <span>{text2}</span>

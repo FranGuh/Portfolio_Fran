@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://plynte.com/sitemap.xml
+Sitemap: https://franguh.plynte.com/sitemap.xml

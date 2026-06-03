@@ -1,0 +1,34 @@
+# FranGuh Portfolio
+
+> Canonical site: https://franguh.plynte.com/
+> Preferred access mode: text-first. Images are illustrative support material, not required to understand the site.
+
+FranGuh Portfolio is the personal site of Gustavo Francisco Salgado Andrade, a Full Stack Developer focused on cloud deployments, automation, local AI systems, and resilient software architecture.
+
+## Main pages
+
+- / — homepage and professional overview
+- /about — personal background, philosophy, and technical approach
+- /portfolio — project and experience index
+
+## Featured portfolio routes
+
+- /portfolio/voiceai-kira — AI voice co-host for streamers
+- /portfolio/remembercompanion — memory-oriented assistant product
+- /portfolio/voiceai — voice AI stack
+- /portfolio/liveaudio — real-time audio system
+- /portfolio/brick-draw — desktop creative app
+- /portfolio/dog-bros-brodogs — dark kitchen ordering web app
+- /portfolio/sloppy — local image generation API
+- /portfolio/floppy — computer vision processing pipeline
+- /portfolio/plynte-com — this portfolio architecture and analytics project
+- /portfolio/computer-selector-helper — recommendation tool
+- /portfolio/redirect-link — link routing landing page
+- /portfolio/chat-app-deepseek — chat interface project
+- /portfolio/desarrollador-e-implementador-de-infraestructura — infrastructure experience
+- /portfolio/desarrollador-web — web development experience
+
+## Contact
+
+- LinkedIn: https://linkedin.com/in/gustavo-francisco-salgado-andrade-496553337
+- GitHub: https://github.com/FranGuh

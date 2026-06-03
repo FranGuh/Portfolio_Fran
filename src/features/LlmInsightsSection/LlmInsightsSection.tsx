@@ -2,12 +2,19 @@ import React from "react";
 import "./LlmInsightsSection.css";
 import { useLanguage } from "../../contexts/LanguageContext";
 
+interface InsightItem {
+  tag: string;
+  title: string;
+  description: string;
+}
+
 const LlmInsightsSection: React.FC = () => {
   const { t } = useLanguage();
 
   const title = t("insights.title");
   const subtitle = t("insights.subtitle");
-  const insights = t("insights.items") || [];
+  const insights = t<InsightItem[]>("insights.items");
+  const safeInsights = Array.isArray(insights) ? insights : [];
 
   return (
     <section className="LlmInsightsSection">
@@ -18,7 +25,7 @@ const LlmInsightsSection: React.FC = () => {
           <p className="LlmInsightsSection__subtitle">{subtitle}</p>
         </div>
         <div className="LlmInsightsSection__grid">
-          {insights.map((insight: any, index: number) => (
+          {safeInsights.map((insight, index) => (
             <div key={index} className="LlmInsightCard">
               <span className="LlmInsightCard__tag">{insight.tag}</span>
               <h3 className="LlmInsightCard__title">{insight.title}</h3>

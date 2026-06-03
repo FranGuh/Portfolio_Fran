@@ -7,6 +7,11 @@ interface PhilosophySectionProps {
   placeholder?: boolean;
 }
 
+interface PhilosophyItem {
+  heading: string;
+  body: string;
+}
+
 const PhilosophySection: React.FC<PhilosophySectionProps> = ({ placeholder }) => {
   const { t } = useLanguage();
 
@@ -20,8 +25,8 @@ const PhilosophySection: React.FC<PhilosophySectionProps> = ({ placeholder }) =>
     );
   }
 
-  // Carga de ítems localizados desde el diccionario translations.ts
-  const items = t("philosophy.items") || [];
+  const items = t<PhilosophyItem[]>("philosophy.items");
+  const safeItems = Array.isArray(items) ? items : [];
 
   return (
     <section className="PhilosophySection">
@@ -29,7 +34,7 @@ const PhilosophySection: React.FC<PhilosophySectionProps> = ({ placeholder }) =>
         <h2 className="PhilosophySection__title">{t("philosophy.title")}</h2>
       </div>
       <div className="PhilosophySection__grid">
-        {items.map((item: any, index: number) => (
+        {safeItems.map((item, index) => (
           <article key={index} className="PhilosophyCard">
             <div className="PhilosophyCard__content">
               <h3 className="PhilosophyCard__title">{item.heading}</h3>
