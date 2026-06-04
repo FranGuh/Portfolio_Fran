@@ -76,7 +76,14 @@ useEffect(() => {
             </LinkButtom>
           </div>
         </div>
-        <img ref={imgRef} src={source} alt={alt} className={`AboutSection__img ${imageClassName || ''}`.trim()} loading='lazy' />
+        <img
+          ref={imgRef}
+          src={source}
+          alt={alt}
+          className={`AboutSection__img ${imageClassName || ''}`.trim()}
+          loading='lazy'
+          decoding='async'
+        />
       </section>
     </>
   )

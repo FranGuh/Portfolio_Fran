@@ -47,7 +47,7 @@ export const cvData: CVData = {
     contact: {
       phone: "777-493-3706",
       email: "gitrafuh@gmail.com",
-      web: "plynte.com",
+      web: "franguh.plynte.com",
       location: "Morelos, México (Dispuesto a reubicarme)",
     },
   },
