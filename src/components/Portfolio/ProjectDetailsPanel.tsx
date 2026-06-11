@@ -159,7 +159,7 @@ export const ProjectDetailsPanel = ({ item, onClose, onOpenLightbox }: ProjectDe
                 <h5>🔄 {language === "en" ? "Asynchronous Decoupling" : "Desacoplamiento Asíncrono"}</h5>
                 <p>
                   {language === "en"
-                    ? "Kitchen preparation and courier dispatch operate as independent microservices. Cougars listen for the 'ORDER_READY' event, eliminating main-thread blocking and sync dependencies."
+                    ? "Kitchen preparation and courier dispatch operate as independent microservices. Couriers listen for the 'ORDER_READY' event, eliminating main-thread blocking and sync dependencies."
                     : "La preparación en cocina y el despacho de repartidores operan como microservicios desacoplados. Las motos escuchan el evento asíncrono 'ORDER_READY', eliminando bloqueos y dependencias síncronas."}
                 </p>
               </div>
