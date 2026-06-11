@@ -20,7 +20,7 @@ const LlmInsightsSection: React.FC = () => {
     <section className="LlmInsightsSection">
       <div className="LlmInsightsSection__content">
         <div className="LlmInsightsSection__header">
-          <span className="LlmInsightsSection__badge">Realizaciones Técnicas</span>
+          <span className="LlmInsightsSection__badge">{t("insights.badge")}</span>
           <h2 className="LlmInsightsSection__title">{title}</h2>
           <p className="LlmInsightsSection__subtitle">{subtitle}</p>
         </div>

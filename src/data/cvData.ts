@@ -215,7 +215,7 @@ export const cvData: CVData = {
       image: "/pictures/ImgProyects/Plynte/image.webp"
     },
     {
-      title: "Computer Selector Helper ",
+      title: "Computer Selector Helper",
       period: "Junio 2025",
       description: "Sistema experto recomendador de laptops usando inferencia.",
       techStack: ["Javascript", "React", "CSS3", "Vercel"],
@@ -223,7 +223,7 @@ export const cvData: CVData = {
       link: "https://computer-selector-helper.vercel.app/"
     },
     {
-      title: "Redirect - Link ",
+      title: "Redirect - Link",
       period: "Junio 2025",
       description:
         "Sistema web que permite redireccionar y agrupar links a proyectos importantes (Clon para uso personal de linktree). ",

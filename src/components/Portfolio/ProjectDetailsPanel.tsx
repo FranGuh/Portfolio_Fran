@@ -49,14 +49,15 @@ export const ProjectDetailsPanel = ({ item, onClose, onOpenLightbox }: ProjectDe
         <h3 className="ProjectDetailsPanel__eyebrow">
           {isProject ? t("portfolio.titleProjects") : t("portfolio.titleExperience")}
         </h3>
-        <button className="ProjectDetailsPanel__close-btn" onClick={onClose} aria-label="Close">
+        <button className="ProjectDetailsPanel__close-btn" onClick={onClose} aria-label={language === "en" ? "Close" : "Cerrar"}>
           ✕
         </button>
       </div>
 
       <div className="ProjectDetailsPanel__body">
         {item.image && (
-          <div 
+          <button
+            type="button"
             className="ProjectDetailsPanel__img-container"
             onClick={() => {
               if (onOpenLightbox) {
@@ -65,10 +66,10 @@ export const ProjectDetailsPanel = ({ item, onClose, onOpenLightbox }: ProjectDe
                 setIsLightboxOpen(true);
               }
             }}
-            title={language === "en" ? "Click to view fullscreen" : "Hacé clic para ver a pantalla completa"}
+            aria-label={language === "en" ? "View fullscreen" : "Ver a pantalla completa"}
           >
             <img src={item.image} alt={displayTitle} className="ProjectDetailsPanel__img" />
-          </div>
+          </button>
         )}
 
         <h2 className="ProjectDetailsPanel__title">
@@ -159,7 +160,7 @@ export const ProjectDetailsPanel = ({ item, onClose, onOpenLightbox }: ProjectDe
                 <h5>🔄 {language === "en" ? "Asynchronous Decoupling" : "Desacoplamiento Asíncrono"}</h5>
                 <p>
                   {language === "en"
-                    ? "Kitchen preparation and courier dispatch operate as independent microservices. Cougars listen for the 'ORDER_READY' event, eliminating main-thread blocking and sync dependencies."
+                    ? "Kitchen preparation and courier dispatch operate as independent microservices. Couriers listen for the 'ORDER_READY' event, eliminating main-thread blocking and sync dependencies."
                     : "La preparación en cocina y el despacho de repartidores operan como microservicios desacoplados. Las motos escuchan el evento asíncrono 'ORDER_READY', eliminando bloqueos y dependencias síncronas."}
                 </p>
               </div>

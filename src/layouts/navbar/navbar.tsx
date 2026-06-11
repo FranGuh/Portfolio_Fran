@@ -27,7 +27,16 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMega = () => setMegaOpen(prev => !prev);
+  const toggleMega = () => {
+    setMegaOpen(prev => {
+      if (prev) {
+        // closing — return focus to the logo button
+        const logoBtn = document.querySelector<HTMLElement>(".navbar-logo");
+        logoBtn?.focus();
+      }
+      return !prev;
+    });
+  };
 
   return (
     <>

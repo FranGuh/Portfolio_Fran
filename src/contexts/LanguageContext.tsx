@@ -38,13 +38,10 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     let current: TranslationValue | undefined = translations[language];
 
     for (const k of keys) {
-      if (
-        current &&
-        typeof current === "object" &&
-        !Array.isArray(current) &&
-        k in current
-      ) {
-        current = (current as TranslationTree)[k];
+      if (current && typeof current === "object" && k in current) {
+        current = Array.isArray(current)
+          ? current[Number(k)]
+          : (current as TranslationTree)[k];
       } else {
         return key; // Fallback: retorna la clave si no la encuentra
       }

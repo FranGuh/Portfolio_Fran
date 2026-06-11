@@ -20,7 +20,6 @@ export const NAV_ITEMS: NavigationItem[] = [
     link: "/about",
     children: [
       { label: "Sobre mí", translationKey: "navbar.sobreMiSub", link: "/about" },
-      { label: "Detalles", translationKey: "navbar.detallesSub", link: "/detail" },
     ],
   },
   {
@@ -28,7 +27,7 @@ export const NAV_ITEMS: NavigationItem[] = [
     translationKey: "navbar.portfolio",
     link: "/portfolio",
     children: [
-      { label: "Portfolio", translationKey: "navbar.portfolioSub", link: "/Portfolio" },
+      { label: "Portfolio", translationKey: "navbar.portfolioSub", link: "/portfolio" },
     ],
   },
 ];

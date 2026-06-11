@@ -9,6 +9,7 @@ import { generateSlug } from '../../utils/slug'
 import './DetailsPage.css'
 import { useLanguage } from '../../contexts/LanguageContext'
 import { InfrastructureDetail } from '../../features/InfrastructureDetail/InfrastructureDetail'
+import NotFoundPage from '../NotFoundPage/NotFoundPage'
 import HomeSection from '../../features/HomeSection/HomeSection'
 import {
   getLocalizedProjectDesc,
@@ -21,9 +22,10 @@ type DetailTarget =
   | { type: 'experience'; data: NonNullable<(typeof cvData.experience)[number]> };
 
 const DetailsPage = () => {
-  const { slug } = useParams();
+  const { slug: rawSlug } = useParams();
+  const slug = rawSlug?.toLowerCase();
   const navigate = useNavigate();
-  const { language, t } = useLanguage();
+  const { language } = useLanguage();
   
   const project = cvData.projects.find(p => generateSlug(p.title) === slug);
   const experience = !project ? cvData.experience.find(e => generateSlug(e.role) === slug) : null;
@@ -34,16 +36,7 @@ const DetailsPage = () => {
       : null;
 
   if (!target) {
-    return (
-      <div className='Details Details__not-found'>
-        <SEOHead title="No encontrado" description="El recurso especificado no ha sido encontrado." />
-        <h2>{language === "en" ? "Project or experience not found" : "El proyecto o experiencia no fue encontrado"}</h2>
-        <br />
-        <Button onClick={() => navigate("/portfolio")}>
-          {t("portfolio.backToPortfolio")}
-        </Button>
-      </div>
-    );
+    return <NotFoundPage />;
   }
 
   const { data: targetData, type } = target;

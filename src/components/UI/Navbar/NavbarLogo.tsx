@@ -10,13 +10,16 @@ interface NavbarLogoProps {
 
 export const NavbarLogo: React.FC<NavbarLogoProps> = ({ isOpen, toggleMenu, dark }) => {
   return (
-    <div
+    <button
+      type="button"
       className={`navbar-logo ${dark ? 'dark' : 'light'} ${isOpen ? 'open' : ''}`}
       onClick={toggleMenu}
+      aria-expanded={isOpen}
+      aria-controls="mega-menu"
     >
       Franguh
       <span className="logo-arrow">▾</span>
-    </div>
+    </button>
   );
 };
 

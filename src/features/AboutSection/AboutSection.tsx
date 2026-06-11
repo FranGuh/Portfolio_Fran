@@ -58,9 +58,9 @@ useEffect(() => {
     <>
       <section id='SobreMi' className={`AboutSection ${className || ''}`.trim()}>
         <div className='AboutSection-header'>
-          <h3 className='AboutSection__titleHead'>{titleHead}</h3>
-          <h1 className='AboutSection__title'>{title}</h1>
-          <h2 className='AboutSection__subtitle'>{subtitle}</h2>
+          <p className='AboutSection__titleHead'>{titleHead}</p>
+          <h2 className='AboutSection__title'>{title}</h2>
+          <p className='AboutSection__subtitle'>{subtitle}</p>
           <p className='AboutSection__description'>{description}</p>
 
           <div className="AboutSection__contact">
