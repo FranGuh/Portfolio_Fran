@@ -6,7 +6,9 @@ export const useImagePreloader = (imageUrls: string[], storageKey: string = "ima
             const isReady = sessionStorage.getItem(storageKey);
             return !isReady;
         } catch (error) {
-            console.warn("sessionStorage no está disponible. El loader siempre se mostrará.", error)
+            if (import.meta.env.DEV) {
+                console.warn("sessionStorage no está disponible. El loader siempre se mostrará.", error);
+            }
             return true;
         }
     });
@@ -32,7 +34,9 @@ export const useImagePreloader = (imageUrls: string[], storageKey: string = "ima
             try {
                 sessionStorage.setItem(storageKey, "true");
             } catch (error) {
-                console.warn("No se pudo guardar en sessionStorage.", error);
+                if (import.meta.env.DEV) {
+                    console.warn("No se pudo guardar en sessionStorage.", error);
+                }
             }
             
             setIsLoading(false);
