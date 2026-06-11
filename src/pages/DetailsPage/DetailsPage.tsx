@@ -21,7 +21,8 @@ type DetailTarget =
   | { type: 'experience'; data: NonNullable<(typeof cvData.experience)[number]> };
 
 const DetailsPage = () => {
-  const { slug } = useParams();
+  const { slug: rawSlug } = useParams();
+  const slug = rawSlug?.toLowerCase();
   const navigate = useNavigate();
   const { language, t } = useLanguage();
   
