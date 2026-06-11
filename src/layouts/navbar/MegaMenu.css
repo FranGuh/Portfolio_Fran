@@ -116,7 +116,8 @@
 }
 
 @media (max-width: 1220px) {
-  .menu-columns{
-    max-height: 20%;
+  .menu-columns {
+    max-height: 70vh;
+    overflow-y: auto;
   }
 }
