@@ -21,9 +21,10 @@ const HomePage = () => {
         title="Ingeniero Full Stack" 
         description="Portafolio de Gustavo Francisco, Ingeniero Full Stack especializado en diseño funcional, experiencias modernas y despliegues en la nube." 
       />
-      <HomeSection 
+      <HomeSection
         text1={t("home.intro")}
         text2={t("home.name")}
+        titleAs="h1"
       />
 
       <section className="Home__proyects">
