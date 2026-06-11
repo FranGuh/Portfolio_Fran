@@ -140,11 +140,11 @@ export const InfrastructureDetail: React.FC = () => {
                 onClick={() => setSelectedNode(node.id)}
                 aria-label={`Select ${language === 'en' ? node.nameEn : node.nameEs}`}
               >
-                <span className="A24Marquee__num">{node.number}</span>
-                <span className="A24Marquee__name">
+                <span className="A24Marquee__num" aria-hidden="true">{node.number}</span>
+                <span className="A24Marquee__name" aria-hidden="true">
                   {language === 'en' ? node.nameEn : node.nameEs}
                 </span>
-                <span className="A24Marquee__dot"></span>
+                <span className="A24Marquee__dot" aria-hidden="true"></span>
               </button>
             ))}
           </nav>

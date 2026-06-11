@@ -56,7 +56,8 @@ export const ProjectDetailsPanel = ({ item, onClose, onOpenLightbox }: ProjectDe
 
       <div className="ProjectDetailsPanel__body">
         {item.image && (
-          <div 
+          <button
+            type="button"
             className="ProjectDetailsPanel__img-container"
             onClick={() => {
               if (onOpenLightbox) {
@@ -65,10 +66,10 @@ export const ProjectDetailsPanel = ({ item, onClose, onOpenLightbox }: ProjectDe
                 setIsLightboxOpen(true);
               }
             }}
-            title={language === "en" ? "Click to view fullscreen" : "Hacé clic para ver a pantalla completa"}
+            aria-label={language === "en" ? "View fullscreen" : "Ver a pantalla completa"}
           >
             <img src={item.image} alt={displayTitle} className="ProjectDetailsPanel__img" />
-          </div>
+          </button>
         )}
 
         <h2 className="ProjectDetailsPanel__title">

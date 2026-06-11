@@ -89,11 +89,22 @@ const DetailSection = ({ title, description, items, icons, backgroundImg, backgr
             : "";
 
           return (
-            <article 
-              key={index} 
+            <article
+              key={index}
               className={`ProjectCard ${isSelected ? 'selected' : ''}`}
               onClick={() => onSelectItem?.(item)}
               style={onSelectItem ? { cursor: 'pointer' } : undefined}
+              {...(onSelectItem ? {
+                tabIndex: 0,
+                role: "button",
+                "aria-pressed": Boolean(isSelected),
+                onKeyDown: (e: React.KeyboardEvent) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    onSelectItem(item);
+                  }
+                }
+              } : {})}
             >
               {isProject && item.title === "Plynte.com" && (
                 <div className="ProjectCard__watermark" aria-hidden="true">

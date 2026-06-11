@@ -69,6 +69,10 @@
 }
 
 .ProjectDetailsPanel__img-container {
+  background: none;
+  border: none;
+  padding: 0;
+  display: block;
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
