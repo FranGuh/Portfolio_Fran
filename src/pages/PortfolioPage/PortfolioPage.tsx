@@ -102,7 +102,7 @@ export default function PortfolioPage() {
         : cvData.projects;
 
     return (
-        <div className="PortfolioPage" id="PortofioPage">
+        <div className="PortfolioPage" id="PortfolioPage">
             <SEOHead 
                 title="Portafolio de Proyectos" 
                 description="Explora mis proyectos recientes, arquitecturas en la nube y mi experiencia técnica trabajando con stacks modernos." 
