@@ -49,7 +49,7 @@ export const ProjectDetailsPanel = ({ item, onClose, onOpenLightbox }: ProjectDe
         <h3 className="ProjectDetailsPanel__eyebrow">
           {isProject ? t("portfolio.titleProjects") : t("portfolio.titleExperience")}
         </h3>
-        <button className="ProjectDetailsPanel__close-btn" onClick={onClose} aria-label="Close">
+        <button className="ProjectDetailsPanel__close-btn" onClick={onClose} aria-label={language === "en" ? "Close" : "Cerrar"}>
           ✕
         </button>
       </div>
