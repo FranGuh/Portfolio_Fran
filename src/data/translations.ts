@@ -20,6 +20,7 @@ export const translations: Record<"es" | "en", TranslationTree> = {
       sobreMiSub: "Sobre mí",
       detallesSub: "Detalles",
       portfolioSub: "Portfolio",
+      menuLabel: "Menú de navegación",
     },
     seo: {
       homeTitle: "Inicio",
@@ -44,7 +45,7 @@ export const translations: Record<"es" | "en", TranslationTree> = {
       }
     },
     about: {
-      eyebrow: "Sobre mi",
+      eyebrow: "Sobre mí",
       title: "FranGuh",
       introDescription: "Desarrollador full stack con enfoque en interfaces claras, arquitectura mantenible y aprendizaje constante.",
       sectionTitle: "Desarrollador",
@@ -54,7 +55,7 @@ export const translations: Record<"es" | "en", TranslationTree> = {
       sectionTitleAbout: "Desarrollador",
       sectionTitleHeadAbout: "Creativo",
       sectionSubtitleAbout: "Orquestador de IA",
-      sectionDescriptionAbout: "Siempre cuestiono mis ideas y desafio mis propios límites. Cuando algo me interesa, lo llevo más allá, incluso sabiendo que puedo fallar. Para mí, cada intento es una forma de aprender y construir algo mejor. Últimamente he enfocado esa mentalidad en mejorar mis habilidades día a día, enfrentando lo que aún no entiendo. Algo que quisiera saber es si el ser humano tiene límites o si se los impone a sí mismo...",
+      sectionDescriptionAbout: "Siempre cuestiono mis ideas y desafío mis propios límites. Cuando algo me interesa, lo llevo más allá, incluso sabiendo que puedo fallar. Para mí, cada intento es una forma de aprender y construir algo mejor. Últimamente he enfocado esa mentalidad en mejorar mis habilidades día a día, enfrentando lo que aún no entiendo. Algo que quisiera saber es si el ser humano tiene límites o si se los impone a sí mismo...",
       buttonFloating: "Ver Portafolio",
     },
     story: {
@@ -91,6 +92,7 @@ export const translations: Record<"es" | "en", TranslationTree> = {
       ]
     },
     insights: {
+      badge: "Realizaciones Técnicas",
       title: "Realizaciones en el Límite Técnico",
       subtitle: "Conversaciones estratégicas y tradeoffs de arquitectura nacidos del desarrollo de sistemas de IA locales en hardware de consumo.",
       items: [
@@ -176,6 +178,7 @@ export const translations: Record<"es" | "en", TranslationTree> = {
       sobreMiSub: "About me",
       detallesSub: "Details",
       portfolioSub: "Portfolio",
+      menuLabel: "Navigation menu",
     },
     seo: {
       homeTitle: "Home",
@@ -247,6 +250,7 @@ export const translations: Record<"es" | "en", TranslationTree> = {
       ]
     },
     insights: {
+      badge: "Technical Realizations",
       title: "Realizations at the Technical Edge",
       subtitle: "Strategic conversations and architectural tradeoffs born from developing local AI systems on consumer hardware.",
       items: [

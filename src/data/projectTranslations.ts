@@ -25,13 +25,13 @@ export const projectTranslations: Record<string, { description: { es: string; en
       en: "Web application to display my portfolio, manage site traffic, and view operational analytics via Cloudflare."
     }
   },
-  "Computer Selector Helper ": {
+  "Computer Selector Helper": {
     description: {
       es: "Sistema experto recomendador de laptops usando inferencia.",
       en: "Expert laptop recommendation engine utilizing logical inference rules."
     }
   },
-  "Redirect - Link ": {
+  "Redirect - Link": {
     description: {
       es: "Sistema web que permite redireccionar y agrupar links a proyectos importantes (Clon para uso personal de linktree).",
       en: "Web system to redirect and group links to important projects (personal Linktree clone)."
@@ -67,10 +67,10 @@ export const projectTranslations: Record<string, { description: { es: string; en
       en: "Android mobile application focused on a local-first productivity journal. Records thoughts, daily actions, and daily satisfaction scores under a SQLCipher database encryption scheme to guarantee maximum privacy per activity."
     }
   },
-  "Chat App — Grok": {
+  "Chat App — DeepSeek": {
     description: {
-      es: "Interfaz de chatbot (UI pura) optimizada para dispositivos móviles que consume la API de Grok (xAI) para interacciones conversacionales fluidas.",
-      en: "Chatbot interface (pure UI) optimized for mobile devices that consumes the Grok (xAI) API for fluid conversational interactions."
+      es: "Interfaz de chatbot (UI pura) optimizada para dispositivos móviles que consume la API de DeepSeek para interacciones conversacionales fluidas.",
+      en: "Chatbot interface (pure UI) optimized for mobile devices that consumes the DeepSeek API for fluid conversational interactions."
     }
   }
 };
