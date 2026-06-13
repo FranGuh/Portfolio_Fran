@@ -1,0 +1,42 @@
+.ErrorBoundary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 60dvh;
+  padding: 2rem;
+  text-align: center;
+}
+
+.ErrorBoundary__title {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  margin: 0;
+}
+
+.ErrorBoundary__message {
+  max-width: 42ch;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.ErrorBoundary__button {
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0.65rem 1.5rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font-size: 1rem;
+  transition: opacity 0.2s ease;
+}
+
+.ErrorBoundary__button:hover {
+  opacity: 0.7;
+}
+
+.ErrorBoundary__button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}

@@ -13,18 +13,28 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguageState] = useState<Language>(() => {
-    // 1. Prioriza localStorage
-    const saved = localStorage.getItem("portfolio_lang");
-    if (saved === "es" || saved === "en") return saved;
-    
-    // 2. Por defecto es Español ('es') para la audiencia de habla hispana
-    return "es";
-  });
+  // Default to Spanish so the server-rendered (SSG) markup and the first client
+  // render match — reading localStorage here would run during render and break
+  // static generation (no `window` in Node) and cause a hydration mismatch.
+  const [language, setLanguageState] = useState<Language>("es");
+
+  // Restore the persisted language after mount (client-only).
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("portfolio_lang");
+      if (saved === "es" || saved === "en") setLanguageState(saved);
+    } catch {
+      /* localStorage unavailable (private mode / SSR) — keep default */
+    }
+  }, []);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
-    localStorage.setItem("portfolio_lang", lang);
+    try {
+      localStorage.setItem("portfolio_lang", lang);
+    } catch {
+      /* ignore persistence failure */
+    }
   };
 
   // SEO dinámico nativo: actualiza el atributo lang del HTML ante cambios de idioma
