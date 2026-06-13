@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { Head } from 'vite-react-ssg';
 import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { DEFAULT_OG_IMAGE, SITE_NAME, toAbsoluteUrl } from '../utils/site';
@@ -35,7 +35,7 @@ export const SEOHead = ({ title, description, image, url, robots }: SEOProps) =>
     robots || 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1';
 
   return (
-    <Helmet>
+    <Head>
       <html lang={language} />
       <title>{`${displayTitle} | Gustavo Francisco — Full Stack Developer`}</title>
       <meta name="description" content={displayDescription} />
@@ -52,6 +52,6 @@ export const SEOHead = ({ title, description, image, url, robots }: SEOProps) =>
       <meta name="twitter:description" content={displayDescription} />
       <meta name="twitter:image" content={previewImage} />
       <link rel="canonical" href={canonicalUrl} />
-    </Helmet>
+    </Head>
   );
 };
