@@ -14,71 +14,12 @@
     -->
     <link rel="icon" type="image/svg+xml" href="/Plynte.svg" />
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Person",
-            "@id": "https://franguh.plynte.com/#person",
-            "name": "Gustavo Francisco Salgado Andrade",
-            "jobTitle": "Ingeniero en Sistemas Computacionales | Full-Stack",
-            "url": "https://franguh.plynte.com/",
-            "sameAs": [
-              "https://linkedin.com/in/gustavo-francisco-salgado-andrade-496553337",
-              "https://github.com/FranGuh"
-            ]
-          },
-          {
-            "@type": "WebSite",
-            "@id": "https://franguh.plynte.com/#website",
-            "name": "FranGuh Portfolio",
-            "url": "https://franguh.plynte.com/",
-            "publisher": { "@id": "https://franguh.plynte.com/#person" },
-            "inLanguage": ["es", "en"]
-          },
-          {
-            "@type": "SoftwareApplication",
-            "name": "Brick.draw",
-            "applicationCategory": "DesignApplication",
-            "operatingSystem": "Desktop",
-            "description": "Software de escritorio de uso ligero para uso creativo, inspirado en Paint y Photoshop, con integración al servicio local Sloppy para mejorar dibujos usando Stable Diffusion XL.",
-            "author": { "@id": "https://franguh.plynte.com/#person" }
-          },
-          {
-            "@type": "WebApplication",
-            "name": "Dog-bros (BroDogs)",
-            "applicationCategory": "BusinessApplication",
-            "description": "Sistema web para previsualizar el menú de una dark kitchen y calcular pedidos.",
-            "url": "https://san-burgus.vercel.app/",
-            "author": { "@id": "https://franguh.plynte.com/#person" }
-          },
-          {
-            "@type": "SoftwareApplication",
-            "name": "Floppy",
-            "applicationCategory": "DeveloperApplication",
-            "operatingSystem": "Any",
-            "description": "Pipeline automatizado de visión artificial para procesamiento masivo de datos y gestión de VRAM utilizando Python, DBSCAN y CUDA.",
-            "author": { "@id": "https://franguh.plynte.com/#person" }
-          },
-          {
-            "@type": "WebApplication",
-            "name": "Plynte",
-            "applicationCategory": "WebApplication",
-            "description": "Sistema web para gestionar tráfico y visualizar estadísticas del sitio mediante Cloudflare.",
-            "url": "https://franguh.plynte.com/",
-            "author": { "@id": "https://franguh.plynte.com/#person" }
-          },
-          {
-            "@type": "SoftwareApplication",
-            "name": "Sloppy",
-            "applicationCategory": "DeveloperApplication",
-            "description": "API de visión artificial para la generación de imágenes utilizando modelos de Stable Diffusion XL, se conecta con Brick.draw para mejorar dibujos mediante inferencia local.",
-            "author": { "@id": "https://franguh.plynte.com/#person" }
-          }
-        ]
-      }
-    </script>
+    <!--
+      The site-wide JSON-LD knowledge @graph is generated from src/data/cvData.ts
+      and injected here at build time by the `portfolio-structured-data` Vite
+      plugin (see vite.config.ts), so it always covers every project/experience
+      and can never drift. Do not hand-write structured data in this file.
+    -->
   </head>
   <body>
     <div id="root"></div>
