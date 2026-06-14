@@ -26,6 +26,17 @@
     border: 1px solid var(--color-dark-border);
 }
 
+/* Honeypot: kept in the DOM but pulled off-screen so humans never see or tab
+   into it, while bots that auto-fill every field still trip it. Avoid
+   display:none — some bots skip non-rendered fields. */
+.ContactForm__hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
 .ContactForm__input-group {
     display: flex;
     flex-direction: column;

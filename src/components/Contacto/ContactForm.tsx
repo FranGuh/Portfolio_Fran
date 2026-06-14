@@ -1,13 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import './ContactForm.css';
 import Button from '../UI/Button/Button';
 import { useLanguage } from '../../contexts/LanguageContext';
 
+// Minimum gap between two successful sends from the same browser session.
+// Client-side throttle only — server-side abuse must be stopped in the EmailJS
+// dashboard (captcha + per-IP rate limit + allowed origins).
+const COOLDOWN_MS = 30_000;
+
 export default function ContactForm() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error' | 'invalid'>('idle');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error' | 'invalid' | 'cooldown'>('idle');
+  const honeypotRef = useRef<HTMLInputElement>(null);
+  const [onCooldown, setOnCooldown] = useState(false);
+  const cooldownTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { t } = useLanguage();
+
+  useEffect(() => () => {
+    if (cooldownTimer.current) clearTimeout(cooldownTimer.current);
+  }, []);
+
+  const startCooldown = () => {
+    setOnCooldown(true);
+    cooldownTimer.current = setTimeout(() => setOnCooldown(false), COOLDOWN_MS);
+  };
 
   const isEmailConfigured = Boolean(
     import.meta.env.VITE_EMAILJS_SERVICE_ID &&
@@ -35,13 +52,27 @@ export default function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Honeypot: a real user never sees this field. If it has a value, a bot
+    // filled it — feign success and drop the submission without sending.
+    if (honeypotRef.current?.value) {
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+      return;
+    }
+
+    if (onCooldown) {
+      setStatus('cooldown');
+      return;
+    }
+
     if (!isEmailConfigured) {
       setStatus('error');
       return;
     }
 
     if (!formData.name || !formData.email || !formData.message) return;
-    
+
     if (!validateInput(formData.name) || !validateInput(formData.message)) {
       setStatus('invalid');
       return;
@@ -63,6 +94,7 @@ export default function ContactForm() {
     .then(() => {
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
+      startCooldown();
     })
     .catch((error) => {
       if (import.meta.env.DEV) {
@@ -79,6 +111,19 @@ export default function ContactForm() {
       <p className="ContactForm__subtitle">{t("contact.description")}</p>
       
       <form onSubmit={handleSubmit} className="ContactForm__form">
+        {/* Honeypot: visually hidden and skipped by keyboard/AT; only bots fill it. */}
+        <div className="ContactForm__hp" aria-hidden="true">
+          <label htmlFor="website">Leave this field empty</label>
+          <input
+            type="text"
+            id="website"
+            name="website"
+            ref={honeypotRef}
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </div>
+
         <div className="ContactForm__input-group">
           <label htmlFor="name">{t("contact.nameLabel")}</label>
           <input
@@ -142,12 +187,13 @@ export default function ContactForm() {
         <div role="alert" aria-live="assertive">
           {!isEmailConfigured && <p className="ContactForm__feedback error">{t("contact.errorEmail")}</p>}
           {status === 'invalid' && <p className="ContactForm__feedback error">{t("contact.errorFields")}</p>}
+          {status === 'cooldown' && <p className="ContactForm__feedback error">{t("contact.cooldown")}</p>}
           {status === 'error' && isEmailConfigured && <p className="ContactForm__feedback error">{t("contact.error")}</p>}
           {status === 'success' && <p className="ContactForm__feedback success">{t("contact.success")}</p>}
         </div>
         
         <div style={{ alignSelf: 'center', marginTop: "var(--space-2)" }}>
-          <Button type="submit" disabled={status === 'sending' || !isEmailConfigured} isLoading={status === 'sending'}>
+          <Button type="submit" disabled={status === 'sending' || !isEmailConfigured || onCooldown} isLoading={status === 'sending'}>
             {status === 'sending' ? t("contact.buttonSending") : t("contact.buttonSend")}
           </Button>
         </div>

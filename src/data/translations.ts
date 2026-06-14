@@ -128,7 +128,8 @@ export const translations: Record<"es" | "en", TranslationTree> = {
       success: "¡Mensaje enviado con éxito!",
       error: "Ocurrió un error al enviar. Intenta de nuevo más tarde.",
       errorFields: "Caracteres inválidos detectados. Solo utiliza texto estándar.",
-      errorEmail: "El formulario no está configurado todavía. Usa LinkedIn o GitHub para contactarme."
+      errorEmail: "El formulario no está configurado todavía. Usa LinkedIn o GitHub para contactarme.",
+      cooldown: "Acabás de enviar un mensaje. Esperá unos segundos antes de mandar otro."
     },
     portfolio: {
       eyebrow: "Portafolio",
@@ -286,7 +287,8 @@ export const translations: Record<"es" | "en", TranslationTree> = {
       success: "Message sent successfully!",
       error: "An error occurred while sending. Please try again later.",
       errorFields: "Invalid characters detected. Please use standard text only.",
-      errorEmail: "The form is not configured yet. Use LinkedIn or GitHub to contact me."
+      errorEmail: "The form is not configured yet. Use LinkedIn or GitHub to contact me.",
+      cooldown: "You just sent a message. Please wait a few seconds before sending another."
     },
     portfolio: {
       eyebrow: "Portfolio",
