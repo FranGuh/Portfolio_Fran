@@ -45,6 +45,14 @@ export const routes: RouteRecord[] = [
         getStaticPaths: () => portfolioSlugs.map((slug) => `portfolio/${slug}`),
       },
       {
+        // Concrete /404 route so vite-react-ssg emits a prerendered dist/404.html.
+        // Vercel serves this file with a real HTTP 404 for any unmatched path.
+        path: "404",
+        lazy: lazyDefault(() => import("../pages/NotFoundPage/NotFoundPage")),
+      },
+      {
+        // Client-side fallback: in-app navigation to an unknown route still
+        // renders NotFoundPage without a full server round-trip.
         path: "*",
         lazy: lazyDefault(() => import("../pages/NotFoundPage/NotFoundPage")),
       },
