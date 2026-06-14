@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Button from "../../components/UI/Button/Button";
 import "./NotFoundPage.css";
@@ -10,7 +11,13 @@ const NotFoundPage = () => {
   const navigate = useNavigate();
   const { t } = useLanguage();
 
-  const pathname = location.pathname;
+  // This page is served from a single statically prerendered 404.html (built at
+  // /404), but the visitor's real path varies. Rendering location.pathname on
+  // the first pass would mismatch the baked "/404" and break hydration (React
+  // #418), so only show the path after the component has mounted on the client.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const urlInfoParts = t("notFound.urlInfo").split("{path}");
 
   return (
@@ -28,7 +35,7 @@ const NotFoundPage = () => {
 
       <div className="Page404__content">
         <p>
-          {urlInfoParts[0]}<code>{pathname}</code>{urlInfoParts[1]}
+          {urlInfoParts[0]}{mounted && <code>{location.pathname}</code>}{urlInfoParts[1]}
         </p>
         <p>
           {t("notFound.subInfo")}
