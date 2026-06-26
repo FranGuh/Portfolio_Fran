@@ -140,7 +140,8 @@ export const cvData: CVData = {
       period: "Mayo 2026 - Actualidad",
       description: "Sistema de subtitulado automático en tiempo real para streamers. Ofrece detección de voz continua con Silero VAD + pre-buffer para no perder la primera palabra, transcripción Whisper local con prompt de contexto configurable, 7 temas visuales integrables en OBS y empaquetado portable con Nuitka.",
       techStack: ["Python", "Whisper", "Silero VAD", "OBS", "CustomTkinter", "Nuitka"],
-      image: "/pictures/ImgProyects/LiveAudio/LiveAudio.webp"
+      image: "/pictures/ImgProyects/LiveAudio/LiveAudio.webp",
+      link: "https://liveaudio.opencohost.com/"
     },
     {
       title: "Brick.draw",
@@ -155,7 +156,8 @@ export const cvData: CVData = {
         "Rust",
         "Zustand",
       ],
-      image: "/pictures/ImgProyects/Brick.draw/Home.webp"
+      image: "/pictures/ImgProyects/Brick.draw/Home.webp",
+      link: "https://github.com/plynte-labs/brick-draw"
     },
     {
       title: "Dog-bros (BroDogs)",
