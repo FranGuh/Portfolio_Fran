@@ -18,7 +18,7 @@ export const SEOHead = ({ title, description, image, url, robots }: SEOProps) =>
   let displayTitle = title;
   let displayDescription = description;
 
-  if (title === 'Ingeniero Full Stack' || title === 'Inicio' || title === 'Home') {
+  if (title === 'Applied AI Engineer' || title === 'Inicio' || title === 'Home') {
     displayTitle = t('seo.homeTitle');
     displayDescription = t('seo.homeDesc');
   } else if (title === 'Sobre Mí' || title === 'About Me') {
@@ -37,7 +37,7 @@ export const SEOHead = ({ title, description, image, url, robots }: SEOProps) =>
   return (
     <Head>
       <html lang={language} />
-      <title>{`${displayTitle} | Gustavo Francisco — Full Stack Developer`}</title>
+      <title>{`${displayTitle} | Gustavo Francisco — Applied AI Engineer`}</title>
       <meta name="description" content={displayDescription} />
       <meta name="robots" content={robotsContent} />
       <meta name="author" content="Gustavo Francisco Salgado Andrade" />

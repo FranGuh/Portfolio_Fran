@@ -18,7 +18,7 @@ const AboutPage = () => {
     <>
       <SEOHead
         title="Sobre Mí"
-        description="Conoce mi historia como Desarrollador Full Stack, mi filosofía de diseño y mi enfoque técnico resolviendo problemas complejos."
+        description="Conoce mi historia como Applied AI Engineer, mi filosofía de diseño y mi enfoque técnico resolviendo problemas complejos."
       />
       {/* Siempre me he cuestionado si realmente tengo la capacidad de hacer algo importante,
       supongo que sí, pero a la hora de desarrollar una idea en mi cabeza soy incapaz de dejarla vivir ahi, me gusta profundizar sobre ella aun sabiendo

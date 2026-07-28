@@ -21,40 +21,41 @@ export const translations: Record<"es" | "en", TranslationTree> = {
       detallesSub: "Detalles",
       portfolioSub: "Portfolio",
       menuLabel: "Menú de navegación",
+      closeLabel: "Cerrar menú",
     },
     seo: {
       homeTitle: "Inicio",
-      homeDesc: "Portfolio de Gustavo Francisco (FranGuh) — Desarrollador Full Stack y Diseñador de Sistemas de IA locales.",
+      homeDesc: "Portfolio de Gustavo Francisco (FranGuh) — Applied AI Engineer especializado en sistemas de IA locales.",
       aboutTitle: "Sobre Mí",
-      aboutDesc: "Conoce mi historia como Desarrollador Full Stack, mi filosofía de diseño y mi enfoque técnico resolviendo problemas complejos.",
+      aboutDesc: "Conoce mi historia como Applied AI Engineer, mi filosofía de diseño y mi enfoque técnico resolviendo problemas complejos.",
       portfolioTitle: "Portafolio",
       portfolioDesc: "Explora mis proyectos destacados en desarrollo de software, automatización e integración local de modelos de inteligencia artificial.",
     },
     home: {
       intro: "Soy",
-      name: "Francisco",
+      name: "Franguh",
       floatingTitle: "Cada línea de código que escribo resuelve un problema real",
       floatingMotto: "Mirá lo que construí. Si te sirve, trabajemos juntos.",
       exploreBtn: "Explorar Portfolio",
       projects: {
         selectorTitle: "Selector de Laptops",
         backendTitle: "Backend & Cloud",
-        redirectAlt: "Landing RedirectLink",
-        selectorAlt: "Landing CSH",
-        backendAlt: "Plataforma RaukeIT"
+        liveAudioAlt: "Aplicación LiveAudio",
+        openCohostAlt: "Plataforma OpenCohost",
+        brickDrawAlt: "Aplicación Brick.draw"
       }
     },
     about: {
       eyebrow: "Sobre mí",
       title: "FranGuh",
-      introDescription: "Desarrollador full stack con enfoque en interfaces claras, arquitectura mantenible y aprendizaje constante.",
+      introDescription: "Applied AI Engineer con enfoque en interfaces claras, arquitectura mantenible y aprendizaje constante.",
       sectionTitle: "Desarrollador",
       sectionTitleHead: "Mi enfoque",
-      sectionSubtitle: "FULL STACK",
+      sectionSubtitle: "APPLIED AI ENGINEER",
       sectionDescription: "Descubrí el desarrollo web accidentalmente, y desde entonces no he parado. Mi enfoque prioriza el diseño visual limpio (UX/UI) y arquitecturas sólidas (TSX/AWS/DBs). Constantemente aprendo e investigo para que cada línea de código aporte valor real.",
       sectionTitleAbout: "Desarrollador",
       sectionTitleHeadAbout: "Creativo",
-      sectionSubtitleAbout: "Orquestador de IA",
+      sectionSubtitleAbout: "APPLIED AI ENGINEER",
       sectionDescriptionAbout: "Siempre cuestiono mis ideas y desafío mis propios límites. Cuando algo me interesa, lo llevo más allá, incluso sabiendo que puedo fallar. Para mí, cada intento es una forma de aprender y construir algo mejor. Últimamente he enfocado esa mentalidad en mejorar mis habilidades día a día, enfrentando lo que aún no entiendo. Algo que quisiera saber es si el ser humano tiene límites o si se los impone a sí mismo...",
       buttonFloating: "Ver Portafolio",
     },
@@ -109,7 +110,7 @@ export const translations: Record<"es" | "en", TranslationTree> = {
         {
           tag: "Metodología",
           title: "Ingeniería de Sistemas de IA vs VibeCoding",
-          description: "Rechazo la duplicación caótica de clones genéricos. Cada proyecto (VoiceAI, LiveAudio, Tauri Apps) se diseña con modularidad rigurosa, documentando tradeoffs en ADRs y priorizando la resiliencia y tolerancia a fallos."
+          description: "Rechazo la duplicación caótica de clones genéricos. Cada proyecto (OpenCohost, LiveAudio, Tauri Apps) se diseña con modularidad rigurosa, documentando tradeoffs en ADRs y priorizando la resiliencia y tolerancia a fallos."
         }
       ]
     },
@@ -180,40 +181,41 @@ export const translations: Record<"es" | "en", TranslationTree> = {
       detallesSub: "Details",
       portfolioSub: "Portfolio",
       menuLabel: "Navigation menu",
+      closeLabel: "Close menu",
     },
     seo: {
       homeTitle: "Home",
-      homeDesc: "Portfolio of Gustavo Francisco (FranGuh) — Full Stack Developer and Local AI Systems Designer.",
+      homeDesc: "Portfolio of Gustavo Francisco (FranGuh) — Applied AI Engineer specializing in local AI systems.",
       aboutTitle: "About Me",
-      aboutDesc: "Learn about my journey as a Full Stack Developer, my design philosophy, and my technical approach to solving complex problems.",
+      aboutDesc: "Learn about my journey as an Applied AI Engineer, my design philosophy, and my technical approach to solving complex problems.",
       portfolioTitle: "Portfolio",
       portfolioDesc: "Explore my featured projects in software development, automation, and local integration of AI models.",
     },
     home: {
       intro: "I'm",
-      name: "Francisco",
+      name: "Franguh",
       floatingTitle: "Every line of code I write solves a real problem",
       floatingMotto: "Check out what I built. If it works for you, let's work together.",
       exploreBtn: "Explore Portfolio",
       projects: {
         selectorTitle: "Laptop Selector",
         backendTitle: "Backend & Cloud",
-        redirectAlt: "RedirectLink Landing",
-        selectorAlt: "CSH Landing",
-        backendAlt: "RaukeIT Platform"
+        liveAudioAlt: "LiveAudio application",
+        openCohostAlt: "OpenCohost platform",
+        brickDrawAlt: "Brick.draw application"
       }
     },
     about: {
       eyebrow: "About me",
       title: "FranGuh",
-      introDescription: "Full stack developer focused on clean interfaces, maintainable architecture, and continuous learning.",
+      introDescription: "Applied AI Engineer focused on clean interfaces, maintainable architecture, and continuous learning.",
       sectionTitle: "Developer",
       sectionTitleHead: "My approach",
-      sectionSubtitle: "FULL STACK",
+      sectionSubtitle: "APPLIED AI ENGINEER",
       sectionDescription: "I discovered web development accidentally, and since then I haven't stopped. My approach prioritizes clean visual design (UX/UI) and solid architectures (TSX/AWS/DBs). I constantly learn and research so that every line of code contributes real value.",
       sectionTitleAbout: "Developer",
       sectionTitleHeadAbout: "Creative",
-      sectionSubtitleAbout: "AI Orchestrator",
+      sectionSubtitleAbout: "APPLIED AI ENGINEER",
       sectionDescriptionAbout: "I always question my ideas and challenge my own limits. When something interests me, I push it further, even knowing I might fail. For me, every attempt is a way to learn and build something better. Lately, I have focused that mindset on improving my skills day by day, facing what I still do not understand. One thing I would like to know is if humans have limits or if they impose them on themselves...",
       buttonFloating: "View Portfolio",
     },
@@ -268,7 +270,7 @@ export const translations: Record<"es" | "en", TranslationTree> = {
         {
           tag: "Methodology",
           title: "AI Systems Engineering vs VibeCoding",
-          description: "I reject the chaotic duplication of generic clones. Every project (VoiceAI, LiveAudio, Tauri Apps) is designed with rigorous modularity, documenting tradeoffs in ADRs, and prioritizing resilience and fault tolerance."
+          description: "I reject the chaotic duplication of generic clones. Every project (OpenCohost, LiveAudio, Tauri Apps) is designed with rigorous modularity, documenting tradeoffs in ADRs, and prioritizing resilience and fault tolerance."
         }
       ]
     },

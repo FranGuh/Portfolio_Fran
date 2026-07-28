@@ -54,7 +54,7 @@ export const MegaMenu = ({
         <NavbarLogo isOpen={isOpen} toggleMenu={onClose} dark={true} />
         <div style={{ display: "flex", alignItems: "center", gap: "var(--space-4)" }}>
           <LanguageSwitcher />
-          <button className="close-btn" onClick={onClose}>✕</button>
+          <button className="close-btn" onClick={onClose} aria-label={t("navbar.closeLabel") as string}>✕</button>
         </div>
       </div>
 

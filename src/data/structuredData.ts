@@ -12,6 +12,8 @@ type GraphNode = Record<string, unknown>;
 const PERSON_ID = `${SITE_URL}/#person`;
 
 const detailUrl = (value: string) => `${SITE_URL}/portfolio/${generateSlug(value)}`;
+const projectDetailUrl = (project: (typeof cvData.projects)[number]) =>
+  `${SITE_URL}/portfolio/${project.slug ?? generateSlug(project.title)}`;
 
 const personNode: GraphNode = {
   "@type": "Person",
@@ -40,8 +42,8 @@ const projectNodes: GraphNode[] = cvData.projects.map((project) => ({
   "@type": project.link ? "WebApplication" : "SoftwareApplication",
   name: project.title,
   description: project.description,
-  url: project.link ?? detailUrl(project.title),
-  ...(project.link ? { sameAs: detailUrl(project.title) } : {}),
+  url: project.link ?? projectDetailUrl(project),
+  ...(project.link ? { sameAs: projectDetailUrl(project) } : {}),
   keywords: project.techStack.join(", "),
   author: { "@id": PERSON_ID },
 }));

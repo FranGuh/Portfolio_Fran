@@ -2,7 +2,6 @@ import type { ComponentType } from "react";
 import type { RouteRecord } from "vite-react-ssg";
 import { MainLayout } from "../layouts/MainLayout";
 import { cvData } from "../data/cvData";
-import { generateSlug } from "../utils/slug";
 
 /**
  * Adapts a default-exported page module to react-router's `lazy` contract
@@ -16,10 +15,10 @@ const lazyDefault =
   });
 
 // Single source of truth for the prerendered /portfolio/:slug pages.
-const portfolioSlugs = [
-  ...cvData.projects.map((project) => generateSlug(project.title)),
-  ...cvData.experience.map((experience) => generateSlug(experience.role)),
-];
+// Only explicit product slugs (voiceai, voiceai-kira) generate SSG pages.
+const portfolioSlugs = cvData.projects
+  .map((project) => project.slug)
+  .filter((slug): slug is string => Boolean(slug));
 
 export const routes: RouteRecord[] = [
   {

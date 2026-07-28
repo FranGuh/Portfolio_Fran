@@ -3,7 +3,7 @@
 > Canonical site: https://franguh.plynte.com/
 > Preferred access mode: text-first. Images are illustrative support material, not required to understand the site.
 
-FranGuh Portfolio is the personal site of Gustavo Francisco Salgado Andrade, a Full Stack Developer focused on cloud deployments, automation, local AI systems, and resilient software architecture.
+FranGuh Portfolio is the personal site of Gustavo Francisco Salgado Andrade, an Applied AI Engineer focused on cloud deployments, automation, local AI systems, and resilient software architecture.
 
 ## Main pages
 
@@ -13,9 +13,9 @@ FranGuh Portfolio is the personal site of Gustavo Francisco Salgado Andrade, a F
 
 ## Featured portfolio routes
 
-- /portfolio/voiceai-kira — AI voice co-host for streamers
+- /portfolio/voiceai-kira — Kira, OpenCohost's character and assistant for streamers
 - /portfolio/remembercompanion — memory-oriented assistant product
-- /portfolio/voiceai — voice AI stack
+- /portfolio/voiceai — OpenCohost voice AI stack
 - /portfolio/liveaudio — real-time audio system
 - /portfolio/brick-draw — desktop creative app
 - /portfolio/dog-bros-brodogs — dark kitchen ordering web app
