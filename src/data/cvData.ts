@@ -5,6 +5,7 @@ export interface Skill {
 
 export interface Project {
   title: string;
+  slug?: string;
   period: string;
   description: string;
   techStack: string[];
@@ -115,27 +116,6 @@ export const cvData: CVData = {
   ],
   projects: [
     {
-      title: "VoiceAI Kira",
-      period: "Mayo 2026 - Actualidad",
-      description: "Sitio web público de marketing y documentación bilingüe (EN/ES) para el asistente VoiceAI Kira. Explica el producto a streamers sin tecnicismos, con demos configurables para OBS, matriz de compatibilidad de hardware y guías de onboarding.",
-      techStack: ["React", "TypeScript", "Vite", "CSS3", "Tailwind", "Vercel"],
-      image: "/pictures/ImgProyects/VoiceAI.Kira/Home.webp",
-      link: "https://voiceaikira.vercel.app/"
-    },
-    {
-      title: "RememberCompanion",
-      period: "Mayo 2026 - Actualidad",
-      description: "Aplicación móvil para Android enfocada en el diario de productividad local-first. Registra pensamientos, acciones cotidianas y el nivel de satisfacción diaria bajo un esquema de cifrado de base de datos SQLCipher para garantizar máxima privacidad por activity.",
-      techStack: ["React Native", "TypeScript", "SQLite", "SQLCipher", "Android"],
-      image: "/pictures/ImgProyects/RememberCompanion/Home.webp"
-    }, {
-      title: "VoiceAI",
-      period: "Mayo 2026 - Actualidad",
-      description: "Sistema de co-host de voz con IA para streamers. Ingiere chats de Twitch/YouTube en tiempo real con SmartAggregator, genera respuestas con Ollama (11 modelos locales), sintetiza voz con QwenTTS and Edge-TTS, y gestiona agenda editorial con Cue Cards vía importación de Markdown desde LLM externo. Local-first y determinístico.",
-      techStack: ["Python", "Ollama", "QwenTTS", "Edge-TTS", "CustomTkinter", "Flask", "SQLite", "SmartAggregator"],
-      image: "/pictures/ImgProyects/VoiceAI/VoiceAI.webp"
-    },
-    {
       title: "LiveAudio",
       period: "Mayo 2026 - Actualidad",
       description: "Sistema de subtitulado automático en tiempo real para streamers. Ofrece detección de voz continua con Silero VAD + pre-buffer para no perder la primera palabra, transcripción Whisper local con prompt de contexto configurable, 7 temas visuales integrables en OBS y empaquetado portable con Nuitka.",
@@ -144,8 +124,17 @@ export const cvData: CVData = {
       link: "https://liveaudio.opencohost.com/"
     },
     {
+      title: "OpenCohost",
+      slug: "voiceai",
+      period: "Mayo 2026 - Actualidad",
+      description: "Sistema de co-host de voz con IA para streamers. Ingiere chats de Twitch/YouTube en tiempo real con SmartAggregator, genera respuestas con Ollama (11 modelos locales), sintetiza voz con QwenTTS and Edge-TTS, y gestiona agenda editorial con Cue Cards vía importación de Markdown desde LLM externo. Local-first y determinístico.",
+      techStack: ["Python", "Ollama", "QwenTTS", "Edge-TTS", "CustomTkinter", "Flask", "SQLite", "SmartAggregator"],
+      image: "/pictures/ImgProyects/VoiceAI/VoiceAI.webp",
+      link: "https://opencohost.com/"
+    },
+    {
       title: "Brick.draw",
-      period: "Marzo 2026 - Actualidad",
+      period: "Marzo 2026 - Junio 2026",
       description:
         "Software de escritorio de uso ligero para uso creativo, inspirado en Paint y Photoshop para dibujo en capas, con la posibilidad de comunicarse con Sloppy (un servicio de visión artificial local) para mejorar los dibujos del usuario mediante modelos de Stable Diffusion XL.",
       techStack: [
@@ -160,8 +149,24 @@ export const cvData: CVData = {
       link: "https://github.com/plynte-labs/brick-draw"
     },
     {
+      title: "Kira — OpenCohost",
+      slug: "voiceai-kira",
+      period: "Mayo 2026 - Actualidad",
+      description: "Sitio web público de marketing y documentación bilingüe (EN/ES) para Kira, personaje y asistente de OpenCohost. Explica el producto a streamers sin tecnicismos, con demos configurables para OBS, matriz de compatibilidad de hardware y guías de onboarding.",
+      techStack: ["React", "TypeScript", "Vite", "CSS3", "Tailwind", "Vercel"],
+      image: "/pictures/ImgProyects/VoiceAI.Kira/Home.webp",
+      link: "https://voiceaikira.vercel.app/"
+    },
+    {
+      title: "RememberCompanion",
+      period: "Mayo 2026 - Mayo 2026",
+      description: "Aplicación móvil para Android enfocada en el diario de productividad local-first. Registra pensamientos, acciones cotidianas y el nivel de satisfacción diaria bajo un esquema de cifrado de base de datos SQLCipher para garantizar máxima privacidad por actividad.",
+      techStack: ["React Native", "TypeScript", "SQLite", "SQLCipher", "Android"],
+      image: "/pictures/ImgProyects/RememberCompanion/Home.webp"
+    },
+    {
       title: "Dog-bros (BroDogs)",
-      period: "Marzo 2026 - Actualidad",
+      period: "Marzo 2026 - Mayo 2026",
       description:
         "Sistema web para previsualizar el menú de una dark kitchen y calcular pedidos.",
       techStack: [
@@ -177,7 +182,7 @@ export const cvData: CVData = {
     },
     {
       title: "Sloppy",
-      period: "Marzo 2026 - Actualidad",
+      period: "Marzo 2026 - Mayo 2026",
       description:
         "API de visión artificial para la generación de imágenes utilizando modelos de Stable Diffusion XL, se conecta con Brick.draw para mejorar los dibujos del usuario mediante inferencia local.",
       techStack: [
@@ -194,7 +199,7 @@ export const cvData: CVData = {
     },
     {
       title: "Floppy",
-      period: "Febrero 2026 - Actualidad",
+      period: "Febrero 2026 - Mayo 2026",
       description:
         "Pipeline automatizado de visión artificial para procesamiento masivo de datos y gestión de VRAM.",
       techStack: [

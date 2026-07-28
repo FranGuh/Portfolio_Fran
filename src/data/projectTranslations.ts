@@ -43,7 +43,7 @@ export const projectTranslations: Record<string, { description: { es: string; en
       en: "Computer vision API for image generation utilizing Stable Diffusion XL models, connecting with Brick.draw to enhance user sketches via local inference."
     }
   },
-  "VoiceAI": {
+  "OpenCohost": {
     description: {
       es: "Sistema de co-host de voz con IA para streamers. Ingiere chats de Twitch/YouTube en tiempo real con SmartAggregator, genera respuestas con Ollama (11 modelos locales), sintetiza voz con QwenTTS y Edge-TTS, y gestiona agenda editorial con Cue Cards vía importación de Markdown desde LLM externo. Local-first y determinístico.",
       en: "AI voice co-host system for streamers. Ingests Twitch/YouTube chats in real time with SmartAggregator, generates responses with Ollama (11 local models), synthesizes voice with QwenTTS and Edge-TTS, and manages an editorial agenda with Cue Cards via Markdown import from an external LLM. Local-first and deterministic."
@@ -55,10 +55,10 @@ export const projectTranslations: Record<string, { description: { es: string; en
       en: "Real-time automatic subtitling system for streamers. Provides continuous voice detection with Silero VAD + pre-buffer to prevent losing the first word, local Whisper transcription with a configurable context prompt, 7 OBS-integrable visual themes, and portable packaging via Nuitka."
     }
   },
-  "VoiceAI Kira": {
+  "Kira — OpenCohost": {
     description: {
-      es: "Sitio web público de marketing y documentación bilingüe (EN/ES) para el asistente VoiceAI Kira. Explica el producto a streamers sin tecnicismos, con demos configurables para OBS, matriz de compatibilidad de hardware y guías de onboarding.",
-      en: "Public marketing website and bilingual documentation (EN/ES) for the VoiceAI Kira assistant. Explains the product to streamers in a non-technical manner, featuring configurable OBS demos, hardware compatibility matrices, and onboarding guides."
+      es: "Sitio web público de marketing y documentación bilingüe (EN/ES) para Kira, personaje y asistente de OpenCohost. Explica el producto a streamers sin tecnicismos, con demos configurables para OBS, matriz de compatibilidad de hardware y guías de onboarding.",
+      en: "Public marketing website and bilingual documentation (EN/ES) for Kira, OpenCohost's character and assistant. Explains the product to streamers in a non-technical manner, featuring configurable OBS demos, hardware compatibility matrices, and onboarding guides."
     }
   },
   "RememberCompanion": {

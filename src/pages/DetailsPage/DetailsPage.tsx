@@ -27,7 +27,7 @@ const DetailsPage = () => {
   const navigate = useNavigate();
   const { language } = useLanguage();
   
-  const project = cvData.projects.find(p => generateSlug(p.title) === slug);
+  const project = cvData.projects.find(p => (p.slug ?? generateSlug(p.title)) === slug);
   const experience = !project ? cvData.experience.find(e => generateSlug(e.role) === slug) : null;
   const target: DetailTarget | null = project
     ? { type: 'project', data: project }

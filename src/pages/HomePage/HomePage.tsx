@@ -7,7 +7,6 @@ import ScrollableContainer from "../../components/UI/ScrollableContainer/Scrolla
 import AboutSection from "../../features/AboutSection/AboutSection";
 import Button from "../../components/UI/Button/Button";
 import { useNavigate } from "react-router-dom";
-import { generateSlug } from "../../utils/slug";
 import { SEOHead } from "../../components/SEOHead";
 import { useLanguage } from "../../contexts/LanguageContext";
 
@@ -18,8 +17,8 @@ const HomePage = () => {
   return (
     <>
       <SEOHead 
-        title="Ingeniero Full Stack" 
-        description="Portafolio de Gustavo Francisco, Ingeniero Full Stack especializado en diseño funcional, experiencias modernas y despliegues en la nube." 
+        title="Applied AI Engineer"
+        description="Portafolio de Gustavo Francisco, Applied AI Engineer especializado en sistemas de IA, experiencias modernas y despliegues en la nube."
       />
       <HomeSection
         text1={t("home.intro")}
@@ -30,22 +29,22 @@ const HomePage = () => {
       <section className="Home__proyects">
         <ScrollableContainer>
           <ImgContainer
-            source="/pictures/ImgProyects/RedirectLink/Home.webp"
-            alt={t("home.projects.redirectAlt")}
-            title="RedirectLink"
-            href="https://redirect-link-flame.vercel.app/"
+            source="/pictures/ImgProyects/LiveAudio/LiveAudio.webp"
+            alt={t("home.projects.liveAudioAlt")}
+            title="LiveAudio"
+            href="https://liveaudio.opencohost.com/"
           />
           <ImgContainer
-            source="/pictures/ImgProyects/ComputerHelper/CSH.webp"
-            alt={t("home.projects.selectorAlt")}
-            title={t("home.projects.selectorTitle")}
-            href="https://computer-selector-helper.vercel.app/"
+            source="/pictures/ImgProyects/VoiceAI/VoiceAI.webp"
+            alt={t("home.projects.openCohostAlt")}
+            title="OpenCohost"
+            href="https://opencohost.com/"
           />
           <ImgContainer
-            source="/pictures/goatatwork.webp"
-            alt={t("home.projects.backendAlt")}
-            title={t("home.projects.backendTitle")}
-            href={`/portfolio/${generateSlug('Desarrollador e Implementador de Infraestructura')}`}
+            source="/pictures/ImgProyects/Brick.draw/Home.webp"
+            alt={t("home.projects.brickDrawAlt")}
+            title="Brick.draw"
+            href="https://github.com/plynte-labs/brick-draw"
           />
         </ScrollableContainer>
       </section>
