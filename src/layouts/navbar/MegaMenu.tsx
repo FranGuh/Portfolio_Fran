@@ -82,7 +82,7 @@ export const MegaMenu = ({
           })}
         </div>
         <div className="menu-image">
-          <img src="/pictures/Aqua.webp" alt="Featured" loading="lazy" />
+          <img src="/pictures/Aqua.webp" alt="Featured" width={300} height={200} loading="lazy" decoding="async" />
         </div>
       </div>
     </div>

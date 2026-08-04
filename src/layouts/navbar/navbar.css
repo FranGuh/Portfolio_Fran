@@ -31,15 +31,23 @@
   color: white;
   text-decoration: none;
   cursor: pointer;
-  padding: var(--space-2) 0;
+  padding: var(--space-2) var(--space-3);
   font-weight: 400;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  box-sizing: border-box;
   transition: color 0.2s ease-in-out;
 }
 
 .navbar-item a:hover {
   color: var(--color-opposite);
   font-weight: 500;
+}
+
+.navbar-item a:focus-visible {
+  outline: 2px solid var(--color-brand-orange-2, #ff8903);
+  outline-offset: 2px;
 }
 
 .navbar-right {

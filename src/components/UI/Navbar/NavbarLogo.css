@@ -2,15 +2,23 @@
 .navbar-logo {
   background: none;
   border: none;
-  padding: 0;
+  padding: 0 var(--space-2);
   font-family: inherit;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   font-weight: bold;
   font-size: var(--font-size-xl);
   cursor: pointer;
   line-height: 1;
+  min-height: 44px;
+  min-width: 44px;
+  box-sizing: border-box;
   transition: color 0.3s ease;
+}
+
+.navbar-logo:focus-visible {
+  outline: 2px solid var(--color-brand-orange-2, #ff8903);
+  outline-offset: 2px;
 }
 
 /* Light / Dark mode colors */

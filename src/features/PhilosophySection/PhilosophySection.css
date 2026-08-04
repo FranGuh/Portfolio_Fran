@@ -114,7 +114,7 @@
 .PhilosophySection__placeholder-notice {
   font-family: var(--font-body);
   font-size: clamp(var(--font-size-xs), 2.5dvw, var(--font-size-base));
-  color: var(--color-text-muted);
+  color: #cccccc;
   font-weight: 500;
   letter-spacing: 1px;
 }

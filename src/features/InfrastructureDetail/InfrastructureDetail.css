@@ -53,6 +53,8 @@
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding: 1.6rem 0;
+  min-height: 44px;
+  box-sizing: border-box;
   cursor: pointer;
   outline: none;
   text-align: left;
@@ -60,11 +62,16 @@
   position: relative;
 }
 
+.A24Marquee__row:focus-visible {
+  outline: 2px solid #ff8903;
+  outline-offset: 2px;
+}
+
 .A24Marquee__num {
   font-family: var(--font-mono, monospace);
   font-size: 0.9rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.5);
   width: 35px;
   flex-shrink: 0;
   transition: color 0.3s ease;
@@ -75,7 +82,7 @@
   font-size: clamp(1.8rem, 3.2vw, 2.8rem); /* Tamaño monumental de cartelera A24 */
   font-weight: 800;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.65);
   letter-spacing: -1.5px;
   line-height: 1.05;
   white-space: nowrap; /* Impide saltos de línea */
@@ -234,7 +241,7 @@
 .telemetry-label {
   font-family: var(--font-mono, monospace);
   font-size: 8px;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.6);
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -267,7 +274,7 @@
   font-family: var(--font-display), 'Anton', sans-serif;
   font-size: 0.95rem;
   font-weight: 800;
-  color: #6e6e73;
+  color: #a0a0a5;
   letter-spacing: 1px;
 }
 
@@ -293,7 +300,7 @@
   font-family: var(--font-display), 'Anton', sans-serif;
   font-size: 0.9rem;
   font-weight: 800;
-  color: #6e6e73;
+  color: #a0a0a5;
   letter-spacing: 1px;
 }
 
@@ -342,12 +349,18 @@
   cursor: pointer;
   outline: none;
   width: 100%;
+  min-height: 44px;
   padding: 2.2rem 3rem;
   text-align: center;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.A24CTA__button:focus-visible {
+  outline: 2px solid #ff8903;
+  outline-offset: 2px;
 }
 
 .A24CTA__text {

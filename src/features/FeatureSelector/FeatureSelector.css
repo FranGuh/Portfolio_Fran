@@ -22,7 +22,7 @@
 
 .FeatureSelector__tabs button {
   background: transparent;
-  color: #888;
+  color: #b5b5b5;
   border: none;
   border-bottom: 2px solid transparent;
   padding: var(--space-3) var(--space-8);
@@ -30,12 +30,22 @@
   font-weight: 500;
   cursor: pointer;
   white-space: nowrap;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
   transition: all 0.2s ease;
   margin-bottom: -1px;
 }
 
 .FeatureSelector__tabs button:hover {
-  color: #ddd;
+  color: #fff;
+}
+
+.FeatureSelector__tabs button:focus-visible {
+  outline: 2px solid var(--color-brand-orange-2, #ff9800);
+  outline-offset: 2px;
 }
 
 .FeatureSelector__tabs button.active {

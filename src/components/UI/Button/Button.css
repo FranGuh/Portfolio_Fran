@@ -10,11 +10,19 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  min-height: 44px;
+  min-width: 44px;
+  box-sizing: border-box;
   transition: background-color var(--transition-base, 250ms), 
               transform var(--transition-base, 250ms),
               box-shadow var(--transition-base, 250ms);
   font-size: var(--font-size-base);
   overflow: hidden; /* Evita que el spinner se salga en botones muy pequeños */
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-brand-orange-2, #ff8903);
+  outline-offset: 2px;
 }
 
 /* Botón Primario */

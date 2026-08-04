@@ -8,6 +8,17 @@ import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import ScrollToTop from "../components/UI/ScrollToTop/ScrollToTop";
 import Loader from "../components/UI/Loader/Loader";
 
+import { useLanguage } from "../contexts/LanguageContext";
+
+function SkipLink() {
+  const { t } = useLanguage();
+  return (
+    <a href="#main-content" className="skip-to-content">
+      {t("navbar.skipToContent") as string}
+    </a>
+  );
+}
+
 /**
  * Structural wrapper for every route (Outlet pattern).
  * - ErrorBoundary (keyed on pathname so navigation clears a previous error)
@@ -20,9 +31,10 @@ export const MainLayout = () => {
 
   return (
     <LanguageProvider>
+      <SkipLink />
       <ScrollToTop />
       <Navbar />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1}>
         <ErrorBoundary key={pathname}>
           <Suspense fallback={<Loader message="Cargando..." />}>
             <Outlet />

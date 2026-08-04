@@ -43,10 +43,12 @@ export default function FeatureSelector() {
 
   return (
     <div className="FeatureSelector">
-      <nav className="FeatureSelector__tabs">
+      <nav className="FeatureSelector__tabs" role="tablist" aria-label={t("featureSelector.label") || "Categorías de habilidades"}>
         {features.map((feature) => (
           <button
             key={feature.key}
+            role="tab"
+            aria-selected={selectedKey === feature.key}
             className={selectedKey === feature.key ? "active" : ""}
             onClick={() => setSelectedKey(feature.key)}
           >

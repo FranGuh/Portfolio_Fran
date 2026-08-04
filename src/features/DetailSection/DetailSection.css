@@ -51,7 +51,7 @@
 }
 
 .ProjectsSection__header-text p {
-  color: #aaa;
+  color: #cccccc;
   font-size: var(--font-size-lg);
   margin: 0;
   max-width: 600px;
@@ -90,6 +90,11 @@
   /* Habilita el posicionamiento absoluto para marcas de agua */
 }
 
+.ProjectCard:focus-visible {
+  outline: 2px solid var(--color-brand-orange-2, #ff9800);
+  outline-offset: 2px;
+}
+
 .ProjectCard:hover {
   transform: translateY(-5px);
   border-color: #ff9800;
@@ -98,6 +103,7 @@
 .ProjectCard__img {
   width: 100%;
   height: 180px;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   border-bottom: 1px solid #333;
   pointer-events: none;
@@ -192,10 +198,20 @@
   border-bottom: 1px solid transparent;
   background-color: #000000b4;
   padding: 0.6rem 2.8rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .ProjectCard__link:hover {
   color: #ff9800;
+}
+
+.ProjectCard__link:focus-visible {
+  outline: 2px solid var(--color-brand-orange-2, #ff9800);
+  outline-offset: 2px;
 }
 
 @media (max-width: 768px) {

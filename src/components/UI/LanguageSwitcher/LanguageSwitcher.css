@@ -12,14 +12,14 @@
   border-radius: 0; /* Strict 90° flat edges */
   padding: var(--space-2) var(--space-4);
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: var(--space-1);
   font-family: var(--font-body);
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
-  height: 38px;
+  min-height: 44px;
   box-sizing: border-box;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .LanguageSwitcher__option {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.7);
   font-weight: 400;
   transition: color 0.2s ease;
 }
@@ -45,6 +45,6 @@
 }
 
 .LanguageSwitcher__divider {
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.5);
   font-weight: 300;
 }

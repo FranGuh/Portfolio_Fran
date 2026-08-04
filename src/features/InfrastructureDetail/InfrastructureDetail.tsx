@@ -132,10 +132,12 @@ export const InfrastructureDetail: React.FC = () => {
         
         {/* Lado A: Títulos de Película en Scroll (Navegación Typográfica A24-style) */}
         <div className="InfraDetail__nav-column">
-          <nav className="A24Marquee">
+          <nav className="A24Marquee" role="tablist" aria-label={language === 'en' ? 'Infrastructure nodes' : 'Nodos de infraestructura'}>
             {Object.values(nodes).map((node) => (
               <button
                 key={node.id}
+                role="tab"
+                aria-selected={selectedNode === node.id}
                 className={`A24Marquee__row ${selectedNode === node.id ? 'is-selected' : ''}`}
                 onClick={() => setSelectedNode(node.id)}
                 aria-label={`Select ${language === 'en' ? node.nameEn : node.nameEs}`}

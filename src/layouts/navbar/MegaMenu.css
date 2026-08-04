@@ -43,13 +43,23 @@
   border: none;
   font-size: var(--space-8);
   cursor: pointer;
-  color: var(--color-dark-border);
-  transition: transform 0.6s ease;
+  color: #222222;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .close-btn:hover {
   transform: scale(1.1);
-  color: var(--color-opposite);
+  color: var(--color-brand-orange-2, #ff8903);
+}
+
+.close-btn:focus-visible {
+  outline: 2px solid var(--color-brand-orange-2, #ff8903);
+  outline-offset: 2px;
 }
 
 .mega-menu-content {
@@ -86,14 +96,23 @@
 .menu-links a {
   color: #111;
   text-decoration: none;
-  padding: var(--space-1) var(--space-2);
+  padding: var(--space-2) var(--space-2);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   border-radius: 4px;
   transition: background 0.2s ease;
   font-size: var(--font-size-base);
+  box-sizing: border-box;
 }
 
 .menu-links a:hover {
   background-color: #eee;
+}
+
+.menu-links a:focus-visible {
+  outline: 2px solid var(--color-brand-orange-2, #ff8903);
+  outline-offset: 2px;
 }
 
 .menu-image {
@@ -103,12 +122,13 @@
 
 .menu-image img {
   width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
   border-radius: 8px;
   object-fit: cover;
-  height: 50%;
   filter: grayscale();
-  transition: 2s ease;
-  box-sizing:border-box;
+  transition: filter 0.3s ease;
+  box-sizing: border-box;
 }
 
 .menu-image img:hover {

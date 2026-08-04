@@ -22,6 +22,8 @@ const structuredData = () => ({
 export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react(), structuredData()],
   build: {
+    target: 'es2022',
+    assetsInlineLimit: 4096,
     // The SSR/SSG pass externalizes React, so manualChunks must only run for
     // the client build (audit PERF-1: isolate the stable React/runtime vendor
     // chunk so app-shell changes don't bust its long-term cache).

@@ -67,10 +67,11 @@
     min-height: 50px;
 }
 
-.ContactForm__input-group input:focus,
-.ContactForm__input-group textarea:focus {
-    outline: none;
-    border-color: var(--color-primary);
+.ContactForm__input-group input:focus-visible,
+.ContactForm__input-group textarea:focus-visible {
+    outline: 2px solid var(--color-brand-orange-2, #ff8903);
+    outline-offset: 2px;
+    border-color: var(--color-brand-orange-2, #ff8903);
 }
 
 .ContactForm__counter {

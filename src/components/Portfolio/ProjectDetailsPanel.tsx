@@ -68,7 +68,7 @@ export const ProjectDetailsPanel = ({ item, onClose, onOpenLightbox }: ProjectDe
             }}
             aria-label={language === "en" ? "View fullscreen" : "Ver a pantalla completa"}
           >
-            <img src={item.image} alt={displayTitle} className="ProjectDetailsPanel__img" />
+            <img src={item.image} alt={displayTitle} className="ProjectDetailsPanel__img" loading="lazy" decoding="async" />
           </button>
         )}
 
@@ -87,14 +87,18 @@ export const ProjectDetailsPanel = ({ item, onClose, onOpenLightbox }: ProjectDe
         )}
 
         {item.title === "Dog-bros (BroDogs)" && (
-          <div className="ProjectDetailsPanel__tabs">
+          <div className="ProjectDetailsPanel__tabs" role="tablist" aria-label={language === "en" ? "Project section tabs" : "Pestañas de sección del proyecto"}>
             <button 
+              role="tab"
+              aria-selected={activeTab === 'details'}
               className={`ProjectDetailsPanel__tab-btn ${activeTab === 'details' ? 'active' : ''}`}
               onClick={() => setActiveTab('details')}
             >
               {language === "en" ? "Implementation & Tech" : "Implementación y Tech"}
             </button>
             <button 
+              role="tab"
+              aria-selected={activeTab === 'architecture'}
               className={`ProjectDetailsPanel__tab-btn ${activeTab === 'architecture' ? 'active' : ''}`}
               onClick={() => setActiveTab('architecture')}
             >
@@ -196,14 +200,26 @@ export const ProjectDetailsPanel = ({ item, onClose, onOpenLightbox }: ProjectDe
       </div>
 
       {isLightboxOpen && item.image && (
-        <div className="ProjectDetailsPanel__lightbox" onClick={() => setIsLightboxOpen(false)}>
-          <button className="ProjectDetailsPanel__lightbox-close" onClick={() => setIsLightboxOpen(false)}>
+        <div
+          className="ProjectDetailsPanel__lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={language === "en" ? "Image viewer" : "Visor de imagen"}
+          onClick={() => setIsLightboxOpen(false)}
+        >
+          <button
+            className="ProjectDetailsPanel__lightbox-close"
+            onClick={() => setIsLightboxOpen(false)}
+            aria-label={language === "en" ? "Close image viewer" : "Cerrar visor de imagen"}
+          >
             ✕
           </button>
           <img 
             src={item.image} 
             alt={displayTitle} 
             className="ProjectDetailsPanel__lightbox-img" 
+            loading="lazy"
+            decoding="async"
             onClick={(e) => e.stopPropagation()} 
           />
         </div>

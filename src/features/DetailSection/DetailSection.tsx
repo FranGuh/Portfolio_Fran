@@ -46,6 +46,7 @@ const DetailSection = ({ title, description, items, icons, backgroundImg, backgr
             alt={backgroundAlt || title}
             className="ProjectsSection__header-img"
             loading="lazy"
+            decoding="async"
           />
         )}
         <div className="ProjectsSection__header-text">
@@ -116,6 +117,7 @@ const DetailSection = ({ title, description, items, icons, backgroundImg, backgr
                 alt={item.title || item.company}
                 className="ProjectCard__img"
                 loading="lazy"
+                decoding="async"
                 draggable={false}
                 style={{ pointerEvents: 'none' }}
               />

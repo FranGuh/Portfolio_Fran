@@ -1,6 +1,6 @@
-// components/Navbar/NavbarLogo.tsx
 import React from "react";
 import './NavbarLogo.css';
+import { useLanguage } from "../../../contexts/LanguageContext";
 
 interface NavbarLogoProps {
     isOpen: boolean;
@@ -9,6 +9,9 @@ interface NavbarLogoProps {
 }
 
 export const NavbarLogo: React.FC<NavbarLogoProps> = ({ isOpen, toggleMenu, dark }) => {
+  const { t } = useLanguage();
+  const labelText = isOpen ? (t("navbar.closeMenu") as string) : (t("navbar.openMenu") as string);
+
   return (
     <button
       type="button"
@@ -16,9 +19,10 @@ export const NavbarLogo: React.FC<NavbarLogoProps> = ({ isOpen, toggleMenu, dark
       onClick={toggleMenu}
       aria-expanded={isOpen}
       aria-controls="mega-menu"
+      aria-label={labelText}
     >
       Franguh
-      <span className="logo-arrow">▾</span>
+      <span className="logo-arrow" aria-hidden="true">▾</span>
     </button>
   );
 };

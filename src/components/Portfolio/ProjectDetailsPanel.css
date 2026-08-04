@@ -46,16 +46,26 @@
 .ProjectDetailsPanel__close-btn {
   background: transparent;
   border: none;
-  color: #888;
+  color: #b5b5b5;
   font-size: 1.2rem;
   cursor: pointer;
   padding: var(--space-1) var(--space-2);
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
 .ProjectDetailsPanel__close-btn:hover {
   color: #ffffff;
   transform: scale(1.1);
+}
+
+.ProjectDetailsPanel__close-btn:focus-visible {
+  outline: 2px solid var(--color-brand-orange-2, #ff8903);
+  outline-offset: 2px;
 }
 
 .ProjectDetailsPanel__body {
@@ -132,21 +142,31 @@
 .ProjectDetailsPanel__tab-btn {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #aaa;
+  color: #b5b5b5;
   font-family: var(--font-body);
   font-size: var(--font-size-sm);
   font-weight: 500;
   padding: 0.5rem 1rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: all var(--transition-fast, 0.2s ease);
   flex: 1;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .ProjectDetailsPanel__tab-btn:hover {
   color: #fff;
   border-color: rgba(255, 152, 0, 0.4);
   background: rgba(255, 152, 0, 0.02);
+}
+
+.ProjectDetailsPanel__tab-btn:focus-visible {
+  outline: 2px solid var(--color-brand-orange-2, #ff8903);
+  outline-offset: 2px;
 }
 
 .ProjectDetailsPanel__tab-btn.active {
@@ -197,7 +217,7 @@
   transition: border-color var(--transition-fast), color var(--transition-fast);
 }
 
-.ProjectDetailsPanel__tag:hover {
+.ProjectCard__tag:hover {
   border-color: var(--color-brand-orange-2);
   color: #ffffff;
   background-color: var(--color-brand-orange-2);
@@ -209,7 +229,10 @@
 }
 
 .ProjectDetailsPanel__link-btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   text-align: center;
   text-decoration: none;
   font-weight: 600;
@@ -221,6 +244,11 @@
   width: 100%;
   box-sizing: border-box;
   transition: transform var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.ProjectDetailsPanel__link-btn:focus-visible {
+  outline: 2px solid var(--color-brand-orange-2, #ff8903);
+  outline-offset: 2px;
 }
 
 .ProjectDetailsPanel__link-btn:hover {
@@ -282,9 +310,19 @@
   color: #fff;
   font-size: 2.5rem;
   cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
   transform: scale(0.8);
   transition: transform 0.3s ease, color 0.2s, opacity 0.3s ease;
+}
+
+.ProjectDetailsPanel__lightbox-close:focus-visible {
+  outline: 2px solid var(--color-brand-orange-2, #ff8903);
+  outline-offset: 2px;
 }
 
 @media (max-width: 768px) {

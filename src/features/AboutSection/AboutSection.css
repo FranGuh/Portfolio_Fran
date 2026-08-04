@@ -30,7 +30,7 @@
 
 .AboutSection__titleHead {
     font-size: clamp(var(--font-size-xl), 3vw, var(--font-size-2xl));
-    color: var(--color-complementary);
+    color: #005b5b;
 }
 
 .AboutSection__title {
@@ -69,6 +69,7 @@
     flex: 1;
     max-height: 80dvh;
     min-height: 20dvh;
+    aspect-ratio: 4 / 3;
     object-fit: contain;
     z-index: 1;
     position: relative;

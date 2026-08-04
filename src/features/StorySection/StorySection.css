@@ -126,10 +126,10 @@
 
 .StorySection__highlight {
   position: relative;
-  color: var(--color-text-light);
-  font-weight: 600;
+  color: #000000;
+  font-weight: 700;
   display: inline;
-  background-color: rgba(255, 137, 3, 0.75);
+  background-color: rgba(255, 137, 3, 0.85);
   padding: var(--space-1) var(--space-2);
   border-radius: 0;
   box-decoration-break: clone;

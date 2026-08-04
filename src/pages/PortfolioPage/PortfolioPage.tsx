@@ -157,9 +157,15 @@ export default function PortfolioPage() {
                         selectedItem={selectedProject}
                     >
                         {/* Este div completo entra como "children" en el DetailSection */}
-                        <div className="filter-pills">
+                        {/* Este div completo entra como "children" en el DetailSection */}
+                        <div
+                            className="filter-pills"
+                            role="region"
+                            aria-label={language === "en" ? "Project tech filters" : "Filtros de proyectos por tecnología"}
+                        >
                             <button
                                 className={`filter-btn ${selectedTech === null ? 'active' : ''}`}
+                                aria-pressed={selectedTech === null}
                                 onClick={() => {
                                     setSelectedTech(null);
                                     setSelectedProject(null);
@@ -173,6 +179,7 @@ export default function PortfolioPage() {
                                     <button
                                         key={tech}
                                         className={`filter-btn ${selectedTech === tech ? 'active' : ''}`}
+                                        aria-pressed={selectedTech === tech}
                                         onClick={() => {
                                             setSelectedTech(tech);
                                             setSelectedProject(null);
@@ -185,6 +192,7 @@ export default function PortfolioPage() {
                             {allProjectTechs.length > allProjectTechs.filter(tech => CORE_TECHS.includes(tech) || selectedTech === tech).length && (
                                 <button
                                     className="filter-btn filter-btn--toggle"
+                                    aria-expanded={isFilterExpanded}
                                     onClick={() => setIsFilterExpanded(prev => !prev)}
                                 >
                                     {isFilterExpanded 
@@ -216,7 +224,12 @@ export default function PortfolioPage() {
                 className={`bottom-sheet-backdrop ${selectedProject ? "is-open" : ""}`} 
                 onClick={() => setSelectedProject(null)}
             ></div>
-            <div className={`bottom-sheet-container ${selectedProject ? "is-open" : ""}`}>
+            <div
+                className={`bottom-sheet-container ${selectedProject ? "is-open" : ""}`}
+                role="dialog"
+                aria-modal="true"
+                aria-label={selectedProject ? (selectedProject.title || selectedProject.company || (language === "en" ? "Project details" : "Detalles del proyecto")) : (language === "en" ? "Project details" : "Detalles del proyecto")}
+            >
                 <ProjectDetailsPanel 
                     key={selectedProject ? `mobile-${selectedProject.title || selectedProject.company}` : 'mobile-empty'}
                     item={selectedProject} 
@@ -263,14 +276,26 @@ export default function PortfolioPage() {
             <ContactForm />
 
             {lightboxActiveImage && (
-                <div className={`ProjectDetailsPanel__lightbox ${isLightboxVisible ? "is-open" : ""}`} onClick={closeLightbox}>
-                    <button className="ProjectDetailsPanel__lightbox-close" onClick={closeLightbox}>
+                <div
+                    className={`ProjectDetailsPanel__lightbox ${isLightboxVisible ? "is-open" : ""}`}
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label={language === "en" ? "Fullscreen image preview" : "Vista previa de imagen a pantalla completa"}
+                    onClick={closeLightbox}
+                >
+                    <button
+                        className="ProjectDetailsPanel__lightbox-close"
+                        onClick={closeLightbox}
+                        aria-label={language === "en" ? "Close image preview" : "Cerrar vista previa de imagen"}
+                    >
                         ✕
                     </button>
                     <img 
                         src={lightboxActiveImage} 
                         alt="Preview fullscreen" 
                         className="ProjectDetailsPanel__lightbox-img" 
+                        loading="lazy"
+                        decoding="async"
                         onClick={(e) => e.stopPropagation()} 
                     />
                 </div>

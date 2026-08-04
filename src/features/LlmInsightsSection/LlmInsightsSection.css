@@ -41,7 +41,7 @@
 .LlmInsightsSection__subtitle {
   font-family: var(--font-body);
   font-size: clamp(var(--font-size-base), 2.5dvw, var(--font-size-lg));
-  color: var(--color-text-muted);
+  color: #cccccc;
   line-height: 1.6;
 }
 

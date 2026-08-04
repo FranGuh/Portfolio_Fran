@@ -39,6 +39,8 @@
 
 .HomeSection__logo {
   width: 180px;
+  height: auto;
+  aspect-ratio: 1 / 1;
   max-width: 30vw;
   object-fit: contain;
   -webkit-user-drag: none;
@@ -66,24 +68,32 @@
 .HomeSection__scroll-indicator {
   background: none;
   border: none;
-  padding: 0;
+  padding: var(--space-2);
+  min-width: 44px;
+  min-height: 44px;
+  box-sizing: border-box;
   position: absolute;
   bottom: var(--space-4);
   left: 50%;
   transform: translateX(-50%);
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.85);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 10;
   transition: color var(--transition-base);
   animation: bounce 2s infinite ease-in-out;
-  opacity: 0.7;
+  opacity: 0.9;
   cursor: pointer;
 }
 
 .HomeSection__scroll-indicator:hover {
   color: var(--color-text-light);
+}
+
+.HomeSection__scroll-indicator:focus-visible {
+  outline: 2px solid var(--color-brand-orange-2, #ff9800);
+  outline-offset: 4px;
 }
 
 .HomeSection__scroll-indicator svg {
