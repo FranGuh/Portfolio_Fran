@@ -34,17 +34,17 @@ Durante este proyecto me canse y decidi tomar las riendas y conocer a fondo los 
 
 [ ] Hacer un código perfecto(tardarme + tiempo) a uno funcional, siempre es lo ideal.
 
-[ ] Modularizar los estilos.
+[X] Modularizar los estilos.
 
-[ ] Usar arquitectura de estilado BEM.
+[-] Usar arquitectura de estilado BEM.
 
-[ ] No casarme con el código o identificarme con el.
+[X] No casarme con el código o identificarme con el.
 
-[ ] Aceptar cualquier critica para mejoras continuas.
+[-] Aceptar cualquier critica para mejoras continuas.
 
-[ ] Tener en cuenta el SEO.
+[X] Tener en cuenta el SEO.
 
-[ ] Variables CSS para solo cambiar un color en una página en vez de 15 páginas.
+[X] Variables CSS para solo cambiar un color en una página en vez de 15 páginas.
 
 **[ X ]** Aprender diariamente...
 
