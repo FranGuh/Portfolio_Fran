@@ -4,7 +4,7 @@ En este repositorio me dedico a practicar y estudiar con IA como instructor y ag
 
 ## Tecnologias usadas en este proyecto
 
-React, Typescript, Vite, React-Router, CSS3 Puro.
+React, Typescript, Vite, React-Router, CSS3 Puro, i18n.
 
 ## Como esta estructurado este proyecto
 
