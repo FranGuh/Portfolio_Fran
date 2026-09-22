@@ -46,6 +46,8 @@ Durante este proyecto me canse y decidi tomar las riendas y conocer a fondo los 
 
 [X] Variables CSS para solo cambiar un color en una página en vez de 15 páginas.
 
+[ ] Actualizar el portfolio y proyectos - 21 de septiembre del 2026 
+
 **[ X ]** Aprender diariamente...
 
 ##### 
