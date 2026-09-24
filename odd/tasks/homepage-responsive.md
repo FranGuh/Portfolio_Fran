@@ -41,9 +41,12 @@ The user reports that the homepage does not display well on mobile and tablet an
 - Post-fix rendered QA (parent-run): English and Spanish at 320×568, 390×844, 768×1024, 1024×768, and desktop (1440px); `document.documentElement.scrollWidth` matched `clientWidth`, and CTA/title content stayed within the viewport. Captures were inspected at 320×568, 390×844, 768×1024, and 1440px; 1024×768 was confirmed by metrics. About image no longer overflows at 1024 or 1440px.
 - `pnpm lint`: passed, exit code 0 (`$ eslint .`).
 - `pnpm build`: passed, exit code 0; client, server, and SSG build completed. Rollup reported existing unused default React import warnings in TSX modules; no build errors.
+- Final parent spot-check after the work-unit commit: 390×844 and 1024×768 both had no document overflow; at 1024px the About image right edge was 981.6px inside the 1014px client width, and the hero heading fit at weight 500 with fluid tracking. Parent reran `pnpm lint`, exit code 0.
+- Independent read-only review of `ea05a02944aa3f996f6c6a4a3a00f3118957a01d..a50c0cf9378d6832e02f3f74fc2c180b44ad3718`: no actionable findings. The reviewer did not rerun builds or rendered viewport QA.
+- Receipt-driven development is off; no native review lifecycle was started. The read-only `gentle-ai review assess` risk classification remained unavailable because the candidate builder received `Access is denied` opening an ignored `.git` review-index file. This does not alter the source-level review result.
 
 ## Next Step
-Implementation and tracker are committed. Parent review and any native review gate remain pending under the parent-owned workflow.
+The implementation and initial tracker are committed; source review found no actionable changes. The final verification update is also committed as a documentation-only follow-up. No implementation follow-up remains. Native risk assessment could not complete because access to its ignored `.git` index was denied; RDD is off, so no native review transaction is pending.
 
 ## Relevant Files
 - `src/features/HomeSection/HomeSection.css` — homepage hero sizing and typography.
