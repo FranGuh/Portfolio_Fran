@@ -34,6 +34,8 @@ Durante este proyecto me canse y decidi tomar las riendas y conocer a fondo los 
 
 [ ] Hacer un código perfecto(tardarme + tiempo) a uno funcional, siempre es lo ideal.
 
+[ ] Fix responsive design, using clamp, and paddings in movile.
+
 [X] Modularizar los estilos.
 
 [-] Usar arquitectura de estilado BEM.
