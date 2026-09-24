@@ -31,10 +31,10 @@ The user reports that the homepage does not display well on mobile and tablet an
 - Implemented the responsive corrections in the seven scoped CSS files listed below: content-driven hero sizing and fluid typography, homepage-only About sizing to contain its image at tablet/desktop, responsive project cards/scroller, and a constrained floating CTA glow/card. Updated Anton display headings to weight 500 with modest tracking.
 - Consolidated duplicate floating CTA and motto declarations in `HomePage.css`; retained the active definitions in `HomeFloating.css`.
 - Home About image sizing overrides are explicitly scoped under `.Home__about-section`; the shared About page retains its existing base image behavior.
-- Work-unit commit: pending; record its SHA here after commit.
+- Work-unit commit: `a50c0cf9378d6832e02f3f74fc2c180b44ad3718` (`fix(home): improve responsive layouts and heading legibility`).
 - Pre-existing working-tree changes were preserved and excluded from staging.
 - A prior Vite start attempt exited with `EPERM` while opening the project-local `.env` file. On 2026-09-24, the Codex In-App Browser successfully loaded the already-running local site at `http://localhost:5173/`; the earlier inventory was empty because no tab was open, not because the browser capability was unavailable.
-- At 390×844, `document.documentElement.scrollWidth` equals its 380px client width, but `.Home__floating` reports 440px of content in a 380px container. On the portfolio route, the reference display headings compute to Anton, weight 600, and normal letter spacing; the home hero overrides this with weight 700 and 5px tracking.
+- Baseline at 390×844: `document.documentElement.scrollWidth` equals its 380px client width, but `.Home__floating` reports 440px of content in a 380px container. Before the fix, the reference display headings computed to Anton, weight 600, and normal letter spacing; the home hero overrode this with weight 700 and 5px tracking.
 
 ## Verification Evidence
 - Baseline reproduction: completed at 390×844 in Codex In-App Browser; `.Home__floating` measured 440px of content in a 380px container.
@@ -43,7 +43,7 @@ The user reports that the homepage does not display well on mobile and tablet an
 - `pnpm build`: passed, exit code 0; client, server, and SSG build completed. Rollup reported existing unused default React import warnings in TSX modules; no build errors.
 
 ## Next Step
-Stage only the seven owned CSS files and this feature document, create the Conventional Commit, record its SHA here, and mirror the final document to Engram.
+Implementation and tracker are committed. Parent review and any native review gate remain pending under the parent-owned workflow.
 
 ## Relevant Files
 - `src/features/HomeSection/HomeSection.css` — homepage hero sizing and typography.
