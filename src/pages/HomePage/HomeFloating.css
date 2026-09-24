@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--space-16) var(--space-8);
+  padding: clamp(var(--space-8), 6vw, var(--space-16)) clamp(var(--space-4), 4vw, var(--space-8));
   text-align: center;
   background: linear-gradient(135deg, var(--color-dark-bg) 0%, #151515 100%);
   border-top: 1px solid var(--color-bg-secondary);
@@ -21,8 +21,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 500px;
-  height: 500px;
+  width: min(31.25rem, 80vw);
+  height: min(31.25rem, 80vw);
   background: radial-gradient(circle, rgba(255, 137, 3, 0.08) 0%, transparent 70%);
   z-index: 1;
   pointer-events: none;
@@ -38,7 +38,8 @@
   align-items: center;
   max-width: 850px;
   width: 100%;
-  padding: var(--space-12) var(--space-8);
+  min-width: 0;
+  padding: clamp(var(--space-8), 5vw, var(--space-12)) clamp(var(--space-4), 4vw, var(--space-8));
   box-sizing: border-box;
   /* Premium dark fallback for screenshots & older browsers */
   background: rgba(15, 15, 15, 0.85);
@@ -76,25 +77,28 @@
 /* Typographic upgrades */
 .Home__title--floating {
   font-family: var(--font-display);
-  font-size: clamp(var(--font-size-xl), 5vw, var(--font-size-3xl));
-  font-weight: 900;
+  font-size: clamp(1.25rem, 5.5vw, var(--font-size-3xl));
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   line-height: 1.1;
   color: var(--color-text-light);
   margin-bottom: var(--space-4);
   padding: 0;
   text-align: center;
+  max-width: 100%;
 }
 
 .Home__motto {
   font-family: var(--font-body);
-  font-size: var(--font-size-lg);
-  line-height: 1.7;
-  max-width: 620px;
+  font-size: clamp(var(--font-size-base), 4.2vw, var(--font-size-lg));
+  line-height: 1.6;
+  width: min(100%, 38rem);
+  min-width: 0;
   color: var(--color-secondary);
-  margin: 0 0 var(--space-8) 0;
+  margin: 0 0 clamp(var(--space-6), 4vw, var(--space-8)) 0;
   padding: 0;
+  overflow-wrap: anywhere;
 }
 
 /* Custom styles for button within the glowing card */
@@ -102,9 +106,20 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   position: relative;
   overflow: hidden;
+  max-width: 100%;
 }
 
 .Home__floating-card .button:hover {
   transform: scale(1.02);
   box-shadow: 0 0 20px rgba(255, 137, 3, 0.4);
+}
+
+@media (max-width: 600px) {
+  .Home__floating-card {
+    padding: clamp(var(--space-6), 7vw, var(--space-8)) clamp(var(--space-4), 5vw, var(--space-6));
+  }
+
+  .Home__title--floating {
+    font-size: clamp(1.25rem, 6vw, var(--font-size-xl));
+  }
 }

@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   width: 100%;
+  min-width: 0;
   overflow: hidden;
   height: 100%;
 }
@@ -10,13 +11,17 @@
 .scrollable-container {
   display: flex;
   overflow-x: auto;
+  width: 100%;
+  min-width: 0;
   scroll-behavior: smooth;
-  gap: var(--space-6);
-  padding: var(--space-4);
-  scrollbar-width: none; 
+  gap: clamp(var(--space-4), 3vw, var(--space-6));
+  padding: clamp(var(--space-3), 2vw, var(--space-4));
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
 }
 .scrollable-container::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 
 .scroll-btn {
@@ -30,7 +35,7 @@
   padding: var(--space-2);
   top: 50%;
   transform: translateY(-50%);
-  height: 150px;
+  height: clamp(3rem, 6vw, 4rem);
   width: 44px;
   min-width: 44px;
   min-height: 44px;
@@ -57,4 +62,20 @@
   opacity: 0.3;
   cursor: not-allowed;
   display: none;
+}
+
+@media (max-width: 920px) {
+  .scrollable-container {
+    scroll-snap-type: x mandatory;
+  }
+
+  .scrollable-container > .ImgContainer {
+    scroll-snap-align: start;
+  }
+}
+
+@media (max-width: 600px) {
+  .scroll-btn {
+    display: none;
+  }
 }

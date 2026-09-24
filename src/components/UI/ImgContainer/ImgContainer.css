@@ -1,12 +1,14 @@
 .ImgContainer{
     display: flex;
-    height: 200px;
+    flex: 0 0 min(25rem, 78vw);
+    width: min(25rem, 78vw);
+    height: clamp(11rem, 50vw, 12.5rem);
     flex-direction: column;
     position: relative;
     justify-content: flex-end;
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
-    min-width: min(330px, 75%);
+    min-width: 0;
     max-width: 400px;
     align-self: flex-end;
     z-index: 1;
@@ -47,10 +49,17 @@
     position: absolute;
     z-index: 2;
     color: var(--color-bg);
-    font-size: var(--font-size-xl);
-    left: 20px;
+    font-size: clamp(var(--font-size-base), 4vw, var(--font-size-xl));
+    left: clamp(var(--space-3), 4vw, var(--space-4));
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
+    padding: clamp(var(--space-2), 2vw, var(--space-3));
     box-sizing: content-box;
     backdrop-filter: blur(10px);
+}
+
+@media (max-width: 480px) {
+    .ImgContainer__title {
+        max-width: calc(100% - var(--space-8));
+        overflow-wrap: anywhere;
+    }
 }

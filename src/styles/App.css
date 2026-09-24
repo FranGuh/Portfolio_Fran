@@ -44,7 +44,8 @@
 
 h1, h2, h3, h4, .title {
   font-family: var(--font-display, inherit);
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   margin-block-start: 0;
   margin-block-end: 0;
 }

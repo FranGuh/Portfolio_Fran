@@ -2,7 +2,7 @@
     display: flex;
     gap: 20px;
     text-align: center;
-    padding: var(--space-4);
+    padding: clamp(var(--space-3), 3vw, var(--space-4));
     box-sizing: border-box;
     justify-content: center;
     background-color: var(--color-dark-card);
@@ -19,16 +19,6 @@
     color: var(--color-text-light);
 }
 
-.Home__floating {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 3rem 1rem;
-    text-align: center;
-    background-color: var(--color-dark-card);
-}
-
 .Home__floating-row {
     display: flex;
     flex-direction: column;
@@ -37,12 +27,4 @@
     justify-content: center;
     flex-wrap: wrap;
     padding: var(--space-6);
-}
-
-.Home__motto {
-    color: #d1d1d6;
-    font-size: var(--font-size-lg);
-    line-height: 1.6;
-    max-width: 600px;
-    padding: var(--space-4);
 }

@@ -65,6 +65,10 @@
     margin-top: var(--space-4);
 }
 
+.Home__about-section .AboutSection-header {
+    min-width: 0;
+}
+
 .AboutSection__img {
     flex: 1;
     max-height: 80dvh;
@@ -79,6 +83,14 @@
     -webkit-mask-image: linear-gradient(to bottom, var(--color-bg-secondary) 70%, transparent 100%);
     transform: translateY(0px);
     transition: transform 0.1s linear;
+}
+
+.Home__about-section .AboutSection__img {
+    flex: 1 1 0;
+    width: min(50%, 42rem);
+    max-width: 50%;
+    min-width: 0;
+    height: auto;
 }
 
 .alternative-image{
@@ -128,5 +140,78 @@
         justify-content: center;
         max-width: none;
         font-size: clamp(var(--font-size-xl), 4dvw, var(--font-size-2xl));
+    }
+}
+
+@media (max-width: 920px) {
+    .Home__about-section .AboutSection {
+        gap: clamp(var(--space-6), 5vw, var(--space-8));
+        padding: clamp(var(--space-8), 7vw, var(--space-12)) clamp(var(--space-4), 5vw, var(--space-8));
+    }
+
+    .Home__about-section .AboutSection-header {
+        width: 100%;
+        max-width: 45rem;
+        min-width: 0;
+    }
+
+    .Home__about-section .AboutSection__titleHead {
+        font-size: clamp(1.125rem, 3.5vw, var(--font-size-xl));
+    }
+
+    .Home__about-section .AboutSection__title {
+        font-size: clamp(2rem, 7vw, 3.25rem);
+    }
+
+    .Home__about-section .AboutSection__subtitle {
+        width: min(100%, 22rem);
+        min-width: 0;
+        box-sizing: border-box;
+        padding-inline: clamp(var(--space-2), 2vw, var(--space-4));
+        font-size: clamp(1.125rem, 4vw, var(--font-size-2xl));
+        line-height: 1.2;
+        text-wrap: balance;
+    }
+
+    .Home__about-section .AboutSection__description {
+        width: 100%;
+        max-width: 38rem;
+        font-size: clamp(var(--font-size-base), 2.5vw, var(--font-size-lg));
+        line-height: 1.6;
+    }
+
+    .Home__about-section .AboutSection__img {
+        flex: 0 1 auto;
+        width: min(100%, 32rem);
+        max-width: 100%;
+        height: auto;
+        max-height: 58svh;
+        min-height: 0;
+        margin-top: 0;
+        aspect-ratio: 4 / 3;
+    }
+}
+
+@media (max-width: 600px) {
+    .Home__about-section .AboutSection {
+        gap: var(--space-6);
+        padding-inline: clamp(var(--space-4), 6vw, var(--space-6));
+    }
+
+    .Home__about-section .AboutSection__title {
+        font-size: clamp(2rem, 8vw, 2.75rem);
+    }
+
+    .Home__about-section .AboutSection__subtitle {
+        font-size: clamp(1.125rem, 5vw, var(--font-size-xl));
+    }
+
+    .Home__about-section .AboutSection__description {
+        font-size: clamp(var(--font-size-base), 4.2vw, var(--font-size-lg));
+    }
+
+    .Home__about-section .AboutSection__img {
+        max-height: 48svh;
+        margin-top: 0;
     }
 }
