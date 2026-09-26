@@ -34,7 +34,7 @@ Durante este proyecto me canse y decidi tomar las riendas y conocer a fondo los 
 
 [ ] Hacer un código perfecto(tardarme + tiempo) a uno funcional, siempre es lo ideal.
 
-[ ] Fix responsive design, using clamp, and paddings in movile.
+[X] Fix responsive design, using clamp, and paddings in movile.
 
 [X] Modularizar los estilos.
 
@@ -48,7 +48,7 @@ Durante este proyecto me canse y decidi tomar las riendas y conocer a fondo los 
 
 [X] Variables CSS para solo cambiar un color en una página en vez de 15 páginas.
 
-[ ] Actualizar el portfolio y proyectos - 21 de septiembre del 2026 
+[-] Actualizar el portfolio y proyectos - 21 de septiembre del 2026 
 
 **[ X ]** Aprender diariamente...
 
